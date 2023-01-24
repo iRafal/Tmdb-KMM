@@ -3,7 +3,7 @@ package com.tmdb.store.reducer.home
 import com.tmdb.store.action.home.HomeAction
 import com.tmdb.store.base.Effect
 import com.tmdb.store.base.Effects
-import com.tmdb.store.env.AppEnv
+import com.tmdb.store.env.contract.AppEnv
 import com.tmdb.store.state.home.HomeFeatureState
 import com.tmdb.store.state.home.MoviesDataToFeatureStateMapper
 

@@ -1,4 +1,4 @@
-package com.tmdb.util.di
+package com.tmdb.util.dispatcher.di
 
 import com.tmdb.util.dispatcher.ioDispatcher
 import kotlinx.coroutines.CoroutineDispatcher

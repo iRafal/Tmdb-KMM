@@ -2,9 +2,8 @@ package com.tmdb.shared.details
 
 import com.tmdb.store.app.AppStore
 import com.tmdb.store.feature.details.MovieDetailsFeature
-import com.tmdb.store.state.AppState
+import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.details.MovieDetailsFeatureState
-import com.tmdb.store.state.home.HomeFeatureState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow

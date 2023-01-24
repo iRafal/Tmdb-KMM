@@ -3,7 +3,7 @@ package com.tmdb.shared.home
 import com.tmdb.store.action.home.HomeAction
 import com.tmdb.store.app.AppStore
 import com.tmdb.store.feature.home.HomeFeature
-import com.tmdb.store.state.AppState
+import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.home.HomeFeatureState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow

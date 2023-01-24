@@ -1,6 +1,6 @@
-package com.tmdb.store.state.di
+package com.tmdb.store.state.app.di
 
-import com.tmdb.store.state.AppState
+import com.tmdb.store.state.app.AppState
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

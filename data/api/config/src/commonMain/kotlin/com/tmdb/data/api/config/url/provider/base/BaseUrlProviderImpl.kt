@@ -1,4 +1,4 @@
-package com.tmdb.data.api.config.url.provider
+package com.tmdb.data.api.config.url.provider.base
 
 import com.tmdb.data.api.config.DataApiConfigBuildKonfig
 

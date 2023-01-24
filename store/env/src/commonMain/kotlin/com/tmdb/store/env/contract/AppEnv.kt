@@ -1,4 +1,4 @@
-package com.tmdb.store.env
+package com.tmdb.store.env.contract
 
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource

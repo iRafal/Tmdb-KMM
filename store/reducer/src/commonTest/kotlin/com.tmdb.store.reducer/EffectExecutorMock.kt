@@ -7,7 +7,7 @@ import com.tmdb.data.source.remote.contract.person.PersonRemoteDataSource
 import com.tmdb.store.base.Action
 import com.tmdb.store.base.Effect
 import com.tmdb.store.base.feature.Feature
-import com.tmdb.store.env.AppEnv
+import com.tmdb.store.env.contract.AppEnv
 import kotlinx.coroutines.runBlocking
 
 interface EffectExecutorMock : Effect.Executor<AppEnv> {

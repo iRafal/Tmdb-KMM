@@ -1,6 +1,6 @@
 package com.tmdb.data.model.di
 
-import com.tmdb.data.api.config.di.module.imageUrlModule
+import com.tmdb.data.api.config.url.image.di.imageUrlModule
 import com.tmdb.data.model.mapping.movie.MovieApiToDataModelMapper
 import com.tmdb.data.model.mapping.movie.MoviesApiToDataStateMapper
 import com.tmdb.data.model.mapping.movie.movieApiToDataModelMapperImpl

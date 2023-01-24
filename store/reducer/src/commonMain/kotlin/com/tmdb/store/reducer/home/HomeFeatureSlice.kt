@@ -13,8 +13,8 @@ import com.tmdb.store.base.Effect
 import com.tmdb.store.base.Effects
 import com.tmdb.store.base.feature.FeatureReducer
 import com.tmdb.store.base.feature.FeatureSlice
-import com.tmdb.store.env.AppEnv
-import com.tmdb.store.state.AppState
+import com.tmdb.store.env.contract.AppEnv
+import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.home.HomeFeatureState
 import com.tmdb.store.state.home.MoviesDataToFeatureStateMapper
 

@@ -1,4 +1,4 @@
-package com.tmdb.store.state
+package com.tmdb.store.state.app
 
 import com.tmdb.store.state.details.MovieDetailsFeatureState
 import com.tmdb.store.state.home.HomeFeatureState

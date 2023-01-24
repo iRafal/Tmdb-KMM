@@ -18,7 +18,7 @@ import com.tmdb.store.reducer.home.HomeFeatureEffects
 import com.tmdb.store.reducer.home.HomeFeatureSlice
 import com.tmdb.store.reducer.home.HomeFeatureSliceImpl
 import com.tmdb.store.reducer.util.ModelUtil
-import com.tmdb.store.state.AppState
+import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.FeatureState.Success
 import kotlin.test.Test

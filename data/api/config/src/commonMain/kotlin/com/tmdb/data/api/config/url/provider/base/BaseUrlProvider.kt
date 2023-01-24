@@ -1,4 +1,4 @@
-package com.tmdb.data.api.config.url.provider
+package com.tmdb.data.api.config.url.provider.base
 
 interface BaseUrlProvider {
     val discoverApiUrl: String

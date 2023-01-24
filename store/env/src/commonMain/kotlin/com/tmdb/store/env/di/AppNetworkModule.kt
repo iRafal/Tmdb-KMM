@@ -1,8 +1,8 @@
 package com.tmdb.store.env.di
 
 import com.tmdb.data.source.remote.impl.di.module.dataSourceModule
-import com.tmdb.store.env.AppEnv.Network
-import com.tmdb.store.env.createAppNetworkEnvImpl
+import com.tmdb.store.env.contract.AppEnv.Network
+import com.tmdb.store.env.impl.createAppNetworkEnvImpl
 import org.koin.dsl.module
 
 val appNetworkModule = module {

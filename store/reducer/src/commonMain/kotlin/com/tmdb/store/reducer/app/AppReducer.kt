@@ -1,9 +1,9 @@
-package com.tmdb.store.reducer
+package com.tmdb.store.reducer.app
 
 import com.tmdb.store.base.Effects
 import com.tmdb.store.base.Reducer
-import com.tmdb.store.env.AppEnv
-import com.tmdb.store.state.AppState
+import com.tmdb.store.env.contract.AppEnv
+import com.tmdb.store.state.app.AppState
 import com.tmdb.store.reducer.details.MovieDetailsFeatureSlice
 import com.tmdb.store.reducer.home.HomeFeatureSlice
 

@@ -5,7 +5,7 @@ import com.tmdb.store.action.home.HomeAction.MovieSectionsLoaded
 import com.tmdb.store.base.Action
 import com.tmdb.store.base.Effect
 import com.tmdb.store.base.Effects
-import com.tmdb.store.env.AppEnv
+import com.tmdb.store.env.contract.AppEnv
 import com.tmdb.store.feature.home.HomeFeature
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async

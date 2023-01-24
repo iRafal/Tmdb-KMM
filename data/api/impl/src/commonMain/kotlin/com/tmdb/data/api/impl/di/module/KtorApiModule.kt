@@ -1,6 +1,6 @@
 package com.tmdb.data.api.impl.di.module
 
-import com.tmdb.data.api.config.di.module.apiUrlProviderModule
+import com.tmdb.data.api.config.url.provider.di.apiUrlProviderModule
 import com.tmdb.data.api.impl.discover.DiscoverApi
 import com.tmdb.data.api.impl.discover.DiscoverApiImpl
 import com.tmdb.data.api.impl.genre.GenreApi

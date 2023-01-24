@@ -1,7 +1,7 @@
 package com.tmdb.store.env.di
 
-import com.tmdb.store.env.AppEnv
-import com.tmdb.store.env.createAppEnvImpl
+import com.tmdb.store.env.contract.AppEnv
+import com.tmdb.store.env.impl.createAppEnvImpl
 import org.koin.dsl.module
 
 val appEnvModule = module {

@@ -3,9 +3,9 @@ package com.tmdb.store.app
 import com.tmdb.store.base.Action
 import com.tmdb.store.base.Effect
 import com.tmdb.store.base.feature.Feature
-import com.tmdb.store.env.AppEnv
-import com.tmdb.store.reducer.AppReducer
-import com.tmdb.store.state.AppState
+import com.tmdb.store.env.contract.AppEnv
+import com.tmdb.store.reducer.app.AppReducer
+import com.tmdb.store.state.app.AppState
 import kotlin.coroutines.CoroutineContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.awaitCancellation

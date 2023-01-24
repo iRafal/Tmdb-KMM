@@ -1,7 +1,7 @@
-package com.tmdb.store.reducer.di
+package com.tmdb.store.reducer.app.di
 
-import com.tmdb.store.reducer.AppReducer
-import com.tmdb.store.reducer.createAppReducer
+import com.tmdb.store.reducer.app.AppReducer
+import com.tmdb.store.reducer.app.createAppReducer
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
