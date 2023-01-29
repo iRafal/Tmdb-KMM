@@ -3,8 +3,8 @@ package com.tmdb.android
 import android.app.Application
 import android.os.StrictMode
 import android.os.StrictMode.VmPolicy
-//import androidx.hilt.work.HiltWorkerFactory
-//import androidx.work.Configuration
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
 import coil.Coil
 import coil.ImageLoader
 import com.tmdb.android.util.logging.AndroidReleaseLogcatLogger
@@ -15,10 +15,10 @@ import logcat.AndroidLogcatLogger
 
 
 @HiltAndroidApp
-class App: Application()/*, Configuration.Provider*/ {
+class App: Application(), Configuration.Provider {
 
-//    @Inject
-//    lateinit var workerFactory: HiltWorkerFactory
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
 
     @Inject
     lateinit var coilImageLoader: ImageLoader
@@ -41,10 +41,10 @@ class App: Application()/*, Configuration.Provider*/ {
         }
     }
 
-//    override fun getWorkManagerConfiguration(): Configuration =
-//        Configuration.Builder()
-//            .setWorkerFactory(workerFactory)
-//            .build()
+    override fun getWorkManagerConfiguration(): Configuration =
+        Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
 
     private fun initCoil() {
         Coil.setImageLoader(coilImageLoader)
