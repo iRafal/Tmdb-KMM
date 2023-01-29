@@ -14,9 +14,8 @@ import org.koin.dsl.module
 
 
 val apiUrlProviderModule = module() {
-    if (!baseUrlProviderModule.isLoaded) {
-        includes(baseUrlProviderModule)
-    }
+    includes(baseUrlProviderModule)
+
     single<DiscoverUrlProvider>() {
         val baseUrlProvider: BaseUrlProvider = get()
         DiscoverUrlProviderImpl(baseUrlProvider.discoverApiUrl)

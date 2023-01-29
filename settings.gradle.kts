@@ -25,7 +25,7 @@ rootProject.name = "Tmdb-KMM"
 rootProject.buildFileName = "build.gradle.kts"
 
 include(":androidApp")
-include(":shared")
+include(":shared-ui")
 include(":data:api:model")
 include(":data:api:config")
 include(":data:api:impl")

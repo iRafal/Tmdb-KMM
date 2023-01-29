@@ -20,7 +20,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":store:base"))
-                implementation(project(":data:model"))
+                api(project(":data:model"))
             }
         }
         val commonTest by getting {

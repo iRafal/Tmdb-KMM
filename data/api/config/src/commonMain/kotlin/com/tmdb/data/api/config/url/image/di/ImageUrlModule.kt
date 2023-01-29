@@ -8,9 +8,8 @@ import org.koin.dsl.module
 
 
 val imageUrlModule = module {
-    if (!baseUrlProviderModule.isLoaded) {
-        includes(baseUrlProviderModule)
-    }
+    includes(baseUrlProviderModule)
+
     single<ImageUrlProvider>() {
         val baseUrlProvider: BaseUrlProvider = get()
         ImageUrlProviderImpl(baseUrlProvider.apiImageUrl)

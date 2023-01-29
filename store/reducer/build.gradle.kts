@@ -27,7 +27,7 @@ kotlin {
                 implementation(project(":store:feature"))
                 implementation(project(":store:state"))
                 implementation(project(":data:source:remote:contract"))
-                implementation(project(":data:model"))
+                api(project(":data:model"))
                 implementation(project(":util"))
             }
         }

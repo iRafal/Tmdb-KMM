@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
+    id("dagger.hilt.android.plugin")
 }
 
 android {
@@ -40,12 +42,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.3.3")
-    implementation("androidx.compose.ui:ui-tooling:1.3.3")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.3.3")
-    implementation("androidx.compose.foundation:foundation:1.3.1")
-    implementation("androidx.compose.material:material:1.3.1")
-    implementation("androidx.activity:activity-compose:1.6.1")
-    implementation("androidx.core:core-ktx:+")
+    implementation(project(":shared-ui"))
+    implementation(libs.bundles.app)
+    kapt(libs.bundles.app.kapt)
+    kaptTest(libs.bundles.app.kapt.test)
+    kaptAndroidTest(libs.bundles.app.kapt.test.android)
 }

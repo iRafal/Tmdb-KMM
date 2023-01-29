@@ -2,10 +2,12 @@ buildscript {
     repositories {
         gradlePluginPortal()
         mavenCentral()
+        google()
     }
     dependencies {
         classpath(libs.buildkonfig)
         classpath(libs.kotlin.serialization)
+        classpath(libs.hilt.plugin)
     }
 }
 
