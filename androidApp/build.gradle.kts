@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared-ui"))
+    implementation(project(":shared"))
     implementation(libs.bundles.app)
     kapt(libs.bundles.app.kapt)
     kaptTest(libs.bundles.app.kapt.test)
