@@ -13,8 +13,14 @@ import kotlinx.coroutines.CoroutineDispatcher
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val appStoreModule = module {
-    includes(homeFeatureModule, appEnvModule, dispatchersModule, storeStateModule, appReducerModule)
+fun appStoreModule() = module {
+    includes(
+        homeFeatureModule(),
+        appEnvModule(),
+        dispatchersModule(),
+        storeStateModule(),
+        appReducerModule()
+    )
     single<AppStore> {
         val dispatcher: CoroutineDispatcher = get(named(DISPATCHER_IO))
         AppStoreImpl(

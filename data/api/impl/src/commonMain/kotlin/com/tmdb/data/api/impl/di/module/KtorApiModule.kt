@@ -13,8 +13,8 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
-val ktorApiModule = module {
-    includes(ktorApiUtilModule, apiUrlProviderModule)
+fun ktorApiModule() = module {
+    includes(ktorApiUtilModule(), apiUrlProviderModule())
     singleOf(::DiscoverApiImpl) { bind<DiscoverApi>() }
     singleOf(::GenreApiImpl) { bind<GenreApi>() }
     singleOf(::MovieApiImpl) { bind<MovieApi>() }

@@ -9,8 +9,8 @@ import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val homeFeatureModule = module {
-    includes(movieApiMappingModule, homeFeatureMappingModule)
+fun homeFeatureModule() = module {
+    includes(movieApiMappingModule(), homeFeatureMappingModule())
     single<HomeFeatureSlice> {
         HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = get(named("MoviesApiToDataStateMapper")),

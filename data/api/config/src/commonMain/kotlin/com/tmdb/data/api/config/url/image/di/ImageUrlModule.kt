@@ -7,8 +7,8 @@ import com.tmdb.data.api.config.url.provider.base.di.baseUrlProviderModule
 import org.koin.dsl.module
 
 
-val imageUrlModule = module {
-    includes(baseUrlProviderModule)
+fun imageUrlModule() = module {
+    includes(baseUrlProviderModule())
 
     single<ImageUrlProvider>() {
         val baseUrlProvider: BaseUrlProvider = get()

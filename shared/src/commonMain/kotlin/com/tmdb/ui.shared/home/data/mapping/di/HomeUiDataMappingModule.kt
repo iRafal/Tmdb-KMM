@@ -14,7 +14,7 @@ import kotlin.jvm.JvmSuppressWildcards
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val homeUiDataMappingModule = module {
+fun homeUiDataMappingModule() = module {
     factory<HomeFeatureToUiStateMapper>(named("HomeFeatureToUiStateMapper")) {
         homeFeatureToUiStateMapperImpl(get(named("HomeFeatureStateToUiSectionStateMapper")))
     }

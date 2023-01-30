@@ -5,8 +5,8 @@ import com.tmdb.store.env.contract.AppEnv.Network
 import com.tmdb.store.env.impl.createAppNetworkEnvImpl
 import org.koin.dsl.module
 
-val appNetworkModule = module {
-    includes(dataSourceModule)
+fun appNetworkModule() = module {
+    includes(dataSourceModule())
     single<Network> {
         createAppNetworkEnvImpl(
             discoverSource = get(),

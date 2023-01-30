@@ -5,6 +5,6 @@ import com.tmdb.store.env.impl.createAppDbEnvImpl
 import org.koin.dsl.module
 
 
-val appDbModule = module {
+fun appDbModule() = module {
     single<AppEnv.Database> { createAppDbEnvImpl() }
 }

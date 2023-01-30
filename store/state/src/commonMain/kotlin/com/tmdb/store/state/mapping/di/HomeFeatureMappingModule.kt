@@ -5,6 +5,6 @@ import com.tmdb.store.state.mapping.mapDataToFeatureStateImpl
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val homeFeatureMappingModule = module {
+fun homeFeatureMappingModule() = module {
     single<MoviesDataToFeatureStateMapper>(named("MoviesDataToFeatureStateMapper")) { ::mapDataToFeatureStateImpl }
 }

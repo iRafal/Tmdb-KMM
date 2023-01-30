@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 const val APP_STATE_INITIAL = "APP_STATE_INITIAL"
 
-val storeStateModule = module {
+fun storeStateModule() = module {
     single<AppState>(named(APP_STATE_INITIAL)) { AppState.createInitialState() }
 }

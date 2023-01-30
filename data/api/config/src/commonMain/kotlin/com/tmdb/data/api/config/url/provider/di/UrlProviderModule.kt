@@ -13,8 +13,8 @@ import com.tmdb_test.api.config.url.provider.person.PersonUrlProvider
 import org.koin.dsl.module
 
 
-val apiUrlProviderModule = module() {
-    includes(baseUrlProviderModule)
+fun apiUrlProviderModule() = module {
+    includes(baseUrlProviderModule())
 
     single<DiscoverUrlProvider>() {
         val baseUrlProvider: BaseUrlProvider = get()

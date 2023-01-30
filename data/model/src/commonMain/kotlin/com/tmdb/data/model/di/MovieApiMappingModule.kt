@@ -8,8 +8,8 @@ import com.tmdb.data.model.mapping.movie.moviesApiToDataStateMapperImpl
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val movieApiMappingModule = module {
-    includes(imageUrlModule)
+fun movieApiMappingModule() = module {
+    includes(imageUrlModule())
     single<MovieApiToDataModelMapper>(named("MovieApiToDataModelMapper")) {
         movieApiToDataModelMapperImpl(get())
     }

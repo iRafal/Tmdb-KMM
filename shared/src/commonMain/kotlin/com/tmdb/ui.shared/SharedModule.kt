@@ -6,7 +6,7 @@ import org.koin.core.context.startKoin
 object SharedModule {
     fun init() {
         startKoin {
-            modules(sharedModule)
+            modules(sharedModule())
         }
     }
 }

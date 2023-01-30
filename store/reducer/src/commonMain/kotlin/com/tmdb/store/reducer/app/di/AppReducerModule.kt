@@ -5,6 +5,6 @@ import com.tmdb.store.reducer.app.createAppReducer
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val appReducerModule = module {
+fun appReducerModule() = module {
     single<AppReducer>(named("AppReducer")) { createAppReducer(homeFeatureSlice = get()) }
 }

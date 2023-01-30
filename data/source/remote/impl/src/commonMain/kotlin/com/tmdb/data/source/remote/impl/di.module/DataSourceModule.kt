@@ -13,8 +13,8 @@ import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.module
 
-val dataSourceModule = module {
-    includes(ktorApiModule)
+fun dataSourceModule() = module {
+    includes(ktorApiModule())
     singleOf(::DiscoverRemoteDataSourceImpl) { bind<DiscoverRemoteDataSource>() }
     singleOf(::GenreRemoteDataSourceImpl) { bind<GenreRemoteDataSource>() }
     singleOf(::MovieRemoteDataSourceImpl) { bind<MovieRemoteDataSource>() }

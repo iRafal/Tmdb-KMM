@@ -8,8 +8,8 @@ import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val sharedModule = module {
-    includes(appStoreModule + homeUiDataMappingModule)
+fun sharedModule() = module {
+    includes(appStoreModule(), homeUiDataMappingModule())
     single {
         SharedHomeViewModel(
             store = get(),

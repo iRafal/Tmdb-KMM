@@ -11,7 +11,7 @@ import io.ktor.client.plugins.logging.LogLevel.BODY
 import io.ktor.client.plugins.logging.Logger
 import org.koin.dsl.module
 
-val ktorApiUtilModule = module {
+fun ktorApiUtilModule() = module {
 
     single { json() }
 
