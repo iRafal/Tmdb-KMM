@@ -37,7 +37,8 @@ compose-constraintLayout = "1.0.1"
 
 
 #NETWORK
-ktor = "2.2.2" # https://github.com/ktorio/ktor
+ktor = "2.1.2" # https://github.com/ktorio/ktor
+#ktor = "2.2.2" # Failed on ios build due to kotlin 1.7.20 and 1.7.10 conflict
 
 #DI
 koin = "3.2.0" # https://insert-koin.io/docs/reference/koin-mp/kmp
