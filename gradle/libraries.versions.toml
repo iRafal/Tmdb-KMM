@@ -1,8 +1,8 @@
 [versions]
 
-gradle = "7.4.0"
+gradle = "7.4.2"
 
-buildkonfig = "0.13.3"
+buildkonfig = "0.13.3" # https://github.com/yshrsmz/BuildKonfig
 
 #KOTLIN
 kotlin = "1.7.10" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
@@ -37,7 +37,7 @@ compose-constraintLayout = "1.0.1"
 
 
 #NETWORK
-ktor = "2.1.2" # https://github.com/ktorio/ktor
+ktor = "2.2.2" # https://github.com/ktorio/ktor
 #ktor = "2.2.2" # Failed on ios build due to kotlin 1.7.20 and 1.7.10 conflict
 
 #DI
@@ -56,7 +56,7 @@ hilt-navigation-compose = "1.0.0"
 
 #TOOLS
 leakcanary = "2.10" # https://square.github.io/leakcanary/getting_started/
-logging-kermit = "1.2.2" # https://github.com/touchlab/Kermit
+logging-kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit
 logging-android = "0.1" # https://github.com/square/logcat
 kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime
 
