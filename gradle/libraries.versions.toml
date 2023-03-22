@@ -5,15 +5,15 @@ gradle = "7.4.2"
 buildkonfig = "0.13.3" # https://github.com/yshrsmz/BuildKonfig
 
 #KOTLIN
-kotlin = "1.7.10" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-kotlin-compiler-extension = "1.3.1" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+kotlin = "1.8.0" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+kotlin-compiler-extension = "1.4.1" # https://developer.android.com/jetpack/androidx/releases/compose-kotlin
 kotlin-coroutines = "1.6.4" # https://github.com/kotlin/kotlinx.coroutines
-kotlin-serialization-json = "1.4.1" # https://github.com/Kotlin/kotlinx.serialization
+kotlin-serialization-json = "1.5.0" # https://github.com/Kotlin/kotlinx.serialization
 
 #ANDROIDX
-androidx-core = "1.8.0"
-androidx-lifecycle = "2.5.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidx-work = "2.7.1" # https://developer.android.com/jetpack/androidx/releases/work
+androidx-core = "1.10.0-rc01" # https://developer.android.com/jetpack/androidx/releases/core
+androidx-lifecycle = "2.6.0" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-work = "2.8.0" # https://developer.android.com/jetpack/androidx/releases/work
 
 #COIL
 coil = "2.2.2" # https://github.com/coil-kt/coil
@@ -21,7 +21,7 @@ okhttp3-loggingInterceptor = "4.10.0" # https://github.com/square/okhttp/tree/ma
 
 #COMPOSE
 compose-animation = "1.3.3" # https://developer.android.com/jetpack/androidx/releases/compose-animation
-compose-compiler = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/compose-compiler
+compose-compiler = "1.4.3" # https://developer.android.com/jetpack/androidx/releases/compose-compiler
 compose-foundation = "1.3.1" # https://developer.android.com/jetpack/androidx/releases/compose-foundation
 compose-material = "1.3.1" # https://developer.android.com/jetpack/androidx/releases/compose-material
 compose-material3 = "1.0.1" # https://developer.android.com/jetpack/androidx/releases/compose-material3
@@ -41,11 +41,11 @@ ktor = "2.2.2" # https://github.com/ktorio/ktor
 #ktor = "2.2.2" # Failed on ios build due to kotlin 1.7.20 and 1.7.10 conflict
 
 #DI
-koin = "3.2.0" # https://insert-koin.io/docs/reference/koin-mp/kmp
+koin = "3.3.3" # https://insert-koin.io/docs/reference/koin-mp/kmp
 
 # https://mvnrepository.com/artifact/com.google.dagger/hilt-android
 # https://dagger.dev/hilt/gradle-setup.html
-hilt = "2.43.2"
+hilt = "2.45"
 
 # https://developer.android.com/training/dependency-injection/hilt-jetpack
 # https://developer.android.com/topic/libraries/architecture/workmanager/advanced/custom-configuration
@@ -63,7 +63,7 @@ kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime
 [libraries]
 
 #PLUGINS
-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin-serialization-json" }
 buildkonfig = { module = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin", version.ref = "buildkonfig" }
 hilt-plugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
 

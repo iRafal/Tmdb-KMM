@@ -40,7 +40,7 @@ kotlin {
             }
         }
         val androidMain by getting
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -63,7 +63,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.tmdb.store.reducer"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.store.reducer"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

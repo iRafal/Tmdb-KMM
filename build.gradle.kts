@@ -13,8 +13,7 @@ buildscript {
 
 plugins {
     val gradle = "7.4.2"
-    val kotlin = "1.7.10"
-    //trick: for the same plugin versions in all sub-modules
+    val kotlin = "1.8.0"
     id("com.android.application") version gradle apply false
     id("com.android.library") version gradle apply false
     kotlin("android") version kotlin apply false

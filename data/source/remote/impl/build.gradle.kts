@@ -35,7 +35,7 @@ kotlin {
             }
         }
         val androidMain by getting
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -58,7 +58,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.tmdb.data.source.remote.impl"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.data.source.remote.impl"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "com.tmdb.android"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.android"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
-        applicationId = "com.tmdb.android"
+        applicationId = "${Versions.Android.BuildConfig.applicationId}.android"
         minSdk = Versions.Android.BuildConfig.minSdk
         targetSdk = Versions.Android.BuildConfig.targetSdk
         versionCode = 1

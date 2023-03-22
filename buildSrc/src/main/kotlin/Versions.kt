@@ -5,6 +5,8 @@ object Versions {
             const val minSdk = 26
             const val targetSdk = 33
 
+            const val applicationId = "com.tmdb"
+
             const val isMinifyEnabledDebug = false
             const val isMinifyEnabledRelease = false
 

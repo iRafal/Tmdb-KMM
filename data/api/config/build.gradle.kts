@@ -32,7 +32,7 @@ kotlin {
             }
         }
         val androidMain by getting
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -59,7 +59,7 @@ val apiUrlBase = properties["api.url.base"].toString()
 val apiUrlImage = properties["api.url.image"].toString()
 
 buildkonfig {
-    packageName = "com.tmdb.data.api.config"
+    packageName = "${Versions.Android.BuildConfig.applicationId}.data.api.config"
     exposeObjectWithName = "DataApiConfigBuildKonfig"
     defaultConfigs {
         buildConfigField(STRING, "API_KEY", apiKey)
@@ -68,7 +68,7 @@ buildkonfig {
     }
 }
 android {
-    namespace = "com.tmdb.data.api.config"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.data.api.config"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
