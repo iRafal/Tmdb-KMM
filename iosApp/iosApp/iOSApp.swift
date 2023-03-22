@@ -5,6 +5,7 @@ import shared
 struct iOSApp: App {
 
     init() {
+        SharedModule().start()
         let sharedHomeViewModel = SharedModule().sharedHomeViewModel
     }
 

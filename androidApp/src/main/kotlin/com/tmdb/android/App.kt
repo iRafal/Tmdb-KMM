@@ -28,7 +28,7 @@ class App: Application(), Configuration.Provider {
         initLogging()
         initCoil()
         initIoStrictPolicy()
-        SharedModule.init()
+        SharedModule.start()
     }
 
     private fun initLogging() {

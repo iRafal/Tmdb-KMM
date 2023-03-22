@@ -8,7 +8,7 @@ import org.koin.core.component.inject
 import org.koin.core.context.startKoin
 
 object SharedModule: KoinComponent {
-    init {
+    fun start() {
         startKoin {
             modules(sharedModule())
         }
