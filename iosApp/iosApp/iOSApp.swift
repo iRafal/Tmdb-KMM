@@ -5,8 +5,7 @@ import shared
 struct iOSApp: App {
 
     init() {
-        //SharedModule().doInit()
-        let a = SharedModule().sharedHomeViewModel
+        let sharedHomeViewModel = SharedModule().sharedHomeViewModel
     }
 
 	var body: some Scene {

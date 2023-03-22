@@ -2,6 +2,10 @@
 
 gradle = "7.4.2"
 
+# https://pinterest.github.io/ktlint/install/integrations/#custom-gradle-integration-with-groovy
+# https://github.com/jlleitschuh/ktlint-gradle
+ktlint-plugin = "11.3.1"
+
 buildkonfig = "0.13.3" # https://github.com/yshrsmz/BuildKonfig
 
 #KOTLIN
@@ -63,6 +67,7 @@ kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime
 [libraries]
 
 #PLUGINS
+ktlint-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint-plugin" }
 kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin-serialization-json" }
 buildkonfig = { module = "com.codingfeline.buildkonfig:buildkonfig-gradle-plugin", version.ref = "buildkonfig" }
 hilt-plugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
