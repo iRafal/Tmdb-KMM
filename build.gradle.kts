@@ -13,12 +13,16 @@ buildscript {
 }
 
 plugins {
-    val gradle = "7.4.2"
-    val kotlin = "1.8.0"
-    id("com.android.application") version gradle apply false
-    id("com.android.library") version gradle apply false
-    kotlin("android") version kotlin apply false
-    kotlin("multiplatform") version kotlin apply false
+    @Suppress("DSL_SCOPE_VIOLATION")
+    val gradle = libs.versions.gradle
+
+    @Suppress("DSL_SCOPE_VIOLATION")
+    val kotlin = libs.versions.kotlin.asProvider()
+
+    id(Plugins.Android.application) version gradle apply false
+    id(Plugins.Android.library) version gradle apply false
+    kotlin(Plugins.Kotlin.android) version kotlin apply false
+    kotlin(Plugins.Kotlin.multiplatform) version kotlin apply false
     id("org.jetbrains.kotlin.jvm") version kotlin apply false
 }
 

@@ -1,6 +1,9 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    kotlin(Plugins.Kotlin.multiplatform)
+    id(Plugins.Android.library)
+
+    @Suppress("DSL_SCOPE_VIOLATION")
+    id(Plugins.mockMp) version libs.versions.mockmp
 }
 
 kotlin {
@@ -17,6 +20,7 @@ kotlin {
     }
 
     sourceSets {
+
         val commonMain by getting {
             dependencies {
                 implementation(libs.koin.core)
@@ -33,6 +37,7 @@ kotlin {
                 implementation(libs.kotlin.coroutines.test)
                 implementation(kotlin("test"))
             }
+            kotlin.srcDir("build/generated/ksp")
         }
         val androidMain by getting
         val androidUnitTest by getting
@@ -63,4 +68,9 @@ android {
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
     }
+}
+
+mockmp {
+    usesHelper = true
+    public = false
 }

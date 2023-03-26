@@ -1,6 +1,6 @@
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    kotlin(Plugins.Kotlin.multiplatform)
+    id(Plugins.Android.library)
 }
 
 kotlin {

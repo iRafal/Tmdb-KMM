@@ -1,9 +1,9 @@
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
-    id("com.codingfeline.buildkonfig")
+    kotlin(Plugins.Kotlin.multiplatform)
+    id(Plugins.Android.library)
+    id(Plugins.buildkonfig)
 }
 
 kotlin {
