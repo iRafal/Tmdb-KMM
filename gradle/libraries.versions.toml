@@ -59,6 +59,9 @@ hilt-navigation-compose = "1.0.0"
 # https://github.com/kosi-libs/MocKMP
 mockmp = "1.12.0"
 
+# https://github.com/cashapp/sqldelight
+sqlDelight = "2.0.0-alpha05"
+
 #TOOLS
 leakcanary = "2.10" # https://square.github.io/leakcanary/getting_started/
 logging-kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit
@@ -144,6 +147,12 @@ compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
 compose-constraintLayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "compose-constraintLayout" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
+
+sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
+sqlDelight-extensions-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+sqlDelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
 
 [bundles]
 

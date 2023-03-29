@@ -19,11 +19,15 @@ plugins {
     @Suppress("DSL_SCOPE_VIOLATION")
     val kotlin = libs.versions.kotlin.asProvider()
 
+    @Suppress("DSL_SCOPE_VIOLATION")
+    val sqlDelight = libs.versions.sqlDelight
+
     id(Plugins.Android.application) version gradle apply false
     id(Plugins.Android.library) version gradle apply false
     kotlin(Plugins.Kotlin.android) version kotlin apply false
     kotlin(Plugins.Kotlin.multiplatform) version kotlin apply false
     id("org.jetbrains.kotlin.jvm") version kotlin apply false
+    id(Plugins.sqlDelight) version sqlDelight apply false
 }
 
 /**

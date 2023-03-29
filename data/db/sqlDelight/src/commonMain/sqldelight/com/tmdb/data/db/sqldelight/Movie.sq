@@ -1,0 +1,106 @@
+import kotlinx.datetime.LocalDate;
+import kotlin.Boolean;
+
+CREATE TABLE IF NOT EXISTS movie (
+  id INTEGER,
+  title TEXT,
+  vote_average REAL,
+  release_date TEXT AS LocalDate,
+  poster_url TEXT,
+  now_playing INTEGER AS Boolean NOT NULL DEFAULT 0,
+  now_popular INTEGER AS Boolean NOT NULL DEFAULT 0,
+  top_rated INTEGER AS Boolean NOT NULL DEFAULT 0,
+  upcoming INTEGER AS Boolean NOT NULL DEFAULT 0,
+  PRIMARY KEY(id)
+);
+
+-- Queries examples
+-- https://blog.logrocket.com/intro-sqldelight/
+
+selectAll:
+SELECT *
+FROM movie;
+
+insert :
+INSERT INTO movie(id, title, vote_average, release_date, poster_url, now_playing, now_popular, top_rated, upcoming)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+insertObject:
+INSERT INTO movie(id, title, vote_average, release_date, poster_url, now_playing, now_popular, top_rated, upcoming)
+VALUES ?;
+
+insertOrReplace :
+INSERT OR REPLACE INTO movie(id, title, vote_average, release_date, poster_url, now_playing, now_popular, top_rated, upcoming)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+insertOrIgnore:
+INSERT OR IGNORE INTO movie(id, title, vote_average, release_date, poster_url, now_playing, now_popular, top_rated, upcoming)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+insertOrReplaceObject :
+INSERT OR REPLACE INTO movie(id, title, vote_average, release_date, poster_url, now_playing, now_popular, top_rated, upcoming)
+VALUES ?;
+
+update :
+UPDATE movie
+SET id = ?, title = ?, vote_average = ?, release_date = ?, poster_url = ?, now_playing = ?, now_popular = ?, top_rated = ?, upcoming = ?;
+
+getById :
+SELECT *
+FROM movie
+WHERE id = ?;
+
+nowPlayingMovies :
+SELECT *
+FROM movie
+WHERE now_playing LIKE 1;
+
+nowPlayingMoviesByLimitAndOffset :
+SELECT *
+FROM movie
+WHERE now_playing LIKE 1
+LIMIT :limit
+OFFSET : offset;
+
+nowPopularMovies :
+SELECT *
+FROM movie
+WHERE now_popular  LIKE 1;
+
+nowPopularMoviesByLimitAndOffset :
+SELECT *
+FROM movie
+WHERE now_popular LIKE 1
+LIMIT :limit
+OFFSET : offset;
+
+topRatedMovies :
+SELECT *
+FROM movie
+WHERE top_rated LIKE 1;
+
+topRatedMoviesByLimitAndOffset :
+SELECT *
+FROM movie
+WHERE top_rated LIKE 1
+LIMIT :limit
+OFFSET : offset;
+
+upcomingMovies :
+SELECT *
+FROM movie
+WHERE upcoming LIKE 1;
+
+upcomingMoviesByLimitAndOffset :
+SELECT *
+FROM movie
+WHERE upcoming LIKE 1
+LIMIT :limit
+OFFSET : offset;
+
+delete:
+DELETE FROM movie
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM movie;

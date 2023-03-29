@@ -15,4 +15,6 @@ object Plugins {
     const val kotlinMultiplatform = "multiplatform"
     const val buildkonfig = "com.codingfeline.buildkonfig"
     const val kotlinxSerialization = "kotlinx-serialization"
+
+    const val sqlDelight = "app.cash.sqldelight"
 }
