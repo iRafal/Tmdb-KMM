@@ -6,6 +6,12 @@ plugins {
 
 kotlin {
     android()
+
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = Versions.jvmTarget
+        }
+    }
     
     listOf(
         iosX64(),
@@ -64,13 +70,13 @@ kotlin {
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
         }
-        val jvmMain by creating {
+        val jvmMain by getting {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.sqlDelight.driver.jvm)
             }
         }
-        val jvmTest by creating {
+        val jvmTest by getting {
             dependsOn(commonTest)
             dependencies {
                 implementation(libs.sqlDelight.driver.jvm)

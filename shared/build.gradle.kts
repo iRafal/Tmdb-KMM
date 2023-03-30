@@ -5,6 +5,12 @@ plugins {
 
 kotlin {
     android()
+
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = Versions.jvmTarget
+        }
+    }
     
     listOf(
         iosX64(),

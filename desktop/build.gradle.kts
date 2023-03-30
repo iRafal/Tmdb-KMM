@@ -35,6 +35,8 @@ kotlin {
                 implementation(compose.material)
                 implementation(compose.ui)
                 implementation(compose.materialIconsExtended)
+
+                implementation(project(":shared"))
             }
         }
         val jvmTest by getting {

@@ -5,6 +5,12 @@ plugins {
 
 kotlin {
     android()
+
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = Versions.jvmTarget
+        }
+    }
     
     listOf(
         iosX64(),
@@ -47,6 +53,11 @@ kotlin {
             iosX64Test.dependsOn(this)
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation(libs.kotlin.coroutines.core)
+            }
         }
     }
 }
