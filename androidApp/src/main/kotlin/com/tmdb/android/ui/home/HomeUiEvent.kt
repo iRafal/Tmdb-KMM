@@ -1,6 +1,6 @@
 package com.tmdb.android.ui.home
 
-import com.tmdb.ui.shared.home.data.HomeMovieSection
+import com.tmdb.shared.home.data.HomeMovieSection
 
 sealed interface HomeUiEvent {
     object NavigateBack : HomeUiEvent

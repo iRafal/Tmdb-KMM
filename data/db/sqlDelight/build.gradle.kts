@@ -5,7 +5,13 @@ plugins {
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = Versions.jvmTarget
+            }
+        }
+    }
 
     jvm {
         compilations.all {

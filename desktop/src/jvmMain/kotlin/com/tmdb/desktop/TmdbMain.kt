@@ -7,11 +7,11 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
-//import com.tmdb.ui.shared.SharedModule
+import com.tmdb.shared.SharedModule
 
 fun main() {
     application {
-//        SharedModule.start()
+        SharedModule.start()
 
         val windowState = rememberWindowState(width = 300.dp, height = 300.dp)
         Window(

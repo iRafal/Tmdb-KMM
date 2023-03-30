@@ -1,6 +1,6 @@
 package com.tmdb.android.ui.details
 
-import com.tmdb.ui.shared.details.data.MovieDetailsUiData
+import com.tmdb.shared.details.data.MovieDetailsUiData
 
 sealed interface MovieDetailsUiState {
     object Idle : MovieDetailsUiState

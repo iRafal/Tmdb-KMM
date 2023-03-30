@@ -1,8 +1,8 @@
 package com.tmdb.android.ui.di
 
-import com.tmdb.ui.shared.details.SharedMovieDetailsViewModel
-import com.tmdb.ui.shared.di.SharedUiModuleDiProvider
-import com.tmdb.ui.shared.home.SharedHomeViewModel
+import com.tmdb.shared.details.SharedMovieDetailsViewModel
+import com.tmdb.shared.di.SharedModuleDiProvider
+import com.tmdb.shared.home.SharedHomeViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,10 +15,10 @@ object KoinWrapperModule {
 
     @Singleton
     @Provides
-    fun sharedHomeViewModel(): SharedHomeViewModel = SharedUiModuleDiProvider().sharedHomeViewModel
+    fun sharedHomeViewModel(): SharedHomeViewModel = SharedModuleDiProvider().sharedHomeViewModel
 
     @Singleton
     @Provides
     fun sharedMovieDetailsViewModel(): SharedMovieDetailsViewModel =
-        SharedUiModuleDiProvider().sharedMovieDetailsViewModel
+        SharedModuleDiProvider().sharedMovieDetailsViewModel
 }

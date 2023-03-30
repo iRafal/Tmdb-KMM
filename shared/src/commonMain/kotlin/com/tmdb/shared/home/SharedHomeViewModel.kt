@@ -1,19 +1,14 @@
-package com.tmdb.ui.shared.home
+package com.tmdb.shared.home
 
 import com.tmdb.store.action.home.HomeAction
 import com.tmdb.store.app.AppStore
 import com.tmdb.store.feature.home.HomeFeature
-import com.tmdb.store.state.app.AppState
-import com.tmdb.store.state.home.HomeFeatureState
-import com.tmdb.ui.shared.home.data.HomeMovieSection
-import com.tmdb.ui.shared.home.data.HomeUiData
-import com.tmdb.ui.shared.home.data.mapping.HomeFeatureToUiStateMapper
-import com.tmdb.ui.shared.home.data.mapping.HomeMovieSectionToActionMapper
-import kotlin.jvm.JvmSuppressWildcards
+import com.tmdb.shared.home.data.HomeMovieSection
+import com.tmdb.shared.home.data.HomeUiData
+import com.tmdb.shared.home.data.mapping.HomeFeatureToUiStateMapper
+import com.tmdb.shared.home.data.mapping.HomeMovieSectionToActionMapper
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flowOn

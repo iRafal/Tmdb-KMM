@@ -1,4 +1,4 @@
-package com.tmdb.ui.shared.home.data
+package com.tmdb.shared.home.data
 
 enum class HomeMovieSection {
     NOW_PLAYING,

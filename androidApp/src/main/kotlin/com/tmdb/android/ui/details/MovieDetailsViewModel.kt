@@ -3,7 +3,7 @@ package com.tmdb.android.ui.details
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tmdb.store.state.details.MovieDetailsFeatureState
-import com.tmdb.ui.shared.details.SharedMovieDetailsViewModel
+import com.tmdb.shared.details.SharedMovieDetailsViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow

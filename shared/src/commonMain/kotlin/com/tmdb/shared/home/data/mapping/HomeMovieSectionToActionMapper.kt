@@ -1,6 +1,6 @@
-package com.tmdb.ui.shared.home.data.mapping
+package com.tmdb.shared.home.data.mapping
 
-import com.tmdb.ui.shared.home.data.HomeMovieSection
+import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.store.action.home.HomeAction
 
 typealias HomeMovieSectionToActionMapper = (input: HomeMovieSection) -> HomeAction

@@ -1,7 +1,7 @@
-package com.tmdb.ui.shared.core.data.mapping
+package com.tmdb.shared.core.data.mapping
 
 import com.tmdb.store.state.FeatureState
-import com.tmdb.ui.shared.core.data.UiState
+import com.tmdb.shared.core.data.UiState
 
 typealias FeatureToUiStateMapper<T, R> = (FeatureState<T>) -> UiState<R>
 

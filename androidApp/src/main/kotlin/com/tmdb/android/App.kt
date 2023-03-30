@@ -8,7 +8,7 @@ import androidx.work.Configuration
 import coil.Coil
 import coil.ImageLoader
 import com.tmdb.android.util.logging.AndroidReleaseLogcatLogger
-import com.tmdb.ui.shared.SharedModule
+import com.tmdb.shared.SharedModule
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import logcat.AndroidLogcatLogger

@@ -1,8 +1,8 @@
-package com.tmdb.ui.shared
+package com.tmdb.shared
 
-import com.tmdb.ui.shared.details.SharedMovieDetailsViewModel
-import com.tmdb.ui.shared.di.sharedModule
-import com.tmdb.ui.shared.home.SharedHomeViewModel
+import com.tmdb.shared.details.SharedMovieDetailsViewModel
+import com.tmdb.shared.di.sharedModule
+import com.tmdb.shared.home.SharedHomeViewModel
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject

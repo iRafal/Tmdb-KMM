@@ -1,4 +1,4 @@
-package com.tmdb.ui.shared.details
+package com.tmdb.shared.details
 
 import com.tmdb.store.app.AppStore
 import com.tmdb.store.feature.details.MovieDetailsFeature

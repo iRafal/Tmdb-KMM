@@ -24,17 +24,23 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "store.base"
+            baseName = "shared-ui"
         }
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(libs.kotlin.coroutines.core)
+                api(project(":shared"))
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
         val androidMain by getting
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -44,11 +50,22 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
+        val iosX64Test by getting
+        val iosArm64Test by getting
+        val iosSimulatorArm64Test by getting
+        val iosTest by creating {
+            dependsOn(commonTest)
+            iosX64Test.dependsOn(this)
+            iosArm64Test.dependsOn(this)
+            iosSimulatorArm64Test.dependsOn(this)
+        }
+        val jvmMain by getting
+        val jvmTest by getting
     }
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.store.base"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.shared_ui"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

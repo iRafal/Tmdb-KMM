@@ -4,7 +4,13 @@ plugins {
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = Versions.jvmTarget
+            }
+        }
+    }
 
     jvm {
         compilations.all {
@@ -59,11 +65,13 @@ kotlin {
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
         }
+        val jvmMain by getting
+        val jvmTest by getting
     }
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.ui.shared"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.shared"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

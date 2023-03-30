@@ -1,10 +1,10 @@
-package com.tmdb.ui.shared.home.data.mapping
+package com.tmdb.shared.home.data.mapping
 
-import com.tmdb.ui.shared.home.data.HomeMovieSection.NOW_PLAYING
-import com.tmdb.ui.shared.home.data.HomeMovieSection.NOW_POPULAR
-import com.tmdb.ui.shared.home.data.HomeMovieSection.TOP_RATED
-import com.tmdb.ui.shared.home.data.HomeMovieSection.UPCOMING
-import com.tmdb.ui.shared.home.data.HomeUiData
+import com.tmdb.shared.home.data.HomeMovieSection.NOW_PLAYING
+import com.tmdb.shared.home.data.HomeMovieSection.NOW_POPULAR
+import com.tmdb.shared.home.data.HomeMovieSection.TOP_RATED
+import com.tmdb.shared.home.data.HomeMovieSection.UPCOMING
+import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.store.state.home.HomeFeatureState
 
 typealias HomeFeatureToUiStateMapper = (featureState: HomeFeatureState) -> HomeUiData

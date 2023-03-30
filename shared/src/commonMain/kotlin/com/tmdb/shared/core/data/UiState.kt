@@ -1,4 +1,4 @@
-package com.tmdb.ui.shared.core.data
+package com.tmdb.shared.core.data
 
 
 sealed interface UiState<T> {

@@ -1,11 +1,11 @@
-package com.tmdb.ui.shared.di
+package com.tmdb.shared.di
 
-import com.tmdb.ui.shared.details.SharedMovieDetailsViewModel
-import com.tmdb.ui.shared.home.SharedHomeViewModel
+import com.tmdb.shared.details.SharedMovieDetailsViewModel
+import com.tmdb.shared.home.SharedHomeViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
-class SharedUiModuleDiProvider : KoinComponent {
+class SharedModuleDiProvider : KoinComponent {
     private val _sharedHomeViewModel: SharedHomeViewModel by inject()
     val sharedHomeViewModel: SharedHomeViewModel = _sharedHomeViewModel
 

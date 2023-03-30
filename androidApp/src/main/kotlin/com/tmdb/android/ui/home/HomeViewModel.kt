@@ -2,9 +2,9 @@ package com.tmdb.android.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.tmdb.ui.shared.home.SharedHomeViewModel
-import com.tmdb.ui.shared.home.data.HomeMovieSection
-import com.tmdb.ui.shared.home.data.HomeUiData
+import com.tmdb.shared.home.SharedHomeViewModel
+import com.tmdb.shared.home.data.HomeMovieSection
+import com.tmdb.shared.home.data.HomeUiData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
