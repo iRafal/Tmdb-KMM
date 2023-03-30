@@ -1,4 +1,4 @@
-package com.tmdb.android.ui.core.theme
+package com.tmdb.shared_ui.core.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

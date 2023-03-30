@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.tmdb.android.ui.app.navigation.AppNavigation.Close
-import com.tmdb.android.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
 import com.tmdb.shared_ui.details.MovieDetailsUiEvent.NavigateBack
 import com.tmdb.shared_ui.details.MovieDetailsUiState.Loading
 import com.tmdb.shared_ui.details.MovieDetailsUiEvent

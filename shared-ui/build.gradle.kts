@@ -1,6 +1,10 @@
 plugins {
     kotlin(Plugins.Kotlin.multiplatform)
     id(Plugins.Android.library)
+
+    @Suppress("DSL_SCOPE_VIOLATION")
+    val composeMultiplatformVersion = libs.versions.compose.multiplatform.plugin
+    id(Plugins.composeMultiplatrofm) version composeMultiplatformVersion
 }
 
 kotlin {
@@ -32,6 +36,12 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":shared"))
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material)
+                implementation(compose.runtime)
+                implementation(compose.materialIconsExtended)
+                implementation(libs.kotlinx.dateTime)
             }
         }
         val commonTest by getting {
@@ -39,7 +49,13 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                implementation(libs.compose.runtime)
+                implementation(libs.compose.ui)
+                implementation(libs.compose.ui.preview)
+            }
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -59,7 +75,12 @@ kotlin {
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
         }
-        val jvmMain by getting
+        val jvmMain by getting {
+            dependencies {
+                implementation(libs.kotlinx.dateTime)
+                implementation(compose.uiTooling)
+            }
+        }
         val jvmTest by getting
     }
 }

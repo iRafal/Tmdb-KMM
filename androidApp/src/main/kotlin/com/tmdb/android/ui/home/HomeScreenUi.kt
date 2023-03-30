@@ -10,16 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.tmdb.android.ui.core.compose.ScrollableColumn
-import com.tmdb.android.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared.core.data.UiState
+import com.tmdb.shared_ui.core.compose.ScrollableColumn
+import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
 import com.tmdb.shared_ui.home.HomeUiEvent.OpenMovie
 import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
-import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeMovieSection
-import com.tmdb.shared.home.data.HomeMovieSection.NOW_PLAYING
-import com.tmdb.shared.home.data.HomeMovieSection.NOW_POPULAR
-import com.tmdb.shared.home.data.HomeMovieSection.TOP_RATED
-import com.tmdb.shared.home.data.HomeMovieSection.UPCOMING
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.home.data.HomeUiData.Movie
 import com.tmdb.shared_ui.home.HomeUiEvent
@@ -33,10 +29,10 @@ fun HomeAllSectionsLoadingPreview() {
     Tmdb_TestTheme {
         val data = HomeUiData(
             mapOf(
-                NOW_PLAYING to UiState.Loading(),
-                NOW_POPULAR to UiState.Loading(),
-                TOP_RATED to UiState.Loading(),
-                UPCOMING to UiState.Loading(),
+                HomeMovieSection.NOW_PLAYING to UiState.Loading(),
+                HomeMovieSection.NOW_POPULAR to UiState.Loading(),
+                HomeMovieSection.TOP_RATED to UiState.Loading(),
+                HomeMovieSection.UPCOMING to UiState.Loading(),
             )
         )
         HomeScreenUi(
@@ -53,10 +49,10 @@ fun HomeAllSectionsErrorPreview() {
     Tmdb_TestTheme {
         val data = HomeUiData(
             mapOf(
-                NOW_PLAYING to UiState.Error(),
-                NOW_POPULAR to UiState.Error(),
-                TOP_RATED to UiState.Error(),
-                UPCOMING to UiState.Error(),
+                HomeMovieSection.NOW_PLAYING to UiState.Error(),
+                HomeMovieSection.NOW_POPULAR to UiState.Error(),
+                HomeMovieSection.TOP_RATED to UiState.Error(),
+                HomeMovieSection.UPCOMING to UiState.Error(),
             )
         )
         HomeScreenUi(
@@ -73,10 +69,10 @@ fun HomeAllSectionsNetworkErrorPreview() {
     Tmdb_TestTheme {
         val data = HomeUiData(
             mapOf(
-                NOW_PLAYING to UiState.NetworkError(),
-                NOW_POPULAR to UiState.NetworkError(),
-                TOP_RATED to UiState.NetworkError(),
-                UPCOMING to UiState.NetworkError(),
+                HomeMovieSection.NOW_PLAYING to UiState.NetworkError(),
+                HomeMovieSection.NOW_POPULAR to UiState.NetworkError(),
+                HomeMovieSection.TOP_RATED to UiState.NetworkError(),
+                HomeMovieSection.UPCOMING to UiState.NetworkError(),
             )
         )
         HomeScreenUi(
@@ -116,10 +112,10 @@ fun HomeStateSuccessPreview() {
         )
         val data = HomeUiData(
             mapOf(
-                NOW_PLAYING to UiState.Success(movies),
-                NOW_POPULAR to UiState.Success(movies),
-                TOP_RATED to UiState.Success(movies),
-                UPCOMING to UiState.Success(movies),
+                HomeMovieSection.NOW_PLAYING to UiState.Success(movies),
+                HomeMovieSection.NOW_POPULAR to UiState.Success(movies),
+                HomeMovieSection.TOP_RATED to UiState.Success(movies),
+                HomeMovieSection.UPCOMING to UiState.Success(movies),
             )
         )
         HomeScreenUi(
@@ -159,10 +155,10 @@ fun HomeMixedStatesPreview() {
         )
         val data = HomeUiData(
             mapOf(
-                NOW_PLAYING to UiState.Success(movies),
-                NOW_POPULAR to UiState.NetworkError(),
-                TOP_RATED to UiState.Error(),
-                UPCOMING to UiState.Loading(),
+                HomeMovieSection.NOW_PLAYING to UiState.Success(movies),
+                HomeMovieSection.NOW_POPULAR to UiState.NetworkError(),
+                HomeMovieSection.TOP_RATED to UiState.Error(),
+                HomeMovieSection.UPCOMING to UiState.Loading(),
             )
         )
         HomeScreenUi(
