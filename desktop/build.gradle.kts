@@ -35,7 +35,8 @@ kotlin {
                 implementation(compose.material)
                 implementation(compose.ui)
                 implementation(compose.materialIconsExtended)
-
+                implementation(libs.ktor.client.cio)
+                implementation(libs.ktor.client.core)
                 implementation(project(":shared-ui"))
             }
         }
@@ -54,6 +55,12 @@ compose.desktop {
             packageName = "TMDB"
             macOS {
                 bundleID = packagePath
+            }
+            linux {
+            }
+            windows {
+                shortcut = true
+                menu = true
             }
         }
     }

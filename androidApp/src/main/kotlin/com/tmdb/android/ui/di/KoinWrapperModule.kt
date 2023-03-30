@@ -12,12 +12,9 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object KoinWrapperModule {
-
-    @Singleton
     @Provides
     fun sharedHomeViewModel(): SharedHomeViewModel = SharedModuleDiProvider().sharedHomeViewModel
 
-    @Singleton
     @Provides
     fun sharedMovieDetailsViewModel(): SharedMovieDetailsViewModel =
         SharedModuleDiProvider().sharedMovieDetailsViewModel

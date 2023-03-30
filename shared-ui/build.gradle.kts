@@ -42,6 +42,8 @@ kotlin {
                 implementation(compose.runtime)
                 implementation(compose.materialIconsExtended)
                 implementation(libs.kotlinx.dateTime)
+                api(libs.image.loader.kmm)
+//                api(libs.image.loader.kmm.extension.blur)
             }
         }
         val commonTest by getting {
@@ -54,6 +56,7 @@ kotlin {
                 implementation(libs.compose.runtime)
                 implementation(libs.compose.ui)
                 implementation(libs.compose.ui.preview)
+                implementation(libs.coil.compose)
             }
         }
         val androidUnitTest by getting
@@ -61,6 +64,9 @@ kotlin {
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
+            dependencies {
+                api(libs.image.loader.kmm)
+            }
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
@@ -79,6 +85,7 @@ kotlin {
             dependencies {
                 implementation(libs.kotlinx.dateTime)
                 implementation(compose.uiTooling)
+                api(libs.image.loader.kmm.extension.imageio)
             }
         }
         val jvmTest by getting

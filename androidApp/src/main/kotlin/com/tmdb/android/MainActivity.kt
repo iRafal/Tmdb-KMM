@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import com.tmdb.android.ui.app.navigation.AppNavigation
-import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
 import com.tmdb.android.ui.main.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,6 +21,6 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     private fun SetContent() {
-        Tmdb_TestTheme { AppNavigation { finish() } }
+        AppNavigation { finish() }
     }
 }

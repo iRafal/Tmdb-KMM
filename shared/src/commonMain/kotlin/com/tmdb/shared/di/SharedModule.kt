@@ -10,7 +10,7 @@ import org.koin.dsl.module
 
 fun sharedModule() = module {
     includes(appStoreModule(), homeUiDataMappingModule())
-    single {
+    factory {
         SharedHomeViewModel(
             store = get(),
             homeFeatureToUiStateMapper = get(named("HomeFeatureToUiStateMapper")),
@@ -18,5 +18,5 @@ fun sharedModule() = module {
             dispatcherIo = get(named(DISPATCHER_IO))
         )
     }
-    single { SharedMovieDetailsViewModel(store = get()) }
+    factory { SharedMovieDetailsViewModel(store = get()) }
 }

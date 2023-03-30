@@ -23,6 +23,8 @@ androidx-work = "2.8.0" # https://developer.android.com/jetpack/androidx/release
 coil = "2.2.2" # https://github.com/coil-kt/coil
 okhttp3-loggingInterceptor = "4.10.0" # https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor
 
+image-loader-kmm = "1.2.10" # https://github.com/qdsfdhvh/compose-imageloader
+
 #COMPOSE
 compose-animation = "1.4.0-rc01" # https://developer.android.com/jetpack/androidx/releases/compose-animation
 compose-compiler = "1.4.3" # https://developer.android.com/jetpack/androidx/releases/compose-compiler
@@ -65,11 +67,14 @@ mockmp = "1.12.0"
 # https://github.com/cashapp/sqldelight
 sqlDelight = "2.0.0-alpha05"
 
+# https://github.com/russhwolf/multiplatform-settings
+multiplatform-settings = "1.0.0"
+
 #TOOLS
 leakcanary = "2.10" # https://square.github.io/leakcanary/getting_started/
 logging-kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit
 logging-android = "0.1" # https://github.com/square/logcat
-kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetime
+kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetim
 
 [libraries]
 
@@ -84,6 +89,7 @@ kotlin-stdLib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk7", version.re
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin-coroutines" }
 
 kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization-json" }
 
@@ -130,6 +136,10 @@ coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 okHttp3-loggingInterceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp3-loggingInterceptor" }
 
+image-loader-kmm = { module = "io.github.qdsfdhvh:image-loader", version.ref = "image-loader-kmm" }
+image-loader-kmm-extension-imageio = { module = "io.github.qdsfdhvh:image-loader-extension-imageio", version.ref = "image-loader-kmm" }
+image-loader-kmm-extension-blur = { module = "io.github.qdsfdhvh:image-loader-extension-blur", version.ref = "image-loader-kmm" }
+
 #COMPOSE
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose-ui" }
 compose-ui-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose-ui" }
@@ -157,6 +167,8 @@ sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", versi
 sqlDelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
 sqlDelight-extensions-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 sqlDelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
+
+multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 
 [bundles]
 
@@ -235,4 +247,6 @@ data-api-impl-commonMain = [
 
 desktop = [
     "koin-core",
+    "kotlinx-dateTime",
+    "kotlin-coroutines-swing"
 ]
