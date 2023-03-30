@@ -17,4 +17,6 @@ object Plugins {
     const val kotlinxSerialization = "kotlinx-serialization"
 
     const val sqlDelight = "app.cash.sqldelight"
+
+    const val composeMultiplatrofm = "org.jetbrains.compose"
 }

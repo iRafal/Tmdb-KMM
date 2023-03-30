@@ -1,3 +1,5 @@
+import org.gradle.api.JavaVersion
+
 object Versions {
     object Android {
         object BuildConfig {
@@ -14,4 +16,6 @@ object Versions {
             const val isShrinkResourcesRelease = false
         }
     }
+
+    val jvmTarget = JavaVersion.VERSION_11.toString()
 }

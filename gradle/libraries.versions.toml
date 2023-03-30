@@ -35,6 +35,9 @@ compose-ui = "1.4.0-rc01" # https://developer.android.com/jetpack/androidx/relea
 compose-activity = "1.7.0-rc01" # https://developer.android.com/jetpack/androidx/releases/activity
 compose-navigation = "2.5.3" # https://developer.android.com/jetpack/androidx/releases/navigation
 
+# https://github.com/JetBrains/compose-multiplatform
+compose-multiplatform-plugin = "1.3.1"
+
 # https://developer.android.com/jetpack/compose/layouts/constraintlayout
 # https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout-compose?repo=google
 compose-constraintLayout = "1.0.1"
@@ -227,4 +230,8 @@ data-api-impl-commonMain = [
     "kotlin-stdLib",
     "kotlin-coroutines-core",
     "kotlin-serialization-json",
+]
+
+desktop = [
+    "koin-core",
 ]

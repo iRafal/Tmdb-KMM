@@ -26,7 +26,7 @@ plugins {
     id(Plugins.Android.library) version gradle apply false
     kotlin(Plugins.Kotlin.android) version kotlin apply false
     kotlin(Plugins.Kotlin.multiplatform) version kotlin apply false
-    id("org.jetbrains.kotlin.jvm") version kotlin apply false
+    kotlin("jvm") version kotlin apply false
     id(Plugins.sqlDelight) version sqlDelight apply false
 }
 
