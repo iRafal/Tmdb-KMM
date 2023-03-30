@@ -9,6 +9,7 @@ import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.model.state.DataState
 import com.tmdb.data.model.movie.MovieDataModel
+import com.tmdb.data.source.local.contract.MovieLocalDataSource
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
@@ -27,6 +28,7 @@ import kotlin.test.assertTrue
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.test.runTest
 
 @OptIn(ExperimentalCoroutinesApi::class)
@@ -72,6 +74,62 @@ class LoadMovieSectionsReducerTest {
         ): ApiResponse<Person, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
+    }
+
+    private val movieLocalDataSource = object: MovieLocalDataSource {
+        override suspend fun movie(movieId: Int): MovieDataModel? {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun nowPlayingMovies(page: Int?, pageSize: Int?): List<MovieDataModel> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun nowPopularMovies(page: Int?, pageSize: Int?): List<MovieDataModel> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun topRatedMovies(page: Int?, pageSize: Int?): List<MovieDataModel> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun upcomingMovies(page: Int?, pageSize: Int?): List<MovieDataModel> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun insert(movie: MovieDataModel) {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun insertAll(movies: List<MovieDataModel>) {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun insertByCategories(
+            nowPlaying: List<MovieDataModel>,
+            nowPopular: List<MovieDataModel>,
+            topRatedMovies: List<MovieDataModel>,
+            upcomingMovies: List<MovieDataModel>
+        ) {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun delete(movie: MovieDataModel) {
+            TODO("Not yet implemented")
+        }
+
+        override fun observeAll(): Flow<List<MovieDataModel>> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun getAll(): List<MovieDataModel> {
+            TODO("Not yet implemented")
+        }
+
+        override suspend fun getById(id: Int): MovieDataModel? {
+            TODO("Not yet implemented")
+        }
+
     }
 
     private val testDispatcher: CoroutineDispatcher = Dispatchers.Unconfined
@@ -173,6 +231,7 @@ class LoadMovieSectionsReducerTest {
             genreSource,
             movieSource,
             personSource,
+            movieLocalDataSource,
             dispatchMethodCallCountCallback
         )
         effect?.invoke(executor)
@@ -305,6 +364,7 @@ class LoadMovieSectionsReducerTest {
             genreSource,
             movieSource,
             personSource,
+            movieLocalDataSource,
             dispatchMethodCallCountCallback
         )
         effect?.invoke(executor)
@@ -437,6 +497,7 @@ class LoadMovieSectionsReducerTest {
             genreSource,
             movieSource,
             personSource,
+            movieLocalDataSource,
             dispatchMethodCallCountCallback
         )
         effect?.invoke(executor)
@@ -567,6 +628,7 @@ class LoadMovieSectionsReducerTest {
             genreSource,
             movieSource,
             personSource,
+            movieLocalDataSource,
             dispatchMethodCallCountCallback
         )
         effect?.invoke(executor)

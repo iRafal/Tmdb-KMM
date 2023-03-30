@@ -1,6 +1,7 @@
 package com.tmdb.store.reducer.home
 
 import com.tmdb.data.model.mapping.movie.MoviesApiToDataStateMapper
+import com.tmdb.data.model.state.DataState
 import com.tmdb.store.action.home.HomeAction.MovieSectionsLoaded
 import com.tmdb.store.base.Action
 import com.tmdb.store.base.Effect
@@ -22,6 +23,17 @@ class HomeFeatureEffects(private val dispatcher: CoroutineDispatcher) {
             val topRatedMovies = async { env.network.movieSource.topRatedMovies() }.await()
             val upcomingMovies = async { env.network.movieSource.upcomingMovies() }.await()
 
+            val mappedNowPlayingMovies = mapper(nowPlayingMovies)
+            val mappedNowPopularMovies = mapper(nowPopularMovies)
+            val mappedTopRatedMovies = mapper(topRatedMovies)
+            val mappedUpcomingMovies = mapper(upcomingMovies)
+
+            env.database.movieSource.insertByCategories(
+                nowPlaying = mappedNowPlayingMovies.getDataIfSuccessOrDefault(),
+                nowPopular = mappedNowPopularMovies.getDataIfSuccessOrDefault(),
+                topRatedMovies = mappedTopRatedMovies.getDataIfSuccessOrDefault(),
+                upcomingMovies = mappedUpcomingMovies.getDataIfSuccessOrDefault(),
+            )
             MovieSectionsLoaded(
                 nowPlayingMovies = mapper(nowPlayingMovies),
                 nowPopularMovies = mapper(nowPopularMovies),
@@ -29,6 +41,10 @@ class HomeFeatureEffects(private val dispatcher: CoroutineDispatcher) {
                 upcomingMovies = mapper(upcomingMovies),
             )
         }
+    }
+
+    private fun <T> DataState<List<T>>.getDataIfSuccessOrDefault(): List<T> {
+        return if(this.isSuccess) (this as DataState.Success).data else listOf()
     }
 
     private fun mainEffect(

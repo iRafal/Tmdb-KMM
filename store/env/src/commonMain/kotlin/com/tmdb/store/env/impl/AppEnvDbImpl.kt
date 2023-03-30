@@ -1,7 +1,10 @@
 package com.tmdb.store.env.impl
 
+import com.tmdb.data.source.local.contract.MovieLocalDataSource
 import com.tmdb.store.env.contract.AppEnv.Database
 
-fun createAppDbEnvImpl(): Database = object : Database {
-    //TODO
+fun createAppDbEnvImpl(
+    movieSource: MovieLocalDataSource
+): Database = object : Database {
+    override val movieSource: MovieLocalDataSource = movieSource
 }

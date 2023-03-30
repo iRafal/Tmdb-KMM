@@ -12,6 +12,7 @@ import com.tmdb.ui.shared.SharedModule
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import logcat.AndroidLogcatLogger
+import org.koin.android.ext.koin.androidContext
 
 
 @HiltAndroidApp
@@ -28,7 +29,9 @@ class App: Application(), Configuration.Provider {
         initLogging()
         initCoil()
         initIoStrictPolicy()
-        SharedModule.start()
+        SharedModule.start {
+            androidContext(this@App)
+        }
     }
 
     private fun initLogging() {

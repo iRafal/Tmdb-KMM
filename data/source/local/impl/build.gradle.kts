@@ -12,7 +12,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "store.reducer"
+            baseName = "data.source.local.impl"
         }
     }
 
@@ -21,26 +21,20 @@ kotlin {
             dependencies {
                 implementation(libs.kotlin.coroutines.core)
                 implementation(libs.koin.core)
-                implementation(project(":store:base"))
-                implementation(project(":store:env"))
-                implementation(project(":store:action"))
-                implementation(project(":store:feature"))
-                implementation(project(":store:state"))
-                implementation(project(":data:source:remote:contract"))
+                implementation(libs.kotlinx.dateTime)
                 implementation(project(":data:source:local:contract"))
-                api(project(":data:model"))
+                implementation(project(":data:db:sqlDelight"))
                 implementation(project(":util"))
             }
         }
         val commonTest by getting {
             dependencies {
-                implementation(libs.koin.test)
-                implementation(libs.kotlin.coroutines.test)
-                implementation(libs.kotlinx.dateTime)
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependsOn(commonMain)
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -64,7 +58,7 @@ kotlin {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.store.reducer"
+    namespace = "${Versions.Android.BuildConfig.applicationId}.data.source.local.impl"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

@@ -22,6 +22,8 @@ kotlin {
                 implementation(libs.koin.core)
                 implementation(project(":data:source:remote:contract"))
                 implementation(project(":data:source:remote:impl"))
+                implementation(project(":data:source:local:contract"))
+                implementation(project(":data:source:local:impl"))
             }
         }
         val commonTest by getting {

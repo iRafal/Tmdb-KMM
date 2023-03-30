@@ -1,5 +1,6 @@
 package com.tmdb.store.reducer
 
+import com.tmdb.data.source.local.contract.MovieLocalDataSource
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
@@ -19,10 +20,13 @@ fun createMockEffectExecutor(
     genreSource: GenreRemoteDataSource,
     movieSource: MovieRemoteDataSource,
     personSource: PersonRemoteDataSource,
+    movieLocalDataSource: MovieLocalDataSource,
     dispatchMethodCallCountCallback: (Int) -> Unit
 ): EffectExecutorMock {
 
-    val database = object : AppEnv.Database {}
+    val database = object : AppEnv.Database {
+        override val movieSource: MovieLocalDataSource = movieLocalDataSource
+    }
 
     val network = object: AppEnv.Network {
         override val discoverSource: DiscoverRemoteDataSource = discoverSource

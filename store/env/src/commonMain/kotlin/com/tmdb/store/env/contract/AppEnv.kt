@@ -1,5 +1,6 @@
 package com.tmdb.store.env.contract
 
+import com.tmdb.data.source.local.contract.MovieLocalDataSource
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
@@ -17,5 +18,7 @@ interface AppEnv {
         val personSource: PersonRemoteDataSource
     }
 
-    interface Database
+    interface Database {
+        val movieSource: MovieLocalDataSource
+    }
 }

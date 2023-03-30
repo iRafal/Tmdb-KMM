@@ -5,7 +5,9 @@ import shared
 struct iOSApp: App {
 
     init() {
-        SharedModule().start()
+        SharedModule().start {
+            (additionalConfig: Koin_coreKoinApplication) -> Void in
+        }
         let sharedHomeViewModel = SharedModule().sharedHomeViewModel
     }
 

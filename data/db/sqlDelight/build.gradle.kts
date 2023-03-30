@@ -22,8 +22,8 @@ kotlin {
             dependencies {
                 implementation(libs.koin.core)
                 implementation(libs.kotlinx.dateTime)
-                implementation(libs.sqlDelight.extensions.coroutines)
-                implementation(libs.sqlDelight.primitive.adapters)
+                api(libs.sqlDelight.extensions.coroutines)
+                api(libs.sqlDelight.primitive.adapters)
                 kotlin.srcDir("sqldelight")
             }
         }
@@ -39,6 +39,7 @@ kotlin {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.sqlDelight.driver.android)
+                implementation(libs.koin.android)
             }
         }
         val androidUnitTest by getting

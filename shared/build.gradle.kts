@@ -13,6 +13,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
+            linkerOpts += "-lsqlite3" //INFO: fixes sql delight ios integration issue
         }
     }
 
