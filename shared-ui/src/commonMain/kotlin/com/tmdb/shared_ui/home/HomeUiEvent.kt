@@ -1,4 +1,4 @@
-package com.tmdb.android.ui.home
+package com.tmdb.shared_ui.home
 
 import com.tmdb.shared.home.data.HomeMovieSection
 

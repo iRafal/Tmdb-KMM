@@ -1,4 +1,4 @@
-package com.tmdb.android.ui.details
+package com.tmdb.shared_ui.details
 
 sealed interface MovieDetailsUiEvent {
     object NavigateBack : MovieDetailsUiEvent

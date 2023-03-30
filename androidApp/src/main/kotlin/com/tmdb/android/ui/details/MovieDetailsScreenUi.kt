@@ -9,6 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.tmdb.shared.details.data.MovieDetailsUiData
 import com.tmdb.android.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared_ui.details.MovieDetailsUiEvent
+import com.tmdb.shared_ui.details.MovieDetailsUiState
 
 
 @Preview(showBackground = false, showSystemUi = false)

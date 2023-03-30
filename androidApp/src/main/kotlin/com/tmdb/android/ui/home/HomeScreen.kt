@@ -5,13 +5,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.tmdb.android.ui.home.HomeUiEvent.NavigateBack
-import com.tmdb.android.ui.home.HomeUiEvent.OpenMovie
-import com.tmdb.android.ui.home.HomeUiEvent.ReloadMovieSection
+import com.tmdb.shared_ui.home.HomeUiEvent.NavigateBack
+import com.tmdb.shared_ui.home.HomeUiEvent.OpenMovie
+import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.android.ui.app.navigation.AppNavigation.Close
 import com.tmdb.android.ui.app.navigation.AppNavigation.MovieDetails
 import com.tmdb.android.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared_ui.home.HomeUiEvent
 
 @Composable
 fun HomeScreen(

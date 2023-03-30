@@ -1,4 +1,4 @@
-package com.tmdb.android.ui.details
+package com.tmdb.shared_ui.details
 
 import com.tmdb.shared.details.data.MovieDetailsUiData
 

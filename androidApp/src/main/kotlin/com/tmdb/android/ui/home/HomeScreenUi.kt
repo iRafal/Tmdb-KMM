@@ -12,8 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tmdb.android.ui.core.compose.ScrollableColumn
 import com.tmdb.android.ui.core.theme.Tmdb_TestTheme
-import com.tmdb.android.ui.home.HomeUiEvent.OpenMovie
-import com.tmdb.android.ui.home.HomeUiEvent.ReloadMovieSection
+import com.tmdb.shared_ui.home.HomeUiEvent.OpenMovie
+import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
 import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeMovieSection.NOW_PLAYING
@@ -22,6 +22,7 @@ import com.tmdb.shared.home.data.HomeMovieSection.TOP_RATED
 import com.tmdb.shared.home.data.HomeMovieSection.UPCOMING
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.home.data.HomeUiData.Movie
+import com.tmdb.shared_ui.home.HomeUiEvent
 import kotlinx.datetime.LocalDate
 
 
