@@ -68,7 +68,7 @@ kotlin {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.data.model"
+    namespace = "${Config.rootPackage}.data.model"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

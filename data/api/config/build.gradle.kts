@@ -62,7 +62,7 @@ val apiUrlBase = properties["api.url.base"].toString()
 val apiUrlImage = properties["api.url.image"].toString()
 
 buildkonfig {
-    packageName = "${Versions.Android.BuildConfig.applicationId}.data.api.config"
+    packageName = "${Config.rootPackage}.data.api.config"
     exposeObjectWithName = "DataApiConfigBuildKonfig"
     defaultConfigs {
         buildConfigField(STRING, "API_KEY", apiKey)
@@ -71,7 +71,7 @@ buildkonfig {
     }
 }
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.data.api.config"
+    namespace = "${Config.rootPackage}.data.api.config"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

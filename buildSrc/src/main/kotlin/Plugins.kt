@@ -19,4 +19,6 @@ object Plugins {
     const val sqlDelight = "app.cash.sqldelight"
 
     const val composeMultiplatrofm = "org.jetbrains.compose"
+
+    const val mokoResources = "dev.icerock.mobile.multiplatform-resources"
 }

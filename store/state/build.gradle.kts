@@ -64,7 +64,7 @@ kotlin {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.store.state"
+    namespace = "${Config.rootPackage}.store.state"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

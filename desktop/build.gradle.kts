@@ -11,7 +11,7 @@ plugins {
     id(Plugins.composeMultiplatrofm) version composeMultiplatformVersion
 }
 
-internal val packagePath = "${Versions.Android.BuildConfig.applicationId}.desktop"
+internal val packagePath = "${Config.rootPackage}.desktop"
 group = packagePath
 version = "1.0.0"
 

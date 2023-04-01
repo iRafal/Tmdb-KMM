@@ -18,15 +18,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeUiData.Movie
-import com.tmdb.shared.core.data.UiState.Loading
-import com.tmdb.shared.core.data.UiState.Error
-import com.tmdb.shared.core.data.UiState.NetworkError
-import com.tmdb.shared.core.data.UiState.Success
+import com.tmdb.shared_ui.MR
 import java.time.format.DateTimeFormatter
 import kotlinx.datetime.Clock.System
 import kotlinx.datetime.DatePeriod
@@ -158,7 +156,7 @@ fun MovieSectionList(movies: List<Movie>, onMovieClick: (movieId: Int) -> Unit) 
 fun MovieSectionLoadingStatePreview() {
     MovieSection(
         title = "Popular movies",
-        sectionState = Loading(),
+        sectionState = UiState.Loading(),
         onReloadSection = { },
         onMovieClick = { }
     )
@@ -169,7 +167,7 @@ fun MovieSectionLoadingStatePreview() {
 fun MovieSectionErrorStatePreview() {
     MovieSection(
         title = "Popular movies",
-        sectionState = Error(),
+        sectionState = UiState.Error(),
         onReloadSection = { },
         onMovieClick = { }
     )
@@ -180,7 +178,7 @@ fun MovieSectionErrorStatePreview() {
 fun MovieSectionNetworkErrorStatePreview() {
     MovieSection(
         title = "Popular movies",
-        sectionState = NetworkError(),
+        sectionState = UiState.NetworkError(),
         onReloadSection = { },
         onMovieClick = { }
     )
@@ -191,7 +189,7 @@ fun MovieSectionNetworkErrorStatePreview() {
 fun MovieSectionSuccessStatePreview() {
     MovieSection(
         title = "Popular movies",
-        sectionState = Success(moviesPreview),
+        sectionState = UiState.Success(moviesPreview),
         onReloadSection = { },
         onMovieClick = { }
     )
@@ -211,24 +209,24 @@ fun MovieSection(
 
         Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
             when (sectionState) {
-                is Loading -> {
+                is UiState.Loading -> {
                     CircularProgressIndicator()
                 }
                 is UiState.Error -> {
                     MovieSectionError(
-                        text = "Failed to load",
-                        buttonText = "Reload",
+                        text =  stringResource(MR.strings.failed_to_load.resourceId),
+                        buttonText = stringResource(MR.strings.reload.resourceId) ,
                         onReloadSection = onReloadSection
                     )
                 }
-                is NetworkError -> {
+                is UiState.NetworkError -> {
                     MovieSectionError(
-                        text = "No internet",
-                        buttonText = "Reload",
+                        text = stringResource(MR.strings.no_internet.resourceId) ,
+                        buttonText = stringResource(MR.strings.reload.resourceId) ,
                         onReloadSection = onReloadSection
                     )
                 }
-                is Success<List<Movie>> -> {
+                is UiState.Success<List<Movie>> -> {
                     MovieSectionList(sectionState.data, onMovieClick)
                 }
             }

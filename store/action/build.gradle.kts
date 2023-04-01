@@ -49,7 +49,7 @@ kotlin {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.store.action"
+    namespace = "${Config.rootPackage}.store.action"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

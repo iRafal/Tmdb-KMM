@@ -8,6 +8,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.tmdb.shared.core.data.UiState
@@ -18,6 +19,7 @@ import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.home.data.HomeUiData.Movie
+import com.tmdb.shared_ui.MR
 import com.tmdb.shared_ui.home.HomeUiEvent
 import kotlinx.datetime.LocalDate
 
@@ -218,9 +220,10 @@ fun HomeContent(
 }
 
 private val HomeMovieSection.sectionUiName: String
+    @Composable
     get() = when (this) {
-        HomeMovieSection.NOW_PLAYING -> "Now Playing"
-        HomeMovieSection.NOW_POPULAR -> "Now Popular"
-        HomeMovieSection.TOP_RATED -> "Top Rated"
-        HomeMovieSection.UPCOMING -> "Upcoming"
-    }
+        HomeMovieSection.NOW_PLAYING -> MR.strings.now_playing.resourceId
+        HomeMovieSection.NOW_POPULAR -> MR.strings.now_popular.resourceId
+        HomeMovieSection.TOP_RATED -> MR.strings.top_rated.resourceId
+        HomeMovieSection.UPCOMING -> MR.strings.upcoming.resourceId
+    }.run { stringResource(id = this) }

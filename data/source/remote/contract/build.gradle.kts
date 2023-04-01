@@ -63,7 +63,7 @@ kotlin {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.data.source.remote.contract"
+    namespace = "${Config.rootPackage}.data.source.remote.contract"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk

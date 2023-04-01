@@ -76,6 +76,9 @@ logging-kermit = "2.0.0-RC3" # https://github.com/touchlab/Kermit
 logging-android = "0.1" # https://github.com/square/logcat
 kotlinx-dateTime = "0.4.0" # https://github.com/Kotlin/kotlinx-datetim
 
+moko-resources = "0.21.1" # https://github.com/icerockdev/moko-resources
+moko-graphics = "0.9.0" # https://github.com/icerockdev/moko-resources
+
 [libraries]
 
 #PLUGINS
@@ -169,6 +172,12 @@ sqlDelight-extensions-coroutines = { module = "app.cash.sqldelight:coroutines-ex
 sqlDelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
 
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
+
+moko-plugin-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+moko-resources-test = { module = "dev.icerock.moko:resources-test", version.ref = "moko-resources" }
+moko-graphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graphics" }
 
 [bundles]
 

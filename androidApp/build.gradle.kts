@@ -6,10 +6,10 @@ plugins {
 }
 
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.android"
+    namespace = "${Config.rootPackage}.android"
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
-        applicationId = "${Versions.Android.BuildConfig.applicationId}.android"
+        applicationId = "${Config.rootPackage}.android"
         minSdk = Versions.Android.BuildConfig.minSdk
         targetSdk = Versions.Android.BuildConfig.targetSdk
         versionCode = 1

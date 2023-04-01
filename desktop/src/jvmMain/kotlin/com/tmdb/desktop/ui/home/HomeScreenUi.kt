@@ -18,7 +18,9 @@ import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.home.data.HomeUiData.Movie
+import com.tmdb.shared_ui.MR
 import com.tmdb.shared_ui.home.HomeUiEvent
+import dev.icerock.moko.resources.compose.stringResource
 import kotlinx.datetime.LocalDate
 
 
@@ -218,9 +220,10 @@ fun HomeContent(
 }
 
 private val HomeMovieSection.sectionUiName: String
+    @Composable
     get() = when (this) {
-        HomeMovieSection.NOW_PLAYING -> "Now Playing"
-        HomeMovieSection.NOW_POPULAR -> "Now Popular"
-        HomeMovieSection.TOP_RATED -> "Top Rated"
-        HomeMovieSection.UPCOMING -> "Upcoming"
-    }
+        HomeMovieSection.NOW_PLAYING -> MR.strings.now_playing
+        HomeMovieSection.NOW_POPULAR -> MR.strings.now_popular
+        HomeMovieSection.TOP_RATED -> MR.strings.top_rated
+        HomeMovieSection.UPCOMING -> MR.strings.upcoming
+    }.run { stringResource(this) }

@@ -5,6 +5,8 @@ plugins {
     @Suppress("DSL_SCOPE_VIOLATION")
     val composeMultiplatformVersion = libs.versions.compose.multiplatform.plugin
     id(Plugins.composeMultiplatrofm) version composeMultiplatformVersion
+
+    id(Plugins.mokoResources)
 }
 
 kotlin {
@@ -29,6 +31,8 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared-ui"
+            export(libs.moko.resources)
+            export(libs.moko.graphics) // toUIColor here
         }
     }
 
@@ -44,11 +48,15 @@ kotlin {
                 implementation(libs.kotlinx.dateTime)
                 api(libs.image.loader.kmm)
 //                api(libs.image.loader.kmm.extension.blur)
+
+                api(libs.moko.resources)
+                api(libs.moko.resources.compose)
             }
         }
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
+                implementation(libs.moko.resources.test)
             }
         }
         val androidMain by getting {
@@ -92,10 +100,20 @@ kotlin {
     }
 }
 
+internal val packagePath = "${Config.rootPackage}.shared_ui"
+
 android {
-    namespace = "${Versions.Android.BuildConfig.applicationId}.shared_ui"
+    namespace = packagePath
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
     }
+}
+
+multiplatformResources {
+    multiplatformResourcesPackage = packagePath
+    multiplatformResourcesClassName = "MR"
+    multiplatformResourcesVisibility = dev.icerock.gradle.MRVisibility.Public
+    iosBaseLocalizationRegion = "en"
+    multiplatformResourcesSourceSet = "commonMain"
 }

@@ -91,7 +91,7 @@ kotlin {
     }
 }
 
-internal val packageNameValue = "${Versions.Android.BuildConfig.applicationId}.data.db.sqldelight"
+internal val packageNameValue = "${Config.rootPackage}.data.db.sqldelight"
 
 android {
     namespace = packageNameValue

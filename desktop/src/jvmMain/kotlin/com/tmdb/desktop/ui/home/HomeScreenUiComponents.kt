@@ -18,8 +18,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import dev.icerock.moko.resources.compose.stringResource
 import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeUiData.Movie
+import com.tmdb.shared_ui.MR
 import com.tmdb.shared_ui.core.compose.RemoteImage
 import com.tmdb.shared_ui.utils.format
 import kotlinx.datetime.Clock.System
@@ -32,8 +34,8 @@ import kotlinx.datetime.toLocalDateTime
 @Composable
 fun MovieSectionErrorPreview() {
     MovieSectionError(
-        text = "Failed to load",
-        buttonText = "Reload",
+        text = stringResource(MR.strings.failed_to_load),
+        buttonText = stringResource(MR.strings.reload),
         onReloadSection = { }
     )
 }
@@ -57,7 +59,9 @@ fun MovieSectionError(text: String, buttonText: String, onReloadSection: () -> U
 fun MovieSectionItemPreview() {
     MovieSectionItem(
         movie = Movie(
-            id = 1, title = "Movie 1", averageVote = 70.7,
+            id = 1,
+            title = "Movie 1",
+            averageVote = 70.7,
             releaseDate = LocalDate.parse("1 Jan 2022"),
             posterUrl = null
         ),
@@ -209,15 +213,15 @@ fun MovieSection(
                 }
                 is UiState.Error -> {
                     MovieSectionError(
-                        text = "Failed to load",
-                        buttonText = "Reload",
+                        text = stringResource(MR.strings.failed_to_load),
+                        buttonText = stringResource(MR.strings.reload),
                         onReloadSection = onReloadSection
                     )
                 }
                 is UiState.NetworkError -> {
                     MovieSectionError(
-                        text = "No internet",
-                        buttonText = "Reload",
+                        text = stringResource(MR.strings.no_internet),
+                        buttonText = stringResource(MR.strings.reload),
                         onReloadSection = onReloadSection
                     )
                 }

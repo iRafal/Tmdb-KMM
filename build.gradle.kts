@@ -9,6 +9,7 @@ buildscript {
         classpath(libs.buildkonfig)
         classpath(libs.kotlin.serialization)
         classpath(libs.hilt.plugin)
+        classpath(libs.moko.plugin.resources.generator)
     }
 }
 
