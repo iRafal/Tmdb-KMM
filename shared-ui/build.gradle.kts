@@ -51,6 +51,8 @@ kotlin {
 
                 api(libs.moko.resources)
                 api(libs.moko.resources.compose)
+
+                implementation(libs.logging.kermit)
             }
         }
         val commonTest by getting {
