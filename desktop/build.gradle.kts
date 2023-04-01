@@ -30,11 +30,6 @@ kotlin {
             dependencies {
                 implementation(libs.bundles.desktop)
                 implementation(compose.desktop.currentOs)
-                implementation(compose.runtime)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.ui)
-                implementation(compose.materialIconsExtended)
                 implementation(libs.ktor.client.cio)
                 implementation(libs.ktor.client.core)
                 implementation(project(":shared-ui"))

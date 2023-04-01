@@ -40,11 +40,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(project(":shared"))
-                implementation(compose.ui)
-                implementation(compose.foundation)
-                implementation(compose.material)
-                implementation(compose.runtime)
-                implementation(compose.materialIconsExtended)
+                api(compose.ui)
+                api(compose.foundation)
+                api(compose.material)
+                api(compose.runtime)
+                api(compose.materialIconsExtended)
                 implementation(libs.kotlinx.dateTime)
                 api(libs.image.loader.kmm)
 //                api(libs.image.loader.kmm.extension.blur)
