@@ -12,6 +12,7 @@ import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.android.ui.app.navigation.AppNavigation.Close
 import com.tmdb.android.ui.app.navigation.AppNavigation.MovieDetails
 import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared_ui.home.HomeScreenUi
 import com.tmdb.shared_ui.home.HomeUiEvent
 
 @Composable

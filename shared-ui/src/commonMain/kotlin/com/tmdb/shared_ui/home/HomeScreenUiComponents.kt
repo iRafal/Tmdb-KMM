@@ -1,6 +1,5 @@
-package com.tmdb.android.ui.home
+package com.tmdb.shared_ui.home
 
-import android.R.drawable
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,32 +16,14 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeUiData.Movie
 import com.tmdb.shared_ui.MR
-import java.time.format.DateTimeFormatter
-import kotlinx.datetime.Clock.System
-import kotlinx.datetime.DatePeriod
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.minus
-import kotlinx.datetime.toJavaLocalDate
-import kotlinx.datetime.toLocalDateTime
+import com.tmdb.shared_ui.core.compose.RemoteImage
+import com.tmdb.shared_ui.utils.format
+import dev.icerock.moko.resources.compose.stringResource
 
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionErrorPreview() {
-    MovieSectionError(
-        text = "Failed to load",
-        buttonText = "Reload",
-        onReloadSection = { }
-    )
-}
 
 @Composable
 fun MovieSectionError(text: String, buttonText: String, onReloadSection: () -> Unit) {
@@ -58,19 +39,6 @@ fun MovieSectionError(text: String, buttonText: String, onReloadSection: () -> U
     }
 }
 
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionItemPreview() {
-    MovieSectionItem(
-        movie = Movie(
-            id = 1, title = "Movie 1", averageVote = 70.7,
-            releaseDate = LocalDate.parse("1 Jan 2022"),
-            posterUrl = null
-        ),
-        onMovieClick = { }
-    )
-}
-
 @Composable
 fun MovieSectionItem(
     movie: Movie,
@@ -79,14 +47,15 @@ fun MovieSectionItem(
     Column(
         modifier = Modifier.clickable { onMovieClick(movie.id) }
     ) {
-        AsyncImage(
-            model = movie.posterUrl,
+        RemoteImage(
+            imageUrl = movie.posterUrl.orEmpty(),
             modifier = Modifier
                 .size(96.dp)
                 .align(Alignment.CenterHorizontally),
-            placeholder = painterResource(drawable.ic_menu_gallery),
+            placeholder = null,
             contentDescription = null
         )
+
         Spacer(modifier = Modifier.height(8.dp))
 
         Column {
@@ -95,7 +64,7 @@ fun MovieSectionItem(
             Spacer(modifier = Modifier.height(8.dp))
 
             movie.releaseDate?.let { releaseDate ->
-                val formattedDate = DateTimeFormatter.ofPattern("d MMM yyyy").format(releaseDate.toJavaLocalDate())
+                val formattedDate = releaseDate.format("d MMM yyyy")
                 Text(text = formattedDate, style = MaterialTheme.typography.caption)
                 Spacer(modifier = Modifier.height(8.dp))
             }
@@ -103,38 +72,6 @@ fun MovieSectionItem(
             Text(text = movie.averageVote.toString(), style = MaterialTheme.typography.caption)
         }
     }
-}
-
-private val previewDateToday = System.now().toLocalDateTime(TimeZone.UTC).date
-
-private val moviesPreview = listOf(
-    Movie(
-        id = 1,
-        title = "Movie 1",
-        averageVote = 70.7,
-        releaseDate = previewDateToday,
-        posterUrl = null
-    ),
-    Movie(
-        id = 2,
-        title = "Movie 2",
-        averageVote = 20.7,
-        releaseDate = previewDateToday.minus(DatePeriod(years = 1)),
-        posterUrl = null
-    ),
-    Movie(
-        id = 3,
-        title = "Movie 3",
-        averageVote = 95.7,
-        releaseDate = previewDateToday.minus(DatePeriod(years = 2)),
-        posterUrl = null
-    )
-)
-
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionListPreview() {
-    MovieSectionList(movies = moviesPreview, onMovieClick = { })
 }
 
 @Composable
@@ -148,50 +85,6 @@ fun MovieSectionList(movies: List<Movie>, onMovieClick: (movieId: Int) -> Unit) 
                 }
             }
         }
-    )
-}
-
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionLoadingStatePreview() {
-    MovieSection(
-        title = "Popular movies",
-        sectionState = UiState.Loading(),
-        onReloadSection = { },
-        onMovieClick = { }
-    )
-}
-
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionErrorStatePreview() {
-    MovieSection(
-        title = "Popular movies",
-        sectionState = UiState.Error(),
-        onReloadSection = { },
-        onMovieClick = { }
-    )
-}
-
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionNetworkErrorStatePreview() {
-    MovieSection(
-        title = "Popular movies",
-        sectionState = UiState.NetworkError(),
-        onReloadSection = { },
-        onMovieClick = { }
-    )
-}
-
-@Preview(showBackground = true, showSystemUi = false)
-@Composable
-fun MovieSectionSuccessStatePreview() {
-    MovieSection(
-        title = "Popular movies",
-        sectionState = UiState.Success(moviesPreview),
-        onReloadSection = { },
-        onMovieClick = { }
     )
 }
 
@@ -214,15 +107,15 @@ fun MovieSection(
                 }
                 is UiState.Error -> {
                     MovieSectionError(
-                        text =  stringResource(MR.strings.failed_to_load.resourceId),
-                        buttonText = stringResource(MR.strings.reload.resourceId) ,
+                        text = stringResource(MR.strings.failed_to_load),
+                        buttonText = stringResource(MR.strings.reload),
                         onReloadSection = onReloadSection
                     )
                 }
                 is UiState.NetworkError -> {
                     MovieSectionError(
-                        text = stringResource(MR.strings.no_internet.resourceId) ,
-                        buttonText = stringResource(MR.strings.reload.resourceId) ,
+                        text = stringResource(MR.strings.no_internet),
+                        buttonText = stringResource(MR.strings.reload),
                         onReloadSection = onReloadSection
                     )
                 }

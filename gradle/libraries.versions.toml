@@ -206,11 +206,11 @@ app = [
     "compose-constraintLayout",
     "compose-navigation",
     #
-    "coil",
-    "coil-compose",
+#    "coil",
+#    "coil-compose",
     #
     "logging-android",
-    "kotlinx-dateTime",
+#    "kotlinx-dateTime",
     #
     "okHttp3-loggingInterceptor",
     #

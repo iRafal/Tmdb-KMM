@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import com.tmdb.shared.home.SharedHomeViewModel
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared_ui.home.HomeScreenUi
 import com.tmdb.shared_ui.home.HomeUiEvent
 import com.tmdb.shared_ui.home.HomeUiEvent.NavigateBack
 import com.tmdb.shared_ui.home.HomeUiEvent.OpenMovie
