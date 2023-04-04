@@ -1,4 +1,4 @@
-package com.tmdb.shared.di
+package com.tmdb.shared.di.module
 
 import com.tmdb.shared.details.SharedMovieDetailsViewModel
 import com.tmdb.shared.home.SharedHomeViewModel

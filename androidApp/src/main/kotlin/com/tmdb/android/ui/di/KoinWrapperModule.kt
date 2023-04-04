@@ -1,21 +1,19 @@
 package com.tmdb.android.ui.di
 
-import com.tmdb.shared.details.SharedMovieDetailsViewModel
-import com.tmdb.shared.di.SharedModuleDiProvider
-import com.tmdb.shared.home.SharedHomeViewModel
+import com.tmdb.shared_ui.SharedUiModule
+import com.tmdb.shared_ui.details.MovieDetailsViewModel
+import com.tmdb.shared_ui.home.HomeViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object KoinWrapperModule {
     @Provides
-    fun sharedHomeViewModel(): SharedHomeViewModel = SharedModuleDiProvider().sharedHomeViewModel
+    fun homeViewModel(): HomeViewModel = SharedUiModule.homeViewModel
 
     @Provides
-    fun sharedMovieDetailsViewModel(): SharedMovieDetailsViewModel =
-        SharedModuleDiProvider().sharedMovieDetailsViewModel
+    fun movieDetailsViewModel(): MovieDetailsViewModel = SharedUiModule.movieDetailsViewModel
 }

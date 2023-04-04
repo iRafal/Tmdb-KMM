@@ -9,6 +9,7 @@ struct iOSApp: App {
             (additionalConfig: Koin_coreKoinApplication) -> Void in
         }
         let sharedHomeViewModel = SharedModule().sharedHomeViewModel
+//        let homeViewModel = SharedUiModule().homeViewModel
     }
 
 	var body: some Scene {

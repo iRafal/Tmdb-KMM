@@ -4,14 +4,13 @@ import com.tmdb.data.db.sqldelight.MovieDb
 import com.tmdb.data.db.sqldelight.adapters.LocalDateColumnAdapter
 import com.tmdb.data.db.sqldelight.adapters.LocalDateTimeColumnAdapter
 import com.tmdb.data.db.sqldelight.di.MovieDbProvider
-import com.tmdb.data.db.sqldelight.di.driverFactoryModuleProvider
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
 const val MOVIES_DB_NAME = "movies_db_name"
 
 fun sqlDelightModule() = module {
-    includes(driverFactoryModuleProvider())
+    includes(sqlDelightDriverFactoryModule())
     single { MovieDbProvider.createDatabase(get(), get()) }
     single { LocalDateColumnAdapter() }
     single { LocalDateTimeColumnAdapter() }

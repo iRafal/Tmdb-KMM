@@ -53,6 +53,7 @@ kotlin {
                 api(libs.moko.resources.compose)
 
                 implementation(libs.logging.kermit)
+                implementation(libs.koin.core)
             }
         }
         val commonTest by getting {
@@ -69,6 +70,10 @@ kotlin {
                 api(libs.coil.compose)
                 api(libs.coil)
                 api(libs.kotlinx.dateTime)
+                implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+                implementation(libs.koin.android)
+                implementation(libs.koin.core)
             }
         }
         val androidUnitTest by getting
@@ -78,6 +83,7 @@ kotlin {
         val iosMain by creating {
             dependencies {
                 api(libs.image.loader.kmm)
+                implementation(libs.koin.core)
             }
             dependsOn(commonMain)
             iosX64Main.dependsOn(this)
@@ -98,6 +104,7 @@ kotlin {
                 implementation(libs.kotlinx.dateTime)
                 implementation(compose.uiTooling)
                 api(libs.image.loader.kmm.extension.imageio)
+                implementation(libs.koin.core)
             }
         }
         val jvmTest by getting

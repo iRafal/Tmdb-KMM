@@ -1,17 +1,27 @@
 package com.tmdb.desktop.ui.app.navigation
 
 import androidx.compose.runtime.Composable
-import com.tmdb.desktop.ui.home.HomeScreen
-import com.tmdb.shared.SharedModule
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.remember
+import com.tmdb.shared_ui.SharedUiModule
 import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
-import kotlinx.coroutines.MainScope
+import com.tmdb.shared_ui.home.HomeScreen
 
 @Composable
 fun AppNavigation() {
-    val viewModel = SharedModule.sharedHomeViewModel
-    viewModel.init(MainScope())
+    val homeViewModel = remember { SharedUiModule.homeViewModel }
 
     Tmdb_TestTheme {
-        HomeScreen(viewModel)
+        HomeScreen(
+            homeViewModel,
+            onNavigate = {
+            }
+        )
+    }
+
+    DisposableEffect(Unit) {
+        onDispose {
+            homeViewModel.dispose()
+        }
     }
 }

@@ -1,21 +1,17 @@
-package com.tmdb.android.ui.home
+package com.tmdb.shared_ui.home
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.tmdb.shared.home.SharedHomeViewModel
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.tmdb.shared_ui.core.viewModel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 
 
-@HiltViewModel
-class HomeViewModel @Inject constructor(
+class HomeViewModel(
     private val sharedHomeViewModel: SharedHomeViewModel,
-) : ViewModel() {
+) : BaseViewModel() {
     init {
-        sharedHomeViewModel.init(viewModelScope)
+        sharedHomeViewModel.init(coroutineScope)
     }
 
     val uiState: HomeUiData = sharedHomeViewModel.uiState()

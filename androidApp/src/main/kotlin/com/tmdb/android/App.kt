@@ -9,6 +9,7 @@ import coil.Coil
 import coil.ImageLoader
 import com.tmdb.android.util.logging.AndroidReleaseLogcatLogger
 import com.tmdb.shared.SharedModule
+import com.tmdb.shared_ui.SharedUiModule
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 import logcat.AndroidLogcatLogger
@@ -29,7 +30,7 @@ class App: Application(), Configuration.Provider {
         initLogging()
         initCoil()
         initIoStrictPolicy()
-        SharedModule.start {
+        SharedUiModule.start {
             androidContext(this@App)
         }
     }

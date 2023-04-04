@@ -1,21 +1,17 @@
-package com.tmdb.android.ui.details
+package com.tmdb.shared_ui.details
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.tmdb.store.state.details.MovieDetailsFeatureState
 import com.tmdb.shared.details.SharedMovieDetailsViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
-import javax.inject.Inject
+import com.tmdb.shared_ui.core.viewModel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 
 
-@HiltViewModel
-class MovieDetailsViewModel @Inject constructor(
+class MovieDetailsViewModel(
     private val sharedMovieDetailsViewModel: SharedMovieDetailsViewModel
-) : ViewModel() {
+) : BaseViewModel() {
 
     init {
-        sharedMovieDetailsViewModel.init(viewModelScope)
+        sharedMovieDetailsViewModel.init(coroutineScope)
     }
 
     val state: StateFlow<MovieDetailsFeatureState> = sharedMovieDetailsViewModel.state()

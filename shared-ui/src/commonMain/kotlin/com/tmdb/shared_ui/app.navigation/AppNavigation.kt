@@ -1,4 +1,4 @@
-package com.tmdb.android.ui.app.navigation
+package com.tmdb.shared_ui.app.navigation
 
 sealed class AppNavigation(val route: String) {
     object Home : AppNavigation("home")
