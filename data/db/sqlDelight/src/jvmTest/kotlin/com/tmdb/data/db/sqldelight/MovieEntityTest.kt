@@ -7,8 +7,8 @@ import app.cash.sqldelight.coroutines.mapToList
 import app.cash.sqldelight.db.SqlDriver
 import com.tmdb.data.db.sqldelight.di.DISPATCHER_TEST_STANDARD
 import com.tmdb.data.db.sqldelight.di.koinTestModule
+import com.tmdb.data.db.sqldelight.di.module.sqlDelightDriverFactoryModule
 import com.tmdb.data.db.sqldelight.di.module.sqlDelightModule
-import com.tmdb.data.db.sqldelight.di.module.sqlDelightJvmDbDriverModule
 import com.tmdb.data.db.sqldelight.util.ModelUtil
 import java.io.IOException
 import kotlinx.coroutines.CoroutineDispatcher
@@ -49,7 +49,7 @@ class MovieEntityTest : KoinTest {
     @Before
     fun setup() {
         startKoin {
-            modules(koinTestModule, sqlDelightJvmDbDriverModule(), sqlDelightModule())
+            modules(koinTestModule, sqlDelightDriverFactoryModule(), sqlDelightModule())
         }
         Dispatchers.setMain(dispatcher)
     }
