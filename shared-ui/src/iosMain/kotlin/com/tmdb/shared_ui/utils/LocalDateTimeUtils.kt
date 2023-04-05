@@ -12,7 +12,7 @@ import kotlinx.datetime.LocalDate
  */
 actual fun LocalDateTime.format(pattern: String): String {
     val dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = format
+    dateFormatter.dateFormat = pattern
     return dateFormatter.stringFromDate(toNSDate(NSCalendar.currentCalendar)
         ?: throw IllegalStateException("Could not convert kotlin date to NSDate $this")
     )
@@ -20,7 +20,7 @@ actual fun LocalDateTime.format(pattern: String): String {
 
 actual fun LocalDate.format(pattern: String): String {
     val dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = format
+    dateFormatter.dateFormat = pattern
     return dateFormatter.stringFromDate(toNSDate(NSCalendar.currentCalendar)
         ?: throw IllegalStateException("Could not convert kotlin date to NSDate $this")
     )
