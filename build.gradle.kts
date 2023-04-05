@@ -43,7 +43,7 @@ plugins {
  */
 
 subprojects {
-    apply(plugin = "org.jlleitschuh.gradle.ktlint") // Version should be inherited from parent
+    apply(plugin = Plugins.Kotlin.ktlint) // Version should be inherited from parent
 
     repositories {
         // Required to download KtLint

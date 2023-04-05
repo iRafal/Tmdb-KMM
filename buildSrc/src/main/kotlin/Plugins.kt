@@ -10,6 +10,7 @@ object Plugins {
         const val multiplatform = "multiplatform"
         const val android = "android"
         const val kapt = "kapt"
+        const val ktlint = "org.jlleitschuh.gradle.ktlint"
     }
 
     const val buildkonfig = "com.codingfeline.buildkonfig"
