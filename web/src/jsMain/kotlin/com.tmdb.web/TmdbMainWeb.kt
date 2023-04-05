@@ -16,7 +16,6 @@ import org.jetbrains.compose.web.renderComposable
  */
 fun main() {
     var count: Int by mutableStateOf(0)
-
     renderComposable(rootElementId = "root") {
         Div({ style { padding(25.px) } }) {
             Button(attrs = {

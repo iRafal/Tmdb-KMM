@@ -12,6 +12,19 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser {
+            testTask {
+                testLogging.showStandardStreams = true
+                useKarma {
+                    useChromeHeadless()
+                    useFirefox()
+                }
+            }
+        }
+        binaries.executable()
+    }
+
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = Versions.jvmTarget
@@ -45,6 +58,8 @@ kotlin {
             iosArm64Main.dependsOn(this)
             iosSimulatorArm64Main.dependsOn(this)
         }
+        val jsMain by getting
+        val jsTest by getting
     }
 }
 

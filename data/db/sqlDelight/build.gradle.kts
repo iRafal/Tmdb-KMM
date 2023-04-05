@@ -13,6 +13,19 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser {
+            testTask {
+                testLogging.showStandardStreams = true
+                useKarma {
+                    useChromeHeadless()
+                    useFirefox()
+                }
+            }
+        }
+        binaries.executable()
+    }
+
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = Versions.jvmTarget
@@ -86,6 +99,18 @@ kotlin {
             dependsOn(commonTest)
             dependencies {
                 implementation(libs.sqlDelight.driver.jvm)
+            }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(libs.sqlDelight.driver.js)
+                implementation("org.jetbrains.kotlinx:kotlinx-html-js:0.8.0")
+                implementation(npm("sql.js", "1.6.2"))
+                implementation(devNpm("copy-webpack-plugin", "9.1.0"))
+            }
+        }
+        val jsTest by getting {
+            dependencies {
             }
         }
     }

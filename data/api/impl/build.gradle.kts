@@ -12,6 +12,19 @@ kotlin {
         }
     }
 
+    js(IR) {
+        browser {
+            testTask {
+                testLogging.showStandardStreams = true
+                useKarma {
+                    useChromeHeadless()
+                    useFirefox()
+                }
+            }
+        }
+        binaries.executable()
+    }
+
     jvm {
         compilations.all {
             kotlinOptions.jvmTarget = Versions.jvmTarget
@@ -77,6 +90,8 @@ kotlin {
                 implementation(libs.ktor.client.cio)
             }
         }
+        val jsMain by getting
+        val jsTest by getting
     }
 }
 
