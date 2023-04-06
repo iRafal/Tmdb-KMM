@@ -22,3 +22,6 @@ The app topic is a Movie. App is a clone of The Movie Data Base (TMDB) service m
 - Extend Api layer with new api calls
 - Finalize architecture
 - Try to add more tools to the project (ktlint, githab actions, and other which will be useful to try or to use)
+
+## Useful links
+https://blog.jetbrains.com/kotlin/2021/07/multiplatform-gradle-plugin-improved-for-connecting-kmm-modules/

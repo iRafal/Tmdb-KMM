@@ -3,7 +3,11 @@ import shared
 
 struct ContentView: View {
 	var body: some View {
-		Text("Hi")
+        NavigationView {
+            VStack {
+                HomeView()
+            }
+        }
 	}
 }
 

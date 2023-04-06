@@ -1,8 +1,8 @@
 package com.tmdb.android.ui.di
 
 import com.tmdb.shared_ui.SharedUiModule
-import com.tmdb.shared_ui.details.MovieDetailsViewModel
-import com.tmdb.shared_ui.home.HomeViewModel
+import com.tmdb.shared.details.MovieDetailsViewModel
+import com.tmdb.shared.home.HomeViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

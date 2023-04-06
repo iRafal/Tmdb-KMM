@@ -1,6 +1,7 @@
 package com.tmdb.shared_ui.details
 
 import androidx.compose.runtime.Composable
+import com.tmdb.shared.details.MovieDetailsViewModel
 import com.tmdb.shared_ui.app.navigation.AppNavigation.Close
 import com.tmdb.shared_ui.core.theme.Tmdb_TestTheme
 import com.tmdb.shared_ui.details.MovieDetailsUiEvent.NavigateBack

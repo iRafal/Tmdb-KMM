@@ -3,6 +3,7 @@ package com.tmdb.shared_ui.home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import com.tmdb.shared.home.HomeViewModel
 import com.tmdb.shared_ui.home.HomeUiEvent.NavigateBack
 import com.tmdb.shared_ui.home.HomeUiEvent.OpenMovie
 import com.tmdb.shared_ui.home.HomeUiEvent.ReloadMovieSection
