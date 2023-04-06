@@ -28,7 +28,7 @@ struct MovieSectionItemView: View {
                 Spacer(minLength: 8)
                 
                 if let releaseDate = movie.releaseDate {
-//                    Text(releaseDate.format(pattern: "d MMM yyyy"))
+                    Text(releaseDate.format(pattern: "d MMM yyyy"))
                     Spacer(minLength: 8)
                 }
 
