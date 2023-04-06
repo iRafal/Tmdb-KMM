@@ -58,7 +58,12 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val androidMain by getting
+        val androidMain by getting {
+            dependencies {
+                api(libs.kotlinx.dateTime)
+                implementation(libs.androidx.lifecycle.viewmodel.ktx)
+            }
+        }
         val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
@@ -80,7 +85,11 @@ kotlin {
         }
         val jvmMain by getting
         val jvmTest by getting
-        val jsMain by getting
+        val jsMain by getting {
+            dependencies {
+                implementation(npm("@js-joda/timezone", "2.3.0"))
+            }
+        }
         val jsTest by getting
     }
 }

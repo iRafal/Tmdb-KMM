@@ -1,4 +1,4 @@
-package com.tmdb.shared_ui.core.viewModel
+package com.tmdb.shared.core.viewModel
 
 import kotlinx.coroutines.CoroutineScope
 

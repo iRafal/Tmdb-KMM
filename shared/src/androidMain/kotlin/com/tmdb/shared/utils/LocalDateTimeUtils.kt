@@ -1,4 +1,4 @@
-package com.tmdb.shared_ui.utils
+package com.tmdb.shared.utils
 
 import java.time.format.DateTimeFormatter
 import kotlinx.datetime.LocalDate

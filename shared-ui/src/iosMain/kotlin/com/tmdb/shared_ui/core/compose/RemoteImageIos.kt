@@ -20,7 +20,8 @@ internal actual fun RemoteImageInternal(
     CompositionLocalProvider(
         LocalImageLoader provides LocalImageLoader.current,
     ) {
-        val resource = rememberAsyncImagePainter(url = imageUrl)
+        val resource =
+            rememberAsyncImagePainter(url = imageUrl, imageLoader = LocalImageLoader.current)
         Image(
             painter = resource,
             contentScale = contentScale,

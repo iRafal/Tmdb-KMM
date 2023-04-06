@@ -3,7 +3,7 @@ package com.tmdb.shared_ui.home
 import com.tmdb.shared.home.SharedHomeViewModel
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
-import com.tmdb.shared_ui.core.viewModel.BaseViewModel
+import com.tmdb.shared.core.viewModel.BaseViewModel
 import kotlinx.coroutines.flow.StateFlow
 
 

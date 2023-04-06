@@ -21,7 +21,7 @@ import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeUiData.Movie
 import com.tmdb.shared_ui.MR
 import com.tmdb.shared_ui.core.compose.RemoteImage
-import com.tmdb.shared_ui.utils.format
+import com.tmdb.shared.utils.format
 import dev.icerock.moko.resources.compose.stringResource
 
 

@@ -33,6 +33,7 @@ kotlin {
             baseName = "shared-ui"
             export(libs.moko.resources)
             export(libs.moko.graphics) // toUIColor here
+            linkerOpts += "-lsqlite3" //INFO: fixes sql delight ios integration issue
         }
     }
 
