@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import com.seiko.imageloader.LocalImageLoader
-import com.seiko.imageloader.rememberAsyncImagePainter
+import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 internal actual fun RemoteImageInternal(
@@ -21,7 +21,7 @@ internal actual fun RemoteImageInternal(
         LocalImageLoader provides LocalImageLoader.current,
     ) {
         val resource =
-            rememberAsyncImagePainter(url = imageUrl, imageLoader = LocalImageLoader.current)
+            rememberImagePainter(url = imageUrl, imageLoader = LocalImageLoader.current)
         Image(
             painter = resource,
             contentScale = contentScale,

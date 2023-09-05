@@ -14,14 +14,23 @@ android {
         targetSdk = Versions.Android.BuildConfig.targetSdk
         versionCode = 1
         versionName = "1.0.0"
+
+        compileOptions {
+            sourceCompatibility = Versions.jvmTarget
+            targetCompatibility = Versions.jvmTarget
+        }
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlin.compiler.extension.get()
     }
-    packagingOptions {
+    kotlinOptions {
+        jvmTarget = Versions.jvmTargetAsString
+    }
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }

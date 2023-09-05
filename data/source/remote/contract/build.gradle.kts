@@ -4,30 +4,15 @@ plugins {
 }
 
 kotlin {
-    android {
+    androidTarget {
         compilations.all {
-            kotlinOptions {
-                jvmTarget = Versions.jvmTarget
-            }
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
-    }
-
-    js(IR) {
-        browser {
-            testTask {
-                testLogging.showStandardStreams = true
-                useKarma {
-                    useChromeHeadless()
-                    useFirefox()
-                }
-            }
-        }
-        binaries.executable()
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTarget
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
     }
     
@@ -72,8 +57,6 @@ kotlin {
             iosArm64Test.dependsOn(this)
             iosSimulatorArm64Test.dependsOn(this)
         }
-        val jsMain by getting
-        val jsTest by getting
     }
 }
 
@@ -82,5 +65,9 @@ android {
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
+        compileOptions {
+            sourceCompatibility = Versions.jvmTarget
+            targetCompatibility = Versions.jvmTarget
+        }
     }
 }

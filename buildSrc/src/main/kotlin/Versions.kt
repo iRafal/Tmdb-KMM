@@ -3,9 +3,9 @@ import org.gradle.api.JavaVersion
 object Versions {
     object Android {
         object BuildConfig {
-            const val compileSdk = 33
+            const val compileSdk = 34
             const val minSdk = 26
-            const val targetSdk = 33
+            const val targetSdk = compileSdk
 
             const val applicationId = "com.tmdb"
 
@@ -17,5 +17,6 @@ object Versions {
         }
     }
 
-    val jvmTarget = JavaVersion.VERSION_11.toString()
+    val jvmTarget = JavaVersion.VERSION_17
+    val jvmTargetAsString = jvmTarget.toString()
 }

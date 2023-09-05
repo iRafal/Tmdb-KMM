@@ -10,17 +10,15 @@ plugins {
 }
 
 kotlin {
-    android {
+    androidTarget {
         compilations.all {
-            kotlinOptions {
-                jvmTarget = Versions.jvmTarget
-            }
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTarget
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
     }
     
@@ -65,6 +63,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
+                dependsOn(commonMain)
                 implementation(libs.compose.runtime)
                 implementation(libs.compose.ui)
                 implementation(libs.compose.ui.preview)
@@ -83,6 +82,7 @@ kotlin {
         val iosSimulatorArm64Main by getting
         val iosMain by creating {
             dependencies {
+                dependsOn(commonMain)
                 api(libs.image.loader.kmm)
                 implementation(libs.koin.core)
             }
@@ -102,6 +102,7 @@ kotlin {
         }
         val jvmMain by getting {
             dependencies {
+                dependsOn(commonMain)
                 implementation(libs.kotlinx.dateTime)
                 implementation(compose.uiTooling)
                 api(libs.image.loader.kmm.extension.imageio)
@@ -119,6 +120,10 @@ android {
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
+        compileOptions {
+            sourceCompatibility = Versions.jvmTarget
+            targetCompatibility = Versions.jvmTarget
+        }
     }
 }
 

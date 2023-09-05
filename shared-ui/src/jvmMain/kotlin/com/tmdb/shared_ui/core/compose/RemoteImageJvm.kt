@@ -1,11 +1,11 @@
 package com.tmdb.shared_ui.core.compose
 
+import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.foundation.Image
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import com.seiko.imageloader.rememberAsyncImagePainter
+import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 internal actual fun RemoteImageInternal(
@@ -15,7 +15,7 @@ internal actual fun RemoteImageInternal(
     placeholder: Painter?,
     contentDescription: String?
 ) {
-    val painter = rememberAsyncImagePainter(url = imageUrl)
+    val painter = rememberImagePainter(url = imageUrl)
     Image(
         painter = painter,
         contentDescription = contentDescription,

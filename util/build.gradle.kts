@@ -4,30 +4,15 @@ plugins {
 }
 
 kotlin {
-    android {
+    androidTarget {
         compilations.all {
-            kotlinOptions {
-                jvmTarget = Versions.jvmTarget
-            }
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
-    }
-
-    js(IR) {
-        browser {
-            testTask {
-                testLogging.showStandardStreams = true
-                useKarma {
-                    useChromeHeadless()
-                    useFirefox()
-                }
-            }
-        }
-        binaries.executable()
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTarget
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
     }
     
@@ -78,14 +63,6 @@ kotlin {
                 implementation(libs.kotlin.coroutines.core)
             }
         }
-        val jsMain by getting {
-            dependencies {
-            }
-        }
-        val jsTest by getting {
-            dependencies {
-            }
-        }
     }
 }
 
@@ -94,5 +71,9 @@ android {
     compileSdk = Versions.Android.BuildConfig.compileSdk
     defaultConfig {
         minSdk = Versions.Android.BuildConfig.minSdk
+        compileOptions {
+            sourceCompatibility = Versions.jvmTarget
+            targetCompatibility = Versions.jvmTarget
+        }
     }
 }

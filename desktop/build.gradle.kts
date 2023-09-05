@@ -19,7 +19,7 @@ kotlin {
     jvm {
         withJava()
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTarget
+            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
         }
     }
 

@@ -73,7 +73,6 @@ subprojects {
     }
 }
 
-// Commented, due to fail to do a gradle sync for a `web` module
-//tasks.register("clean", Delete::class) {
-//    delete(rootProject.buildDir)
-//}
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
+}
