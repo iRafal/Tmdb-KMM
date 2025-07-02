@@ -6,11 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 
 @Composable
-fun Navigation(navController: NavHostController = rememberNavController(), onClose: () -> Unit) {
+fun Navigation(navController: NavHostController = rememberNavController()) {
     NavHost(
         navController = navController,
         startDestination = AppNavigation.Home.route,
     ) {
-        this.appNavigationGraph(navController, onClose)
+        this.appNavigationGraph(navController)
     }
 }

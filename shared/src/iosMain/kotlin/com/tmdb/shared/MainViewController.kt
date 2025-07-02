@@ -6,5 +6,5 @@ import com.tmdb.shared.app.ComposeApp
 fun MainViewController(
     onDarkTheme: (isDarkTheme: Boolean?) -> Unit,
 ) = ComposeUIViewController {
-    ComposeApp {  }
+    ComposeApp()
 }

@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 class MovieDetailsViewModel(
+    private val movieId: String,
     private val store: AppStore,
 ) : ViewModel() {
 

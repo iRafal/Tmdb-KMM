@@ -14,6 +14,6 @@ fun MainWindow(applicationScope: ApplicationScope) {
         title = "Tmdb Desktop",
         state = windowState
     ) {
-        ComposeApp { }
+        ComposeApp()
     }
 }

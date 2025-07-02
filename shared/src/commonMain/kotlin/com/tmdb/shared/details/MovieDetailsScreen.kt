@@ -1,24 +1,24 @@
 package com.tmdb.shared.details
 
 import androidx.compose.runtime.Composable
-import com.tmdb.kmm.shared.ui.core.theme.Tmdb_TestTheme
-import com.tmdb.shared.app.navigation.AppNavigation
+import androidx.navigation.NavController
 import org.koin.compose.viewmodel.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun MovieDetailsScreen(
+    navController: NavController,
     movieId: Int,
-    movieDetailsViewModel: MovieDetailsViewModel = koinViewModel<MovieDetailsViewModel>(),
-    onNavigate: (route: String) -> Unit
+    viewModel: MovieDetailsViewModel = koinViewModel<MovieDetailsViewModel>(
+        parameters = { parametersOf(movieId) },
+    ),
 ) {
-    Tmdb_TestTheme {
-        val state = MovieDetailsUiState.Loading
+    val state = MovieDetailsUiState.Loading
 //        val state by movieDetailsViewModel.state.collectAsState(MovieDetailsState.Idle)
-        val onEvent: (MovieDetailsUiEvent) -> Unit = { event ->
-            when (event) {
-                MovieDetailsUiEvent.NavigateBack -> onNavigate(AppNavigation.Close.route)
-            }
+    val onEvent: (MovieDetailsUiEvent) -> Unit = { event ->
+        when (event) {
+            MovieDetailsUiEvent.NavigateBack -> navController.popBackStack()
         }
-        MovieDetailsScreenUi(state, onEvent)
     }
+    MovieDetailsScreenUi(state, onEvent)
 }

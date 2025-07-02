@@ -18,5 +18,5 @@ fun sharedModule() = module {
             dispatcherIo = get(named(DISPATCHER_IO)),
         )
     }
-    factory { MovieDetailsViewModel(get()) }
+    factory { (movieId: String) ->MovieDetailsViewModel(movieId, get()) }
 }

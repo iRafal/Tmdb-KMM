@@ -6,24 +6,15 @@ import androidx.navigation.compose.composable
 import com.tmdb.shared.details.MovieDetailsScreen
 import com.tmdb.shared.home.HomeScreen
 
-fun NavGraphBuilder.appNavigationGraph(
-    navController: NavController,
-    onClose: () -> Unit,
-) {
+fun NavGraphBuilder.appNavigationGraph(navController: NavController) {
     composable(AppNavigation.Home.route) {
-        HomeScreen(onNavigate = { route -> navController.navigate(route) })
+        HomeScreen(navController = navController)
     }
     composable(
         route = AppNavigation.MovieDetails.route,
         arguments = AppNavigation.MovieDetails.arguments,
     ) { backStackEntry ->
         val movieId = checkNotNull(backStackEntry.savedStateHandle.get<String>(ARG_MOVIE_ID)?.toInt())
-        MovieDetailsScreen(
-            movieId,
-            onNavigate = { route -> navController.navigate(route) },
-        )
-    }
-    composable(AppNavigation.Close.route) {
-        onClose()
+        MovieDetailsScreen(navController, movieId)
     }
 }
