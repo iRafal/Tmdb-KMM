@@ -28,7 +28,6 @@ kotlin {
         binaries.framework {
             baseName = xcfName
             export("com.squareup.sqldelight:runtime")
-//            linkerOpts("-lsqlite3")
         }
     }
 
@@ -36,7 +35,6 @@ kotlin {
         binaries.framework {
             baseName = xcfName
             export("com.squareup.sqldelight:runtime")
-//            linkerOpts("-lsqlite3")
         }
     }
 
@@ -44,7 +42,6 @@ kotlin {
         binaries.framework {
             baseName = xcfName
             export("com.squareup.sqldelight:runtime")
-//            linkerOpts("-lsqlite3")
         }
     }
 
