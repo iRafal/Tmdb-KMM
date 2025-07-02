@@ -21,9 +21,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -48,12 +46,10 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(projects.store.base)
-                api(projects.data.model)
-            }
+        commonMain.dependencies {
+            implementation(libs.kotlin.stdlib)
+            implementation(projects.store.base)
+            api(projects.data.model)
         }
     }
 }

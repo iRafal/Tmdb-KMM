@@ -15,13 +15,11 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
-    
+
     val xcfName = "data.source.local.impl.kit"
     iosX64 {
         binaries.framework {
@@ -42,20 +40,16 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.koin.core)
-                implementation(libs.kotlinx.dateTime)
-                implementation(projects.data.source.local.contract)
-                implementation(projects.data.db.sqlDelight)
-                implementation(projects.util)
-            }
+        commonMain.dependencies {
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.koin.core)
+            implementation(libs.kotlinx.dateTime)
+            implementation(projects.data.source.local.contract)
+            implementation(projects.data.db.sqlDelight)
+            implementation(projects.util)
         }
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
     }
 }

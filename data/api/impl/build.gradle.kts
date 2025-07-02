@@ -15,9 +15,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -42,46 +40,36 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(libs.koin.core)
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.kotlin.serialization.json)
+        commonMain.dependencies {
+            implementation(libs.kotlin.stdlib)
+            implementation(libs.koin.core)
+            implementation(libs.kotlin.coroutines.core)
+            implementation(libs.kotlin.serialization.json)
 
-                implementation(libs.ktor.client.core)
-                implementation(libs.ktor.client.serialization)
-                implementation(libs.ktor.client.content.negotiation)
-                implementation(libs.ktor.client.logging)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.serialization)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.client.logging)
 
-                implementation(libs.logging.kermit)
+            implementation(libs.logging.kermit)
 
-                implementation(projects.data.api.config)
-                implementation(projects.data.api.model)
-            }
+            implementation(projects.data.api.config)
+            implementation(projects.data.api.model)
         }
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-                implementation(libs.koin.test)
-                implementation(libs.kotlin.coroutines.test)
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.koin.test)
+            implementation(libs.kotlin.coroutines.test)
         }
-        androidMain {
-            dependencies {
-                implementation(libs.ktor.client.android)
-                implementation(libs.ktor.client.okhttp)
-            }
+        androidMain.dependencies {
+            implementation(libs.ktor.client.android)
+            implementation(libs.ktor.client.okhttp)
         }
-        jvmMain {
-            dependencies {
-                implementation(libs.ktor.client.cio)
-            }
+        jvmMain.dependencies {
+            implementation(libs.ktor.client.cio)
         }
-        iosMain {
-            dependencies {
-                implementation(libs.ktor.client.darwin)
-            }
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
 }

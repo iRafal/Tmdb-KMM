@@ -16,9 +16,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -39,10 +37,8 @@ kotlin {
                 implementation(libs.ktor.client.core)
             }
         }
-        jvmTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
+        jvmTest.dependencies {
+            implementation(libs.kotlin.test)
         }
     }
 }

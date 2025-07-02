@@ -18,9 +18,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -60,34 +58,24 @@ kotlin {
                 kotlin.srcDir("sqldelight")
             }
         }
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-                implementation(libs.kotlin.coroutines.test)
-                implementation(libs.kotlinx.dateTime)
-                implementation(libs.koin.test)
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.coroutines.test)
+            implementation(libs.kotlinx.dateTime)
+            implementation(libs.koin.test)
         }
-        androidMain {
-            dependencies {
-                implementation(libs.sqlDelight.driver.android)
-                implementation(libs.koin.android)
-            }
+        androidMain.dependencies {
+            implementation(libs.sqlDelight.driver.android)
+            implementation(libs.koin.android)
         }
-        iosMain {
-            dependencies {
-                implementation(libs.sqlDelight.driver.native)
-            }
+        iosMain.dependencies {
+            implementation(libs.sqlDelight.driver.native)
         }
-        jvmMain {
-            dependencies {
-                implementation(libs.sqlDelight.driver.jvm)
-            }
+        jvmMain.dependencies {
+            implementation(libs.sqlDelight.driver.jvm)
         }
-        jvmTest {
-            dependencies {
-                implementation(libs.sqlDelight.driver.jvm)
-            }
+        jvmTest.dependencies {
+            implementation(libs.sqlDelight.driver.jvm)
         }
     }
 }

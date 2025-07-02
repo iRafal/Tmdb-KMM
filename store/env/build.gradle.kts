@@ -21,9 +21,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -48,17 +46,15 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(libs.koin.core)
-                implementation(libs.kotlin.coroutines.core)
+        commonMain.dependencies {
+            implementation(libs.kotlin.stdlib)
+            implementation(libs.koin.core)
+            implementation(libs.kotlin.coroutines.core)
 
-                implementation(projects.data.source.remote.contract)
-                implementation(projects.data.source.remote.impl)
-                implementation(projects.data.source.local.contract)
-                implementation(projects.data.source.local.impl)
-            }
+            implementation(projects.data.source.remote.contract)
+            implementation(projects.data.source.remote.impl)
+            implementation(projects.data.source.local.contract)
+            implementation(projects.data.source.local.impl)
         }
     }
 }

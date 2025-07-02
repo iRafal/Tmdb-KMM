@@ -24,9 +24,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(JvmTarget.JVM_11)
-                }
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
             }
         }
     }
@@ -51,42 +49,30 @@ kotlin {
     }
 
     sourceSets {
-        commonMain {
-            dependencies {
-                implementation(libs.kotlin.stdlib)
-                implementation(libs.koin.core)
-                implementation(libs.kotlin.coroutines.core)
-            }
+        commonMain.dependencies {
+            implementation(libs.kotlin.stdlib)
+            implementation(libs.koin.core)
+            implementation(libs.kotlin.coroutines.core)
         }
 
-        commonTest {
-            dependencies {
-                implementation(libs.kotlin.test)
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
         }
 
-        androidMain {
-            dependencies {
-            }
+        androidMain.dependencies {
         }
 
-        getByName("androidDeviceTest") {
-            dependencies {
-                implementation(libs.androidx.runner)
-                implementation(libs.androidx.core)
-                implementation(libs.kotlin.test)
-            }
+        getByName("androidDeviceTest").dependencies {
+            implementation(libs.androidx.runner)
+            implementation(libs.androidx.core)
+            implementation(libs.kotlin.test)
         }
 
-        iosMain {
-            dependencies {
-            }
+        iosMain.dependencies {
         }
 
-        jvmMain {
-            dependencies {
-                implementation(libs.kotlin.coroutines.swing)
-            }
+        jvmMain.dependencies {
+            implementation(libs.kotlin.coroutines.swing)
         }
     }
 }
