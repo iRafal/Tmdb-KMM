@@ -1,5 +1,5 @@
-package com.tmdb_test.api.config.url.provider.person
+package com.tmdb.data.api.config.url.provider.person
 
-interface PersonUrlProvider {
+fun interface PersonUrlProvider {
     fun personDetailsUrl(personId: Int): String
 }

@@ -1,47 +1,42 @@
 package com.tmdb.shared.home
 
-import com.tmdb.shared.core.data.UiState
-import com.tmdb.shared.core.viewModel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
-import com.tmdb.shared.home.data.ios.HomeUiDataIos
+import com.tmdb.shared.home.data.mapping.HomeFeatureToUiStateMapper
+import com.tmdb.shared.home.data.mapping.HomeMovieSectionToActionMapper
+import com.tmdb.store.action.home.HomeAction
+import com.tmdb.store.app.AppStore
+import com.tmdb.store.feature.home.HomeFeature
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-
+import kotlinx.coroutines.flow.stateIn
 
 class HomeViewModel(
-    private val sharedHomeViewModel: SharedHomeViewModel,
-) : BaseViewModel() {
+    private val store: AppStore,
+    private val homeFeatureToUiStateMapper: HomeFeatureToUiStateMapper,
+    private val homeMovieSectionToActionMapper: HomeMovieSectionToActionMapper,
+    dispatcherIo: CoroutineDispatcher,
+) : ViewModel() {
     init {
-        sharedHomeViewModel.init(coroutineScope)
+        with(store) {
+            setFeatureScope(HomeFeature, viewModelScope)
+            dispatch(HomeAction.LoadMovieSections)
+        }
     }
 
-    val uiState: HomeUiData = sharedHomeViewModel.uiState()
+    val uiStateFlow: StateFlow<HomeUiData> = store.stateFlow
+        .map { appState -> homeFeatureToUiStateMapper(appState.homeState) }
+        .flowOn(dispatcherIo)
+        .stateIn(viewModelScope, SharingStarted.Eagerly, HomeUiData.INITIAL)
 
-    val uiStateFlow: StateFlow<HomeUiData> = sharedHomeViewModel.uiStateFlow()
+    val uiState: HomeUiData = uiStateFlow.value
 
-    fun observeUiStateIos(onChange: (List<HomeUiDataIos>) -> Unit) {
-        uiStateFlow
-            .map { data ->
-                data.movieSections.map { section ->
-                    when (val sectionState = section.value) {
-                        is UiState.Error -> HomeUiDataIos.error(section.key)
-                        is UiState.NetworkError -> HomeUiDataIos.networkError(section.key)
-                        is UiState.Loading -> HomeUiDataIos.loading(section.key)
-                        is UiState.Success -> HomeUiDataIos.success(section.key, sectionState.data)
-                    }
-                }
-            }.onEach {
-                onChange(it)
-            }.launchIn(coroutineScope)
-    }
-
-    val onReloadMovieSection: (HomeMovieSection) -> Unit = sharedHomeViewModel.onReloadMovieSection
-
-    override fun onCleared() {
-        super.onCleared()
-        sharedHomeViewModel.onClear()
+    val onReloadMovieSection: (HomeMovieSection) -> Unit = { movieSection ->
+        store.dispatch(homeMovieSectionToActionMapper(movieSection))
     }
 }

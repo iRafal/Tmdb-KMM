@@ -1,8 +1,8 @@
 package com.tmdb.store.reducer
 
 import com.tmdb.data.api.model.util.ApiException
-import com.tmdb.data.model.state.DataState
 import com.tmdb.data.model.movie.MovieDataModel
+import com.tmdb.data.model.state.DataState
 import com.tmdb.store.action.home.HomeAction
 import com.tmdb.store.base.Effects
 import com.tmdb.store.env.contract.AppEnv
@@ -10,18 +10,16 @@ import com.tmdb.store.reducer.home.HomeFeatureEffects
 import com.tmdb.store.reducer.home.HomeFeatureSlice
 import com.tmdb.store.reducer.home.HomeFeatureSliceImpl
 import com.tmdb.store.reducer.util.ModelUtil
-import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.FeatureState
+import com.tmdb.store.state.app.AppState
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class MovieSectionsLoadedReducerTest {
 
     private val testDispatcher: CoroutineDispatcher = Dispatchers.Unconfined

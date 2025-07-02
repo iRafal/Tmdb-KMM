@@ -16,7 +16,7 @@ actual fun LocalDateTime.format(pattern: String): String {
     val date = NSCalendar.currentCalendar.dateFromComponents(toNSDateComponents())
         ?: throw IllegalStateException("Could not convert kotlin date to NSDate $this")
     return NSDateFormatter().apply {
-        dateFormat = NSDateFormatter.dateFormatFromTemplate(pattern, 0, NSLocale.currentLocale)!!
+        dateFormat = NSDateFormatter.dateFormatFromTemplate(pattern, 0u, NSLocale.currentLocale)!!
     }.stringFromDate(date)
 }
 
@@ -24,6 +24,6 @@ actual fun LocalDate.format(pattern: String): String {
     val date = NSCalendar.currentCalendar.dateFromComponents(toNSDateComponents())
         ?: throw IllegalStateException("Could not convert kotlin date to NSDate $this")
     return NSDateFormatter().apply {
-        dateFormat = NSDateFormatter.dateFormatFromTemplate(pattern, 0, NSLocale.currentLocale)!!
+        dateFormat = NSDateFormatter.dateFormatFromTemplate(pattern, 0u, NSLocale.currentLocale)!!
     }.stringFromDate(date)
 }

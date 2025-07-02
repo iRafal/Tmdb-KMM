@@ -7,8 +7,8 @@ import com.tmdb.data.api.model.person.Person
 import com.tmdb.data.api.model.util.ApiException
 import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
-import com.tmdb.data.model.state.DataState
 import com.tmdb.data.model.movie.MovieDataModel
+import com.tmdb.data.model.state.DataState
 import com.tmdb.data.source.local.contract.MovieLocalDataSource
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
@@ -19,19 +19,17 @@ import com.tmdb.store.reducer.home.HomeFeatureEffects
 import com.tmdb.store.reducer.home.HomeFeatureSlice
 import com.tmdb.store.reducer.home.HomeFeatureSliceImpl
 import com.tmdb.store.reducer.util.ModelUtil
-import com.tmdb.store.state.app.AppState
 import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.FeatureState.Success
+import com.tmdb.store.state.app.AppState
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.test.runTest
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class LoadMovieSectionsReducerTest {
 
     private val discoverSource = object: DiscoverRemoteDataSource {

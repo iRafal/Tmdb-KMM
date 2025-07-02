@@ -3,7 +3,6 @@ package com.tmdb.store.state.app
 import com.tmdb.store.state.details.MovieDetailsFeatureState
 import com.tmdb.store.state.home.HomeFeatureState
 
-
 data class AppState(
     val homeState: HomeFeatureState,
     val movieDetailsState: MovieDetailsFeatureState

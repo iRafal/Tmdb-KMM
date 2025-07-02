@@ -2,11 +2,10 @@ package com.tmdb.data.api.model.person
 
 import com.tmdb.data.api.model.di.UnitTestServiceLocator
 import com.tmdb.data.api.model.util.ModelUtil
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.decodeFromString
 
 @OptIn(ExperimentalSerializationApi::class)
 class PersonJsonParsingTest {

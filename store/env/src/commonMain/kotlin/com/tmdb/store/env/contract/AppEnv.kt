@@ -10,7 +10,6 @@ interface AppEnv {
     val network: Network
     val database: Database
 
-
     interface Network {
         val discoverSource: DiscoverRemoteDataSource
         val genreSource: GenreRemoteDataSource

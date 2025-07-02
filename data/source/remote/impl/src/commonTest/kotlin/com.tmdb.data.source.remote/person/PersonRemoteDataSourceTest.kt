@@ -16,7 +16,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.kodein.mock.Mocker
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @ExperimentalCoroutinesApi
 class PersonRemoteDataSourceTest {
     private val personId = 287

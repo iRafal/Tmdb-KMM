@@ -2,24 +2,20 @@ package com.tmdb.data.source.remote.person
 
 import com.tmdb.data.api.impl.person.MockPersonApi
 import com.tmdb.data.api.impl.person.PersonApi
-import com.tmdb.data.api.model.person.Person
 import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.ApiResponse.Success
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.person.PersonRemoteDataSource
 import com.tmdb.data.source.remote.impl.person.PersonRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertSame
-import kotlin.test.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.kodein.mock.Mocker
 import org.kodein.mock.UsesMocks
-import org.kodein.mock.tests.TestsWithMocks
+import kotlin.test.Test
+import kotlin.test.assertSame
+import kotlin.test.assertTrue
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @ExperimentalCoroutinesApi
 @UsesMocks(PersonApi::class)
 class PersonRemoteDataSourceMockLibraryTest {

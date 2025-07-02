@@ -9,15 +9,13 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.impl.discover.DiscoverRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
-import kotlin.test.Test
-import kotlin.test.assertSame
-import kotlin.test.assertTrue
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.kodein.mock.Mocker
 import org.kodein.mock.UsesMocks
+import kotlin.test.Test
+import kotlin.test.assertSame
+import kotlin.test.assertTrue
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @UsesMocks(DiscoverApi::class)
 class DiscoverRemoteDataSourceMockLibraryTest {
     @Test

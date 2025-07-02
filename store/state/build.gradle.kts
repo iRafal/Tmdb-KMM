@@ -1,74 +1,72 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin(Plugins.Kotlin.multiplatform)
-    id(Plugins.Android.library)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.android.library)
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+    androidLibrary {
+        namespace = "${GradleConfig.Android.namespace}.store.state"
+        compileSdk = GradleConfig.Android.compileSdk
+        minSdk = GradleConfig.Android.minSdk
+
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }.configure {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_11)
+                }
+            }
         }
     }
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "store.state"
+
+    val xcfName = "store.env.kit"
+    iosX64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosArm64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosSimulatorArm64 {
+        binaries.framework {
+            baseName = xcfName
         }
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
+                implementation(libs.kotlin.stdlib)
                 implementation(libs.koin.core)
-                api(project(":data:model"))
+                implementation(libs.kotlin.coroutines.core)
+                api(projects.data.model)
             }
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-        val androidMain by getting
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
-        }
-    }
-}
 
-android {
-    namespace = "${Config.rootPackage}.store.state"
-    compileSdk = Versions.Android.BuildConfig.compileSdk
-    defaultConfig {
-        minSdk = Versions.Android.BuildConfig.minSdk
-        compileOptions {
-            sourceCompatibility = Versions.jvmTarget
-            targetCompatibility = Versions.jvmTarget
+        commonTest {
+            dependencies {
+                implementation(libs.kotlin.test)
+            }
+        }
+
+        jvmMain {
+            dependencies {
+                implementation(libs.kotlin.coroutines.core)
+            }
         }
     }
 }

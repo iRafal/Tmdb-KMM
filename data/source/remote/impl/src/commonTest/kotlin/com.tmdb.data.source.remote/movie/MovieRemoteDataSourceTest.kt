@@ -8,14 +8,12 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
 import com.tmdb.data.source.remote.impl.movie.MovieRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class MovieRemoteDataSourceTest {
     private open class MovieApiMockAdapter: MovieApi {
         override suspend fun movie(

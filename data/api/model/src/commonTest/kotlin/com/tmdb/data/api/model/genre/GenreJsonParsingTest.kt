@@ -1,11 +1,10 @@
 package com.tmdb.data.api.model.genre
 
 import com.tmdb.data.api.model.di.UnitTestServiceLocator
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.decodeFromString
 
 
 @OptIn(ExperimentalSerializationApi::class)

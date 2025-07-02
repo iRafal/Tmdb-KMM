@@ -2,7 +2,6 @@ package com.tmdb.data.api.config.url.provider.base
 
 import com.tmdb.data.api.config.DataApiConfigBuildKonfig
 
-
 class BaseUrlProviderImpl : BaseUrlProvider {
     override val discoverApiUrl: String = DataApiConfigBuildKonfig.API_BASE_URL
     override val genreApiUrl: String = DataApiConfigBuildKonfig.API_BASE_URL

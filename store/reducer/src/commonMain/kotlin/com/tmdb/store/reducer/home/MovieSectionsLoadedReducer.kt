@@ -7,7 +7,6 @@ import com.tmdb.store.env.contract.AppEnv
 import com.tmdb.store.state.home.HomeFeatureState
 import com.tmdb.store.state.home.MoviesDataToFeatureStateMapper
 
-
 fun HomeFeatureState.reduceMovieSectionsLoaded(
     action: HomeAction.MovieSectionsLoaded,
     mapper: MoviesDataToFeatureStateMapper

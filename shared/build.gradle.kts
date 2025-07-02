@@ -1,21 +1,37 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin(Plugins.Kotlin.multiplatform)
-    id(Plugins.Android.library)
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.compose.multiplatform.hot.reload)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
+    val jvm = JvmTarget.JVM_11
+
     androidTarget {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(jvm)
+                }
+            }
         }
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(jvm)
+                }
+            }
         }
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -23,64 +39,73 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            linkerOpts += "-lsqlite3" //INFO: fixes sql delight ios integration issue
+            isStatic = true
         }
     }
 
     sourceSets {
-        val commonMain by getting {
-            dependencies {
-                api(project(":store:app"))
-                api(project(":util"))
-                implementation(libs.kotlin.coroutines.core)
-                implementation(libs.koin.core)
-                implementation(libs.kotlinx.dateTime)
-                implementation(libs.logging.kermit)
-            }
+        commonMain.dependencies {
+            api(projects.store.app)
+            api(projects.util)
+
+            implementation(libs.logging.kermit)
+            api(libs.kotlin.coroutines.core)
+            api(libs.koin.core)
+            api(libs.koin.compose)
+            api(libs.koin.compose.viewModel)
+            api(libs.kotlinx.dateTime)
+
+            api(compose.foundation)
+            api(compose.material3)
+            api(compose.materialIconsExtended)
+            api(compose.components.resources)
+            api(compose.components.uiToolingPreview)
+            api(compose.runtime)
+            api(libs.multiplatform.androidx.lifecycle.viewmodel)
+            api(libs.multiplatform.androidx.lifecycle.runtime.compose)
+            api(libs.compose.navigation.multiplatform)
+
+            api(libs.coil)
+            api(libs.coil.compose)
+            api(libs.coil.network)
+            api(libs.coil.svg)
+
+            api(libs.moko.resources)
+            api(libs.moko.resources.compose)
         }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.moko.resources.test)
         }
-        val androidMain by getting {
-            dependencies {
-                api(libs.kotlinx.dateTime)
-                implementation(libs.androidx.lifecycle.viewmodel.ktx)
-            }
+        androidMain.dependencies {
+            api(compose.preview)
+
+            api(libs.koin.android)
+            api(libs.koin.android.compose)
+            api(libs.koin.android.worker)
+
+            api(libs.compose.ui.tooling)
+            api(libs.androidx.activity.compose)
         }
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+
+        iosMain.dependencies {
         }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
+
+        jvmMain.dependencies {
+            api(compose.uiTooling)
+            api(libs.kotlin.coroutines.swing)
         }
-        val jvmMain by getting
-        val jvmTest by getting
     }
 }
 
 android {
-    namespace = "${Config.rootPackage}.shared"
-    compileSdk = Versions.Android.BuildConfig.compileSdk
+    namespace = "${GradleConfig.Android.namespace}.shared"
+    compileSdk = GradleConfig.Android.compileSdk
     defaultConfig {
-        minSdk = Versions.Android.BuildConfig.minSdk
-        compileOptions {
-            sourceCompatibility = Versions.jvmTarget
-            targetCompatibility = Versions.jvmTarget
-        }
+        minSdk = GradleConfig.Android.minSdk
+    }
+    compileOptions {
+        sourceCompatibility = GradleConfig.javaVersion
+        targetCompatibility = GradleConfig.javaVersion
     }
 }

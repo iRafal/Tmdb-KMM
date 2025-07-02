@@ -1,91 +1,87 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
-    kotlin(Plugins.Kotlin.multiplatform)
-    id(Plugins.Android.library)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.android.library)
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
-        }
+    androidLibrary {
+        namespace = "${GradleConfig.Android.namespace}.api.impl"
+        compileSdk = GradleConfig.Android.compileSdk
+        minSdk = GradleConfig.Android.minSdk
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_11)
+                }
+            }
         }
     }
 
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "data.api.impl"
+    val xcfName = "api.impl.kit"
+    iosX64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosArm64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosSimulatorArm64 {
+        binaries.framework {
+            baseName = xcfName
         }
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
-                implementation(libs.bundles.data.api.impl.commonMain)
-                implementation(project(":data:api:config"))
-                implementation(project(":data:api:model"))
+                implementation(libs.kotlin.stdlib)
+                implementation(libs.koin.core)
+                implementation(libs.kotlin.coroutines.core)
+                implementation(libs.kotlin.serialization.json)
+
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.serialization)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.client.logging)
+
+                implementation(libs.logging.kermit)
+
+                implementation(projects.data.api.config)
+                implementation(projects.data.api.model)
             }
         }
-        val commonTest by getting {
+        commonTest {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotlin.test)
                 implementation(libs.koin.test)
                 implementation(libs.kotlin.coroutines.test)
             }
         }
-        val androidMain by getting {
+        androidMain {
             dependencies {
                 implementation(libs.ktor.client.android)
                 implementation(libs.ktor.client.okhttp)
             }
         }
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
-            dependencies {
-                implementation(libs.ktor.client.darwin)
-                implementation(libs.ktor.client.ios)
-            }
-        }
-        val iosX64Test by getting
-        val iosArm64Test by getting
-        val iosSimulatorArm64Test by getting
-        val iosTest by creating {
-            dependsOn(commonTest)
-            iosX64Test.dependsOn(this)
-            iosArm64Test.dependsOn(this)
-            iosSimulatorArm64Test.dependsOn(this)
-        }
-        val jvmMain by getting {
+        jvmMain {
             dependencies {
                 implementation(libs.ktor.client.cio)
             }
         }
-    }
-}
-
-android {
-    namespace = "${Config.rootPackage}.data.api.impl"
-    compileSdk = Versions.Android.BuildConfig.compileSdk
-    defaultConfig {
-        minSdk = Versions.Android.BuildConfig.minSdk
-        compileOptions {
-            sourceCompatibility = Versions.jvmTarget
-            targetCompatibility = Versions.jvmTarget
+        iosMain {
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
         }
     }
 }

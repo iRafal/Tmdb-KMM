@@ -1,0 +1,53 @@
+# https://editorconfig.org
+# https://github.com/pinterest/ktlint/blob/master/.editorconfig
+# https://pinterest.github.io/ktlint/0.49.1/rules/configuration-ktlint/
+root = true
+
+[*]
+max_line_length = 120
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{java,kt,kts,scala,rs,xml,kt.spec,kts.spec}]
+indent_size = 4
+
+[*.{kt,kts}]
+ktlint_standard = enabled
+ktlint_standard_final-newline = enabled
+ktlint_standard_import-ordering = true
+ktlint_standard_indent = true
+ktlint_standard_expression-body=function
+ktlint_function_body_expression_single_return=enabled
+
+ktlint_code_style = android_studio
+ktlint_ignore_back_ticked_identifier = true
+ktlint_experimental = enabled
+
+ktlint_function_signature_body_expression_wrapping=default
+ktlint_function_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than=1
+ktlint_function_body_expression_single_return=enabled
+ktlint_standard_parameter-list-wrapping=always
+
+ktlint_custom-rule-set_custom-rule = disabled # Disables the `custom-rule` rule in the `custom-rule-set` rule set (not provided by KtLint)
+ij_kotlin_packages_to_use_import_on_demand = unset # Don't allow any wildcard imports
+ij_kotlin_name_count_to_use_star_import = 99 # Prevent wildcard imports
+ij_kotlin_name_count_to_use_star_import_for_members = 99 # Prevent wildcard imports
+
+[*.kt]
+ij_kotlin_allow_trailing_comma_on_call_site = true
+ij_kotlin_allow_trailing_comma = true
+
+[*.kts]
+ij_kotlin_allow_trailing_comma_on_call_site = false
+ij_kotlin_allow_trailing_comma = false
+
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = unset
+
+[*.yml]
+ij_yaml_spaces_within_brackets = false

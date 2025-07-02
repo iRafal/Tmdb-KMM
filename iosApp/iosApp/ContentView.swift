@@ -1,18 +1,26 @@
 import SwiftUI
 import shared
 
-struct ContentView: View {
-	var body: some View {
-        NavigationView {
-            VStack {
-                HomeView()
-            }
-        }
-	}
+struct ComposeView: UIViewControllerRepresentable {
+  @Binding var isDarkTheme: Bool?
+  func makeUIViewController(context: Context) -> UIViewController {
+    let viewController = MainViewControllerKt.MainViewController {  isDarkTheme in
+    }
+    return viewController
+  }
+
+  func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+struct ContentView: View {
+  @State private var isDarkTheme: Bool? = nil
+
+  var body: some View {
+    ComposeView(isDarkTheme: $isDarkTheme)
+        .preferredColorScheme(
+          isDarkTheme == nil ? nil : (isDarkTheme! ? .dark : .light)
+        )
+        .ignoresSafeArea(edges: .all)
+        .ignoresSafeArea(.keyboard)
+  }
 }

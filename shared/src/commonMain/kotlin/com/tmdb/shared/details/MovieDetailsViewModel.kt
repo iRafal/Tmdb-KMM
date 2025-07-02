@@ -1,22 +1,30 @@
 package com.tmdb.shared.details
 
-import com.tmdb.shared.core.viewModel.BaseViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.tmdb.store.app.AppStore
+import com.tmdb.store.feature.details.MovieDetailsFeature
 import com.tmdb.store.state.details.MovieDetailsFeatureState
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 
 class MovieDetailsViewModel(
-    private val sharedMovieDetailsViewModel: SharedMovieDetailsViewModel
-) : BaseViewModel() {
+    private val store: AppStore,
+) : ViewModel() {
 
     init {
-        sharedMovieDetailsViewModel.init(coroutineScope)
+        with(store) {
+            setFeatureScope(MovieDetailsFeature, viewModelScope)
+        }
     }
 
-    val state: StateFlow<MovieDetailsFeatureState> = sharedMovieDetailsViewModel.state()
-
-    override fun onCleared() {
-        super.onCleared()
-        sharedMovieDetailsViewModel.onClear()
-    }
+    val stateFlow: StateFlow<MovieDetailsFeatureState> = store.stateFlow
+        .map { it.movieDetailsState }
+        .stateIn(
+            viewModelScope,
+            SharingStarted.Eagerly,
+            MovieDetailsFeatureState.INITIAL,
+        )
 }

@@ -12,7 +12,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 
-
 class HomeFeatureEffects(private val dispatcher: CoroutineDispatcher) {
     fun loadMovieSections(
         mapper: MoviesApiToDataStateMapper

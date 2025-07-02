@@ -6,15 +6,13 @@ import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.impl.genre.GenreRemoteDataSourceImpl
+import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
 
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class GenreRemoteDataSourceTest {
     private open class GenreApiMockAdapter : GenreApi {
         override suspend fun genreMovieList(

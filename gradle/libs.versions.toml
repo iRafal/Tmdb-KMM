@@ -1,0 +1,227 @@
+[versions]
+#region BUILD TOOLS
+# https://developer.android.com/studio/releases/gradle-plugin
+# https://developer.android.com/build/releases/past-releases
+gradle = "8.11.0"
+#endregion BUILD TOOLS
+
+#region KOTLIN
+#https://kotlinlang.org/docs/jvm-test-using-junit.html#add-the-code-to-test-it
+#https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
+kotlin-test = "2.1.20" # Update together with marked dependencies
+kotlin = "2.1.20" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
+kotlin-coroutines = "1.10.2" # https://github.com/kotlin/kotlinx.coroutines
+kotlin-serialization-json = "1.8.1" # https://github.com/Kotlin/kotlinx.serialization
+# https://github.com/google/ksp/releases
+# https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin?repo=central
+ksp = "2.1.20-2.0.1"
+#endregion KOTLIN
+
+#region ANDROIDX-MULTIPLATFORM
+multiplatform-androidx-lifecycle = "2.9.1"
+#endregion ANDROIDX-MULTIPLATFORM
+
+#region ANDROIDX
+androidx-core = "1.16.0" # https://developer.android.com/jetpack/androidx/releases/core
+androidx-splashscreen = "1.1.0-rc01" # https://mvnrepository.com/artifact/androidx.core/core-splashscreen?repo=google
+androidx-lifecycle = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-compose = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-work = "2.10.2" # https://developer.android.com/jetpack/androidx/releases/work
+androidx-window-core = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/window
+androidx-material3-window-size = "1.3.2" # https://developer.android.com/jetpack/androidx/releases/compose-material3
+androidx-metrics = "1.0.0-beta02" # https://developer.android.com/jetpack/androidx/releases/metrics
+androidx-media3 = "1.7.1" # //https://developer.android.com/jetpack/androidx/releases/media3
+androidx-biometrics = "1.1.0" # https://mvnrepository.com/artifact/androidx.biometric/biometric
+androidx-biometrics-ktx = "1.4.0-alpha02" # https://mvnrepository.com/artifact/androidx.biometric/biometric-ktx
+androidx-credentials = "1.5.0" # https://mvnrepository.com/artifact/androidx.credentials/credentials
+androidx-credentials-play-auth = "1.5.0" # https://mvnrepository.com/artifact/androidx.credentials/credentials-play-services-auth
+#endregion ANDROIDX
+
+#region UI
+coil = "3.2.0" # https://github.com/coil-kt/coil
+material-components-android = "1.12.0" # https://github.com/material-components/material-components-android
+#endregion UI
+
+#region COMPOSE
+compose = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-ui
+compose-multiplatform = "1.8.2"
+compose-multiplatform-hot-reload = "1.0.0-beta03"
+
+compose-material3 = "1.3.2"
+
+compose-animation = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-animation
+compose-foundation = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-foundation
+compose-material = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-material
+compose-runtime = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-runtime
+compose-ui = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-ui
+
+compose-activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
+compose-navigation = "2.9.0" # https://developer.android.com/jetpack/androidx/releases/navigation
+compose-navigation-multiplatform = "2.9.0-beta03" # https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
+
+# https://developer.android.com/jetpack/compose/layouts/constraintlayout
+# https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout-compose?repo=google
+compose-constraintLayout = "1.1.1"
+
+accompanist = "0.37.3" # https://github.com/google/accompanist
+#endregion COMPOSE
+
+#region STORAGE
+sqlDelight = "2.1.0" # https://github.com/cashapp/sqldelight
+#endregion STORAGE
+
+#region NETWORK
+ktor = "3.1.3" # https://github.com/ktorio/ktor
+#endregion NETWORK
+
+#region TEST
+runner = "1.6.2"
+junit = "1.2.1"
+#endregion TEST
+
+#region TOOLS
+leakcanary = "2.14" # https://square.github.io/leakcanary/getting_started/
+logging-logcat = "0.2.3" # https://github.com/square/logcat
+logging-kermit = "2.0.6" # https://github.com/touchlab/Kermit
+kotlinx-dateTime = "0.7.0" # https://github.com/Kotlin/kotlinx-datetime
+kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
+buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
+mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
+
+# https://github.com/icerockdev/moko-resources
+# https://mvnrepository.com/artifact/dev.icerock.moko
+moko-resources = "0.24.5"
+
+# https://mvnrepository.com/artifact/dev.icerock.moko
+# https://mvnrepository.com/artifact/dev.icerock.moko/graphics
+moko-graphics = "0.10.1"
+
+# https://github.com/jlleitschuh/ktlint-gradle
+ktlint = "12.3.0"
+
+# https://detekt.dev/docs/intro
+# https://github.com/detekt/detekt
+detekt = "1.23.8"
+#endregion TOOLS
+
+#region DI
+# https://github.com/InsertKoinIO/koin/tags
+# https://insert-koin.io/docs/reference/koin-mp/kmp
+koin = "4.1.0"
+core = "1.6.1"
+#endregion DI
+
+[libraries]
+
+#region Kotlin
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib", version.ref = "kotlin" }
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlin-serialization-json" }
+kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
+#endregion Kotlin
+
+#region ANDROIDX-MULTIPLATFORM
+multiplatform-androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "multiplatform-androidx-lifecycle" }
+multiplatform-androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "multiplatform-androidx-lifecycle" }
+#endregion ANDROIDX-MULTIPLATFORM
+
+#region ANDROIDX
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
+androidx-window-core = { group = "androidx.window", name = "window-core", version.ref = "androidx-window-core" }
+androidx-material3-window-size = { group = "androidx.compose.material3", name = "material3-window-size-class", version.ref = "androidx-material3-window-size" }
+androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "androidx-splashscreen" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work" }
+androidx-lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle-compose" }
+androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidx-metrics" }
+androidx-media3-exoplayer = { group = "androidx.media3", name = "media3-exoplayer", version.ref = "androidx-media3" }
+androidx-media3-ui = { group = "androidx.media3", name = "media3-ui", version.ref = "androidx-media3" }
+androidx-biometrics = { group = "androidx.biometric", name = "biometric", version.ref = "androidx-biometrics" }
+androidx-biometrics-ktx = { group = "androidx.biometric", name = "biometric-ktx", version.ref = "androidx-biometrics-ktx" }
+androidx-credentials = { group = "androidx.credentials", name = "credentials", version.ref = "androidx-credentials" }
+androidx-credentials-play-auth = { group = "androidx.credentials", name = "credentials-play-services-auth", version.ref = "androidx-credentials-play-auth" }
+#endregion ANDROIDX
+
+#region UI
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-network = { module = "io.coil-kt.coil3:coil-network-ktor3", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coil" }
+#endregion UI
+
+#region COMPOSE
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+compose-navigation-multiplatform = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "compose-navigation-multiplatform" }
+#endregion COMPOSE
+
+#region NETWORK
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-ios = { module = "io.ktor:ktor-client-ios", version.ref = "ktor" }
+
+ktor-client-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+#endregion NETWORK
+
+#region STORAGE
+sqlDelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "sqlDelight" }
+sqlDelight-driver-js = { module = "app.cash.sqldelight:sqljs-driver", version.ref = "sqlDelight" }
+sqlDelight-extensions-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
+sqlDelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
+#endregion STORAGE
+
+#region TOOLS
+leakCanary-debug = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
+logging-logcat = { module = "com.squareup.logcat:logcat", version.ref = "logging-logcat" }
+logging-kermit = { module = "co.touchlab:kermit", version.ref = "logging-kermit" }
+kotlinx-dateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-dateTime" }
+kotlinx-collections-immutable = { group = "org.jetbrains.kotlinx", name = "kotlinx-collections-immutable", version.ref = "kotlinx-collections-immutable" }
+buildKonfig = { group = "com.codingfeline.buildkonfig", name = "buildkonfig-gradle-plugin", version.ref = "buildKonfig" }
+
+moko-plugin-resources-generator = { module = "dev.icerock.moko:resources-generator", version.ref = "moko-resources" }
+moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko-resources" }
+moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
+moko-resources-test = { module = "dev.icerock.moko:resources-test", version.ref = "moko-resources" }
+moko-graphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graphics" }
+#endregion TOOLS
+
+#region DI
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin" }
+koin-compose-viewModel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin" }
+koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-android-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+koin-android-worker = { module = "io.insert-koin:koin-androidx-workmanager", version.ref = "koin" }
+#endregion DI
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
+compose-multiplatform-hot-reload = { id = "org.jetbrains.compose.hot-reload", version.ref = "compose-multiplatform-hot-reload" }
+
+buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
+
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
+kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "gradle" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

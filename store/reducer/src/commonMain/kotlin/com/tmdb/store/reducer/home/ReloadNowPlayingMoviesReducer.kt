@@ -7,7 +7,6 @@ import com.tmdb.store.env.contract.AppEnv
 import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.home.HomeFeatureState
 
-
 fun HomeFeatureState.reduceReloadNowPlayingMovies(
     action: HomeAction.ReloadNowPlayingMovies
 ) : Pair<HomeFeatureState, Effect<AppEnv>?> {

@@ -5,7 +5,6 @@ import com.tmdb.data.api.model.movie.Movie
 import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 
-
 interface DiscoverApi {
 
     suspend fun discoverMovie(

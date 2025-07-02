@@ -1,56 +1,73 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 
 plugins {
-    kotlin(Plugins.Kotlin.multiplatform)
-    id(Plugins.Android.library)
-    id(Plugins.buildkonfig)
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.kotlin.multiplatform.android.library)
+    id(GradleConfig.Plugins.BUILD_KONFIG)
 }
 
 kotlin {
-    androidTarget {
-        compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+    androidLibrary {
+        namespace = "${GradleConfig.Android.namespace}.data.api.config"
+        compileSdk = GradleConfig.Android.compileSdk
+        minSdk = GradleConfig.Android.minSdk
+
+        withDeviceTestBuilder {
+            sourceSetTreeName = "test"
+        }.configure {
+            instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         }
     }
 
     jvm {
         compilations.all {
-            kotlinOptions.jvmTarget = Versions.jvmTargetAsString
+            compileTaskProvider.configure {
+                compilerOptions {
+                    jvmTarget.set(JvmTarget.JVM_11)
+                }
+            }
         }
     }
-    
-    listOf(
-        iosX64(),
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach {
-        it.binaries.framework {
-            baseName = "data.api.config"
+
+    val xcfName = "data.api.config.kit"
+    iosX64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosArm64 {
+        binaries.framework {
+            baseName = xcfName
+        }
+    }
+
+    iosSimulatorArm64 {
+        binaries.framework {
+            baseName = xcfName
         }
     }
 
     sourceSets {
-        val commonMain by getting {
+        commonMain {
             dependencies {
+                implementation(libs.kotlin.stdlib)
                 implementation(libs.koin.core)
             }
         }
-        val commonTest by getting {
+
+        commonTest {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(libs.kotlin.test)
                 implementation(libs.koin.test)
             }
         }
-        val androidMain by getting
-        val androidUnitTest by getting
-        val iosX64Main by getting
-        val iosArm64Main by getting
-        val iosSimulatorArm64Main by getting
-        val iosMain by creating {
-            dependsOn(commonMain)
-            iosX64Main.dependsOn(this)
-            iosArm64Main.dependsOn(this)
-            iosSimulatorArm64Main.dependsOn(this)
+
+        jvmMain {
+            dependencies {
+                implementation(libs.kotlin.coroutines.core)
+            }
         }
     }
 }
@@ -60,22 +77,11 @@ val apiUrlBase = properties["api.url.base"].toString()
 val apiUrlImage = properties["api.url.image"].toString()
 
 buildkonfig {
-    packageName = "${Config.rootPackage}.data.api.config"
+    packageName = "${GradleConfig.Android.namespace}.data.api.config"
     exposeObjectWithName = "DataApiConfigBuildKonfig"
     defaultConfigs {
         buildConfigField(STRING, "API_KEY", apiKey)
         buildConfigField(STRING, "API_BASE_URL", apiUrlBase)
         buildConfigField(STRING, "API_IMAGE_URL", apiUrlImage)
-    }
-}
-android {
-    namespace = "${Config.rootPackage}.data.api.config"
-    compileSdk = Versions.Android.BuildConfig.compileSdk
-    defaultConfig {
-        minSdk = Versions.Android.BuildConfig.minSdk
-        compileOptions {
-            sourceCompatibility = Versions.jvmTarget
-            targetCompatibility = Versions.jvmTarget
-        }
     }
 }

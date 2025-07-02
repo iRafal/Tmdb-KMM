@@ -9,9 +9,8 @@ import com.tmdb.data.api.config.url.provider.genre.GenreUrlProviderImpl
 import com.tmdb.data.api.config.url.provider.movie.MovieUrlProvider
 import com.tmdb.data.api.config.url.provider.movie.MovieUrlProviderImpl
 import com.tmdb.data.api.config.url.provider.person.PersonUrlProviderImpl
-import com.tmdb_test.api.config.url.provider.person.PersonUrlProvider
+import com.tmdb.data.api.config.url.provider.person.PersonUrlProvider
 import org.koin.dsl.module
-
 
 fun apiUrlProviderModule() = module {
     includes(baseUrlProviderModule())
