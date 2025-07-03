@@ -108,7 +108,6 @@ detekt = "1.23.8"
 # https://github.com/InsertKoinIO/koin/tags
 # https://insert-koin.io/docs/reference/koin-mp/kmp
 koin = "4.1.0"
-core = "1.6.1"
 #endregion DI
 
 [libraries]
