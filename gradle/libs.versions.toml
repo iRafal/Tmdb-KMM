@@ -90,7 +90,7 @@ mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
 
 # https://github.com/icerockdev/moko-resources
 # https://mvnrepository.com/artifact/dev.icerock.moko
-moko-resources = "0.24.5"
+moko-resources = "0.25.0"
 
 # https://mvnrepository.com/artifact/dev.icerock.moko
 # https://mvnrepository.com/artifact/dev.icerock.moko/graphics
