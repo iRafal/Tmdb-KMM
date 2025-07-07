@@ -23,7 +23,7 @@ fun sharedModule() = module {
         )
     }
     factory { (movieId: String) -> MovieDetailsViewModel(movieId, get()) }
-    factory { (permissionHandler: PermissionHandler) -> TestViewModel(permissionHandler) }
+    factory { (permissionHandler: PermissionHandler) -> TestViewModel(permissionHandler, get()) }
     factory<PermissionHandler> { (permissionsController: AppPermissionsController) ->
         PermissionHandlerImpl(permissionsController)
     }

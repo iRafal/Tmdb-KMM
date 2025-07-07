@@ -47,6 +47,7 @@ kotlin {
         commonMain.dependencies {
             api(projects.store.app)
             api(projects.util)
+            api(projects.data.db.dataStore)
 
             implementation(libs.logging.kermit)
             api(libs.kotlin.coroutines.core)

@@ -68,6 +68,8 @@ accompanist = "0.37.3" # https://github.com/google/accompanist
 
 #region STORAGE
 sqlDelight = "2.1.0" # https://github.com/cashapp/sqldelight
+data-store = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
+data-store-preferences = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
 #endregion STORAGE
 
 #region NETWORK
@@ -183,6 +185,9 @@ sqlDelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
 sqlDelight-driver-js = { module = "app.cash.sqldelight:sqljs-driver", version.ref = "sqlDelight" }
 sqlDelight-extensions-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqlDelight" }
 sqlDelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "sqlDelight" }
+
+data-store = { module = "androidx.datastore:datastore", version.ref = "data-store" }
+data-store-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "data-store-preferences" }
 #endregion STORAGE
 
 #region TOOLS

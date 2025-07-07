@@ -1,5 +1,6 @@
 package com.tmdb.shared
 
+import com.tmdb.data.db.dataStore.di.module.preferencesStoreModule
 import com.tmdb.shared.di.module.sharedModule
 import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
@@ -12,7 +13,7 @@ import kotlin.native.ObjCName
 object AppModule : KoinComponent {
     fun start(appDeclaration: KoinAppDeclaration = {}) = startKoin {
         appDeclaration()
-        modules(sharedModule())
+        modules(sharedModule(), preferencesStoreModule())
     }
 
     fun startIos() {
