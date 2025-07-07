@@ -9,10 +9,8 @@ import androidx.navigation.NavController
 import com.tmdb.shared.app.navigation.AppNavigation
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.utils.permission.PermissionHandlerImpl
-import dev.icerock.moko.permissions.PermissionsController
-import dev.icerock.moko.permissions.compose.BindEffect
-import dev.icerock.moko.permissions.compose.PermissionsControllerFactory
-import dev.icerock.moko.permissions.compose.rememberPermissionsControllerFactory
+import com.tmdb.shared.utils.permission.common.AppPermissionsController
+import com.tmdb.shared.utils.permission.rememberPermissionsControllerWithBind
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -21,15 +19,13 @@ fun HomeScreen(
     homeViewModel: HomeViewModel = koinViewModel<HomeViewModel>(),
     navController: NavController,
 ) {
-    val factory: PermissionsControllerFactory = rememberPermissionsControllerFactory()
-    val permissionsController: PermissionsController = remember(factory) { factory.createPermissionsController() }
+    val permissionsController: AppPermissionsController = rememberPermissionsControllerWithBind()
     val permissionHandler = remember(permissionsController) {
         PermissionHandlerImpl(permissionsController)
     }
     val testViewModel: TestViewModel = koinViewModel<TestViewModel> {
         parametersOf(permissionHandler)
     }
-    BindEffect(permissionsController)
 
     LaunchedEffect(Unit) {
         testViewModel.requestPermissions()

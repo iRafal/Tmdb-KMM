@@ -1,11 +1,8 @@
 package com.tmdb.shared.utils.permission
 
-import dev.icerock.moko.permissions.Permission
-import dev.icerock.moko.permissions.PermissionState
-import dev.icerock.moko.permissions.PermissionsController
-import dev.icerock.moko.permissions.location.COARSE_LOCATION
-import dev.icerock.moko.permissions.location.LOCATION
-import dev.icerock.moko.permissions.microphone.RECORD_AUDIO
+import com.tmdb.shared.utils.permission.common.AppPermissionsController
+import com.tmdb.shared.utils.permission.common.Permission
+import com.tmdb.shared.utils.permission.common.PermissionState
 
 interface PermissionHandler {
     fun openSettingsApp()
@@ -15,19 +12,7 @@ interface PermissionHandler {
     suspend fun requestPermission(vararg permission: AppPermission)
 }
 
-//expect class AppPermissionsController {
-//    suspend fun getPermissionState(
-//        permission: AppPermissionsControllerPermission,
-//    ): AppPermissionsControllerPermissionState
-//
-//    suspend fun providePermission(permission: AppPermissionsControllerPermission)
-//    fun openAppSettings()
-//}
-//
-//expect class AppPermissionsControllerPermission
-//expect class AppPermissionsControllerPermissionState
-
-class PermissionHandlerImpl(private val permissionsController: PermissionsController) : PermissionHandler {
+class PermissionHandlerImpl(private val permissionsController: AppPermissionsController) : PermissionHandler {
     override fun openSettingsApp() {
         permissionsController.openAppSettings()
     }
@@ -57,9 +42,9 @@ class PermissionHandlerImpl(private val permissionsController: PermissionsContro
 
     private fun mapPermissionType(permission: AppPermission): Permission {
         return when (permission) {
-            AppPermission.Location.Approximate -> Permission.COARSE_LOCATION
-            AppPermission.Location.Fine -> Permission.LOCATION
-            AppPermission.RecordAudio -> Permission.RECORD_AUDIO
+            AppPermission.Location.Approximate -> Permission.CoarseLocation
+            AppPermission.Location.Fine -> Permission.Location
+            AppPermission.RecordAudio -> Permission.RecordAudio
         }
     }
 
@@ -73,6 +58,8 @@ class PermissionHandlerImpl(private val permissionsController: PermissionsContro
                 -> PermissionRequestResult.NOT_GRANTED
 
             PermissionState.DeniedAlways -> PermissionRequestResult.DENIED_ALWAYS
+
+            else -> PermissionRequestResult.NOT_GRANTED
         }
     }
 }

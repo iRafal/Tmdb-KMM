@@ -72,10 +72,6 @@ kotlin {
 
             api(libs.moko.resources)
             api(libs.moko.resources.compose)
-            api(libs.moko.permissions)
-            api(libs.moko.permissions.compose)
-            api(libs.moko.permissions.location)
-            api(libs.moko.permissions.microphone)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -91,17 +87,17 @@ kotlin {
             api(libs.compose.ui.tooling)
             api(libs.androidx.activity.compose)
 
-//            api(libs.moko.permissions)
-//            api(libs.moko.permissions.compose)
-//            api(libs.moko.permissions.location)
-//            api(libs.moko.permissions.microphone)
+            api(libs.moko.permissions)
+            api(libs.moko.permissions.compose)
+            api(libs.moko.permissions.location)
+            api(libs.moko.permissions.microphone)
         }
 
         iosMain.dependencies {
-//            api(libs.moko.permissions)
-//            api(libs.moko.permissions.compose)
-//            api(libs.moko.permissions.location)
-//            api(libs.moko.permissions.microphone)
+            api(libs.moko.permissions)
+            api(libs.moko.permissions.compose)
+            api(libs.moko.permissions.location)
+            api(libs.moko.permissions.microphone)
         }
 
         jvmMain.dependencies {
