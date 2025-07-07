@@ -1,8 +1,16 @@
 package com.tmdb.shared.utils.permission
 
 import com.tmdb.shared.utils.permission.common.AppPermissionsController
+import com.tmdb.shared.utils.permission.common.CoarseLocation
+import com.tmdb.shared.utils.permission.common.Denied
+import com.tmdb.shared.utils.permission.common.DeniedAlways
+import com.tmdb.shared.utils.permission.common.Granted
+import com.tmdb.shared.utils.permission.common.Location
+import com.tmdb.shared.utils.permission.common.NotDetermined
+import com.tmdb.shared.utils.permission.common.NotGranted
 import com.tmdb.shared.utils.permission.common.Permission
 import com.tmdb.shared.utils.permission.common.PermissionState
+import com.tmdb.shared.utils.permission.common.RecordAudio
 
 interface PermissionHandler {
     fun openSettingsApp()
@@ -27,7 +35,7 @@ class PermissionHandlerImpl(private val permissionsController: AppPermissionsCon
     }
 
     override suspend fun isPermissionGranted(permission: AppPermission): Boolean {
-        return getPermissionState(permission) == PermissionState.Granted
+        return getPermissionState(permission) == Granted
     }
 
     override suspend fun getPermissionState(permission: AppPermission): PermissionState {
@@ -42,22 +50,21 @@ class PermissionHandlerImpl(private val permissionsController: AppPermissionsCon
 
     private fun mapPermissionType(permission: AppPermission): Permission {
         return when (permission) {
-            AppPermission.Location.Approximate -> Permission.CoarseLocation
-            AppPermission.Location.Fine -> Permission.Location
-            AppPermission.RecordAudio -> Permission.RecordAudio
+            AppPermission.Location.Approximate -> CoarseLocation
+            AppPermission.Location.Fine -> Location
+            AppPermission.RecordAudio -> RecordAudio
         }
     }
 
     private fun mapPermissionState(permissionState: PermissionState): PermissionRequestResult {
         return when (permissionState) {
-            PermissionState.Granted -> PermissionRequestResult.GRANTED
+            Granted -> PermissionRequestResult.GRANTED
 
-            PermissionState.NotDetermined,
-            PermissionState.NotGranted,
-            PermissionState.Denied,
-                -> PermissionRequestResult.NOT_GRANTED
+            NotDetermined,
+            NotGranted,
+            Denied, -> PermissionRequestResult.NOT_GRANTED
 
-            PermissionState.DeniedAlways -> PermissionRequestResult.DENIED_ALWAYS
+            DeniedAlways -> PermissionRequestResult.DENIED_ALWAYS
 
             else -> PermissionRequestResult.NOT_GRANTED
         }
