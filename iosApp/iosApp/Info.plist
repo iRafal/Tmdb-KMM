@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+  <key>NSMicrophoneUsageDescription</key>
+  <string>This app needs access to the microphone.</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>This app needs access to your aproximate location, while using the app to improve user experience.</string>
   <key>CADisableMinimumFrameDurationOnPhone</key>
   <true/>
 	<key>CFBundleDevelopmentRegion</key>

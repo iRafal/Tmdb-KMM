@@ -88,6 +88,8 @@ kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.coll
 buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
 mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
 
+moko-permissions = "0.19.1"
+
 # https://github.com/icerockdev/moko-resources
 # https://mvnrepository.com/artifact/dev.icerock.moko
 moko-resources = "0.25.0"
@@ -196,6 +198,10 @@ moko-resources = { module = "dev.icerock.moko:resources", version.ref = "moko-re
 moko-resources-compose = { module = "dev.icerock.moko:resources-compose", version.ref = "moko-resources" }
 moko-resources-test = { module = "dev.icerock.moko:resources-test", version.ref = "moko-resources" }
 moko-graphics = { module = "dev.icerock.moko:graphics", version.ref = "moko-graphics" }
+moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "moko-permissions" }
+moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko-permissions" }
+moko-permissions-location = { module = "dev.icerock.moko:permissions-location", version.ref = "moko-permissions" }
+moko-permissions-microphone = { module = "dev.icerock.moko:permissions-microphone", version.ref = "moko-permissions" }
 #endregion TOOLS
 
 #region DI
