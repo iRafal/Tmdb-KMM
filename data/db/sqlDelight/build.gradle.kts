@@ -24,24 +24,14 @@ kotlin {
     }
 
     val xcfName = "data.db.sqldelight.kit"
-    iosX64 {
-        binaries.framework {
-            baseName = xcfName
-            export("com.squareup.sqldelight:runtime")
-        }
-    }
 
-    iosArm64 {
-        binaries.framework {
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
             baseName = xcfName
-            export("com.squareup.sqldelight:runtime")
-        }
-    }
-
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
-            export("com.squareup.sqldelight:runtime")
         }
     }
 
