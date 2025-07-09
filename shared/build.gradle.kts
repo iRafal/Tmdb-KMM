@@ -41,6 +41,12 @@ kotlin {
             baseName = "com.tmdb.shared"
             isStatic = true
         }
+
+        it.compilations["main"].cinterops.create("EncryptionFramework") {
+            packageName = "com.tmdb"
+            defFile(project.file("src/iosMain/cinterop/EncryptionFramework.def"))
+            includeDirs.allHeaders(rootDir.absolutePath + "/iosApp/Interop/EncryptionFramework.framework/Headers/")
+        }
     }
 
     sourceSets {

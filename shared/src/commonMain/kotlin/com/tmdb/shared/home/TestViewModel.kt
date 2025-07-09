@@ -10,6 +10,8 @@ import com.tmdb.shared.utils.permission.PermissionRequestResult.GRANTED
 import com.tmdb.shared.utils.permission.PermissionRequestResult.NOT_GRANTED
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import com.tmdb.shared.utils.PreferencesCrypto
+import io.ktor.utils.io.core.toByteArray
 
 class TestViewModel(
     private val permissionHandler: PermissionHandler,
@@ -19,6 +21,10 @@ class TestViewModel(
     init {
         viewModelScope.launch {
             testPrefsStore()
+            val a = PreferencesCrypto()
+            val encrypted = a.encrypt("test".toByteArray())
+            val decrypted = a.decrypt(encrypted)
+            println(decrypted)
         }
     }
 

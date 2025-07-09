@@ -1,0 +1,5 @@
+language = Objective-C
+package = com.tmdb
+headers = EncryptionFramework-Swift.h
+compilerOpts = -framework EncryptionFramework
+linkerOpts = -framework EncryptionFramework
