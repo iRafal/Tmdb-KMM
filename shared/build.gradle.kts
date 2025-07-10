@@ -40,6 +40,7 @@ kotlin {
         it.binaries.framework {
             baseName = "com.tmdb.shared"
             isStatic = true
+            binaryOption("bundleId", "com.tmdb.shared")
         }
     }
 
