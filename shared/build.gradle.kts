@@ -38,7 +38,7 @@ kotlin {
         iosSimulatorArm64()
     ).forEach {
         it.binaries.framework {
-            baseName = "com.tmdb.shared"
+            baseName = "shared"
             isStatic = true
             binaryOption("bundleId", "com.tmdb.shared")
         }
