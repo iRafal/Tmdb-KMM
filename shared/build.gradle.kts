@@ -50,6 +50,7 @@ kotlin {
             api(projects.store.app)
             api(projects.util)
             api(projects.data.db.dataStore)
+            api(projects.data.db.multiplatformSettings)
 
             implementation(libs.logging.kermit)
             api(libs.kotlin.coroutines.core)
