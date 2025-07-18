@@ -4,7 +4,6 @@ object GradleConfig {
 
     object Android {
         const val compileSdk = 35
-        const val applicationId = "com.tmdb"
         const val namespace = "com.tmdb"
         const val minSdk = 29
         const val targetSdk = 35
@@ -17,6 +16,7 @@ object GradleConfig {
     }
 
     object App {
+        const val ID = "com.tmdb"
         val version = Version(major = 1, minor = 0, patch = 6)
         const val VERSION_CODE = 1
     }
