@@ -25,7 +25,8 @@ android {
     compileSdk = GradleConfig.Android.compileSdk
 
     defaultConfig {
-        applicationId = GradleConfig.Android.applicationId
+        applicationId = GradleConfig.App.ID
+
         minSdk = GradleConfig.Android.minSdk
         targetSdk = GradleConfig.Android.targetSdk
 

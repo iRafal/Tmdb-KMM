@@ -16,7 +16,7 @@ kotlin {
     jvm {
         compilations.all {
             compileTaskProvider.configure {
-                compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
+                compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
             }
         }
     }

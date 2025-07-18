@@ -4,13 +4,14 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.compose.multiplatform.hot.reload)
     alias(libs.plugins.compose.compiler)
+
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.serialization)
 }
 
 kotlin {
-    val jvm = JvmTarget.JVM_11
+    val jvm = JvmTarget.JVM_17
 
     androidTarget {
         compilations.all {
@@ -63,8 +64,8 @@ kotlin {
             api(compose.components.resources)
             api(compose.components.uiToolingPreview)
             api(compose.runtime)
-            api(libs.multiplatform.androidx.lifecycle.viewmodel)
-            api(libs.multiplatform.androidx.lifecycle.runtime.compose)
+            api(libs.androidx.lifecycle.viewmodel.multiplatform)
+            api(libs.androidx.lifecycle.runtime.compose.multiplatform)
             api(libs.compose.navigation.multiplatform)
 
             api(libs.coil)
