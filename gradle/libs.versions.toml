@@ -67,7 +67,7 @@ accompanist = "0.37.3" # https://github.com/google/accompanist
 sqlDelight = "2.1.0" # https://github.com/cashapp/sqldelight
 data-store = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
 data-store-preferences = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
-multiplatform-settings = "1.3.0"
+multiplatform-settings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file
 #endregion STORAGE
 
 #region NETWORK
