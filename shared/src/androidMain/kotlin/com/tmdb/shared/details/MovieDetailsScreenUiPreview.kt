@@ -2,7 +2,7 @@ package com.tmdb.shared.details
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.tmdb.kmm.shared.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared.core.theme.Tmdb_TestTheme
 import com.tmdb.shared.details.data.MovieDetailsUiData
 
 @Preview(showBackground = false, showSystemUi = false)

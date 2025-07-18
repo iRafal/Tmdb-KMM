@@ -1,7 +1,7 @@
 package com.tmdb.shared.details
 
 import androidx.compose.runtime.Composable
-import com.tmdb.kmm.shared.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared.core.theme.Tmdb_TestTheme
 import com.tmdb.shared.details.data.MovieDetailsUiData
 import org.jetbrains.compose.ui.tooling.preview.Preview
 

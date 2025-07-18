@@ -15,6 +15,4 @@ sealed class AppNavigation(val route: String, val arguments: List<NamedNavArgume
     ) {
         fun getRouteNameWithArguments(movieId: String): String = "movie/details?movieId=$movieId"
     }
-
-    data object Close : AppNavigation("close")
 }

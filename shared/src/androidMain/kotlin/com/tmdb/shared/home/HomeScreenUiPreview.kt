@@ -2,7 +2,7 @@ package com.tmdb.shared.home
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.tmdb.kmm.shared.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared.core.theme.Tmdb_TestTheme
 import com.tmdb.shared.core.data.UiState
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData

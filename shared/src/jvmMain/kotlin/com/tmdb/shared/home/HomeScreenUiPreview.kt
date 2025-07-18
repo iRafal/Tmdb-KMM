@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.tmdb.shared.home.data.HomeMovieSection
 import com.tmdb.shared.home.data.HomeUiData
 import com.tmdb.shared.home.data.HomeUiData.Movie
-import com.tmdb.kmm.shared.ui.core.theme.Tmdb_TestTheme
+import com.tmdb.shared.core.theme.Tmdb_TestTheme
 import com.tmdb.shared.core.data.UiState
 import kotlinx.datetime.LocalDate
 import org.jetbrains.compose.ui.tooling.preview.Preview

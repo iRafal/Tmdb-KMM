@@ -1,16 +1,10 @@
-package com.tmdb.kmm.shared.ui.core.theme
+package com.tmdb.shared.core.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import com.tmdb.shared.core.theme.Purple200
-import com.tmdb.shared.core.theme.Purple500
-import com.tmdb.shared.core.theme.Purple700
-import com.tmdb.shared.core.theme.Shapes
-import com.tmdb.shared.core.theme.Teal200
-import com.tmdb.shared.core.theme.Typography
 
 private val DarkColorPalette = darkColorScheme(
     primary = Purple200,
