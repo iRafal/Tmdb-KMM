@@ -2,7 +2,7 @@
 #region BUILD TOOLS
 # https://developer.android.com/studio/releases/gradle-plugin
 # https://developer.android.com/build/releases/past-releases
-gradle = "8.11.0"
+gradle = "8.11.1"
 #endregion BUILD TOOLS
 
 #region KOTLIN
@@ -11,21 +11,18 @@ gradle = "8.11.0"
 kotlin-test = "2.2.0" # Update together with marked dependencies
 kotlin = "2.2.0" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
 kotlin-coroutines = "1.10.2" # https://github.com/kotlin/kotlinx.coroutines
-kotlin-serialization-json = "1.8.1" # https://github.com/Kotlin/kotlinx.serialization
+kotlin-serialization-json = "1.9.0" # https://github.com/Kotlin/kotlinx.serialization
 # https://github.com/google/ksp/releases
 # https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin?repo=central
 ksp = "2.2.0-2.0.2"
 #endregion KOTLIN
 
-#region ANDROIDX-MULTIPLATFORM
-multiplatform-androidx-lifecycle = "2.9.1"
-#endregion ANDROIDX-MULTIPLATFORM
-
 #region ANDROIDX
 androidx-core = "1.16.0" # https://developer.android.com/jetpack/androidx/releases/core
 androidx-splashscreen = "1.1.0-rc01" # https://mvnrepository.com/artifact/androidx.core/core-splashscreen?repo=google
-androidx-lifecycle = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidx-lifecycle-compose = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-compose = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-multiplatform = "2.9.1"
 androidx-work = "2.10.2" # https://developer.android.com/jetpack/androidx/releases/work
 androidx-window-core = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/window
 androidx-material3-window-size = "1.3.2" # https://developer.android.com/jetpack/androidx/releases/compose-material3
@@ -44,8 +41,8 @@ material-components-android = "1.12.0" # https://github.com/material-components/
 
 #region COMPOSE
 compose = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-ui
-compose-multiplatform = "1.8.2"
-compose-multiplatform-hot-reload = "1.0.0-beta03"
+compose-multiplatform = "1.8.2" # https://github.com/JetBrains/compose-multiplatform
+compose-multiplatform-hot-reload = "1.0.0-beta04" # https://github.com/JetBrains/compose-hot-reload
 
 compose-material3 = "1.3.2"
 
@@ -73,7 +70,7 @@ data-store-preferences = "1.1.7" # https://developer.android.com/kotlin/multipla
 #endregion STORAGE
 
 #region NETWORK
-ktor = "3.2.1" # https://github.com/ktorio/ktor
+ktor = "3.2.2" # https://github.com/ktorio/ktor
 #endregion NETWORK
 
 #region TEST
@@ -90,7 +87,7 @@ kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.coll
 buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
 mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
 
-moko-permissions = "0.19.1"
+moko-permissions = "0.19.1" # https://github.com/icerockdev/moko-permissions
 
 # https://github.com/icerockdev/moko-resources
 # https://mvnrepository.com/artifact/dev.icerock.moko
@@ -101,7 +98,7 @@ moko-resources = "0.25.0"
 moko-graphics = "0.10.1"
 
 # https://github.com/jlleitschuh/ktlint-gradle
-ktlint = "12.3.0"
+ktlint = "13.0.0"
 
 # https://detekt.dev/docs/intro
 # https://github.com/detekt/detekt
@@ -126,11 +123,6 @@ kotlin-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializat
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 #endregion Kotlin
 
-#region ANDROIDX-MULTIPLATFORM
-multiplatform-androidx-lifecycle-viewmodel = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "multiplatform-androidx-lifecycle" }
-multiplatform-androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "multiplatform-androidx-lifecycle" }
-#endregion ANDROIDX-MULTIPLATFORM
-
 #region ANDROIDX
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
 androidx-window-core = { group = "androidx.window", name = "window-core", version.ref = "androidx-window-core" }
@@ -139,6 +131,8 @@ androidx-splashscreen = { module = "androidx.core:core-splashscreen", version.re
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
+androidx-lifecycle-runtime-compose-multiplatform = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle-multiplatform" }
+androidx-lifecycle-viewmodel-multiplatform = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel", version.ref = "androidx-lifecycle-multiplatform" }
 androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "androidx-work" }
 androidx-lifecycle-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidx-lifecycle-compose" }
 androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidx-metrics" }
@@ -207,6 +201,7 @@ moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "mok
 moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko-permissions" }
 moko-permissions-location = { module = "dev.icerock.moko:permissions-location", version.ref = "moko-permissions" }
 moko-permissions-microphone = { module = "dev.icerock.moko:permissions-microphone", version.ref = "moko-permissions" }
+mock-mp-runtime = { module = "org.kodein.mock:mockmp-runtime", version.ref = "mockmp" }
 #endregion TOOLS
 
 #region DI
@@ -235,3 +230,4 @@ kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref =
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "gradle" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+mock-mp = { id = "org.kodein.mock.mockmp", version.ref = "mockmp" }

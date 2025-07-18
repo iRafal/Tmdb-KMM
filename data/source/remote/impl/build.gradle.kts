@@ -4,9 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.ksp)
-
-    @Suppress("DSL_SCOPE_VIOLATION")
-    id(GradleConfig.Plugins.MOCK_MP) version libs.versions.mockmp
+    alias(libs.plugins.mock.mp)
 }
 
 kotlin {
@@ -50,6 +48,7 @@ kotlin {
                 implementation(libs.koin.test)
                 implementation(libs.kotlinx.dateTime)
                 implementation(libs.kotlin.coroutines.test)
+                implementation(libs.mock.mp.runtime)
             }
             kotlin.srcDir("build/generated/ksp")
         }

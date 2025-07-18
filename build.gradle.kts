@@ -23,6 +23,8 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.multiplatform.android.library) apply false
 
+    alias(libs.plugins.mock.mp) apply false
+
     @Suppress("DSL_SCOPE_VIOLATION")
     val sqlDelight = libs.versions.sqlDelight
     id(GradleConfig.Plugins.SQL_DELIGHT) version sqlDelight apply false

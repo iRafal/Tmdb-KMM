@@ -26,7 +26,6 @@ object GradleConfig {
 
     object Plugins {
         const val BUILD_KONFIG = "com.codingfeline.buildkonfig"
-        const val MOCK_MP = "org.kodein.mock.mockmp"
         const val SQL_DELIGHT = "app.cash.sqldelight"
     }
 }
