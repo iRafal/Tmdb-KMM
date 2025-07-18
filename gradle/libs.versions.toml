@@ -2,27 +2,27 @@
 #region BUILD TOOLS
 # https://developer.android.com/studio/releases/gradle-plugin
 # https://developer.android.com/build/releases/past-releases
-gradle = "8.11.0"
+gradle = "8.11.1"
 #endregion BUILD TOOLS
 
 #region KOTLIN
 #https://kotlinlang.org/docs/jvm-test-using-junit.html#add-the-code-to-test-it
 #https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
-kotlin-test = "2.1.20" # Update together with marked dependencies
-kotlin = "2.1.20" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
+kotlin-test = "2.2.0" # Update together with marked dependencies
+kotlin = "2.2.0" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
 kotlin-coroutines = "1.10.2" # https://github.com/kotlin/kotlinx.coroutines
 kotlin-serialization-json = "1.9.0" # https://github.com/Kotlin/kotlinx.serialization
 
 # https://github.com/google/ksp/releases
 # https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin?repo=central
-ksp = "2.1.20-2.0.1"
+ksp = "2.2.0-2.0.2"
 #endregion KOTLIN
 
 #region ANDROIDX
 androidx-core = "1.16.0" # https://developer.android.com/jetpack/androidx/releases/core
 androidx-splashscreen = "1.1.0-rc01" # https://mvnrepository.com/artifact/androidx.core/core-splashscreen?repo=google
-androidx-lifecycle = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidx-lifecycle-compose = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-compose = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
 androidx-work = "2.10.2" # https://developer.android.com/jetpack/androidx/releases/work
 androidx-window-core = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/window
 androidx-material3-window-size = "1.3.2" # https://developer.android.com/jetpack/androidx/releases/compose-material3
@@ -41,9 +41,9 @@ material-components-android = "1.12.0" # https://github.com/material-components/
 #endregion UI
 
 #region COMPOSE
-compose-bom = "2025.06.01" # https://developer.android.com/develop/ui/compose/bom/bom-mapping
+compose-bom = "2025.07.00" # https://developer.android.com/develop/ui/compose/bom/bom-mapping
 compose-activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
-compose-navigation = "2.9.1" # https://developer.android.com/jetpack/androidx/releases/navigation
+compose-navigation = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/navigation
 compose-navigation3 = "1.0.0-alpha05" # https://developer.android.com/jetpack/androidx/releases/navigation3
 
 # https://developer.android.com/jetpack/compose/layouts/constraintlayout
@@ -75,7 +75,7 @@ realm-plugin = "10.19.0" # https://github.com/realm/realm-java
 #endregion STORAGE
 
 #region NETWORK
-ktor = "3.1.3" # https://github.com/ktorio/ktor
+ktor = "3.2.2" # https://github.com/ktorio/ktor
 
 retrofit2 = "3.0.0" # https://github.com/square/retrofit
 retrofit2-serializationConverter = "1.0.0" # https://github.com/jakewharton/retrofit2-kotlinx-serialization-converter
@@ -97,16 +97,16 @@ junit-android-ext = "1.2.1"
 espresso = "3.6.1"
 
 mockito = "5.18.0" # https://github.com/mockito/mockito
-mockito-kotlin = "5.4.0" # https://github.com/mockito/mockito-kotlin
+mockito-kotlin = "6.0.0" # https://github.com/mockito/mockito-kotlin
 #endregion TEST
 
 #region TOOLS
 leakcanary = "2.14" # https://square.github.io/leakcanary/getting_started/
 logging = "0.2.3" # https://github.com/square/logcat
-kotlinx-dateTime = "0.7.0" # https://github.com/Kotlin/kotlinx-datetime
+kotlinx-dateTime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
 kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
-google-phoneNumber = "9.0.8" # https://github.com/google/libphonenumber
-playServicesBase = "18.7.0" # https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
+google-phoneNumber = "9.0.10" # https://github.com/google/libphonenumber
+playServicesBase = "18.7.2" # https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
 google-services = "4.4.3" # https://firebase.google.com/docs/android/troubleshooting-faq#add-plugins-using-buildscript-syntax
 android-tools-desugaring = "2.1.5" # https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs
 google-crypto-tink-android = "1.18.0" # https://mvnrepository.com/artifact/com.google.crypto.tink/tink-android
@@ -117,7 +117,7 @@ google-crypto-tink-android = "1.18.0" # https://mvnrepository.com/artifact/com.g
 lottie = "6.6.7"
 
 # https://github.com/jlleitschuh/ktlint-gradle
-ktlint = "12.3.0"
+ktlint = "13.0.0"
 
 # https://detekt.dev/docs/intro
 # https://github.com/detekt/detekt
