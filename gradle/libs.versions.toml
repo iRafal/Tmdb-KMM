@@ -68,6 +68,8 @@ sqlDelight = "2.1.0" # https://github.com/cashapp/sqldelight
 data-store = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
 data-store-preferences = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
 multiplatform-settings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file
+room = "2.7.2"
+sqlite = "2.5.2"
 #endregion STORAGE
 
 #region NETWORK
@@ -185,6 +187,13 @@ data-store = { module = "androidx.datastore:datastore", version.ref = "data-stor
 data-store-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "data-store-preferences" }
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 multiplatform-settings-coroutines = { module = "com.russhwolf:multiplatform-settings-coroutines", version.ref = "multiplatform-settings" }
+
+
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
+room-testing = { module = "androidx.room:room-testing", version.ref = "room" }
+sqlite-bundled = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
 #endregion STORAGE
 
 #region TOOLS
@@ -234,3 +243,5 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "gradle" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 mock-mp = { id = "org.kodein.mock.mockmp", version.ref = "mockmp" }
+
+room = { id = "androidx.room", version.ref = "room" }

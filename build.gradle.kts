@@ -25,6 +25,8 @@ plugins {
 
     alias(libs.plugins.mock.mp) apply false
 
+    alias(libs.plugins.room) apply false
+
     @Suppress("DSL_SCOPE_VIOLATION")
     val sqlDelight = libs.versions.sqlDelight
     id(GradleConfig.Plugins.SQL_DELIGHT) version sqlDelight apply false
