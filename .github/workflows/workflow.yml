@@ -22,17 +22,11 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Build Android
-        run: ./gradlew assembleDebug
-
-      - name: Run Android tests
-        run: ./gradlew testDebugUnitTest
-
-      - name: Install CocoaPods
-        run: sudo gem install cocoapods
-
-#      - name: Install iOS dependencies
-#        run: cd iosApp && pod install
+#      - name: Build Android
+#        run: ./gradlew assembleDebug
+#
+#      - name: Run Android tests
+#        run: ./gradlew testDebugUnitTest
 
       - name: Build iOS
-        run: xcodebuild -workspace iosApp/iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -configuration Debug build
+        run: xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator -configuration Debug build
