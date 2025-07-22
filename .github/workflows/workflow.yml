@@ -22,11 +22,8 @@ jobs:
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
 
-#      - name: Build Android
-#        run: ./gradlew assembleDebug
-#
-#      - name: Run Android tests
-#        run: ./gradlew testDebugUnitTest
+      - name: Run Android tests
+        run: ./gradlew test
 
       - name: Build iOS
         run: xcodebuild -project iosApp/iosApp.xcodeproj -scheme iosApp -sdk iphonesimulator -configuration Debug build
