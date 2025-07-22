@@ -31,8 +31,8 @@ jobs:
       - name: Install CocoaPods
         run: sudo gem install cocoapods
 
-      - name: Install iOS dependencies
-        run: cd iosApp && pod install
+#      - name: Install iOS dependencies
+#        run: cd iosApp && pod install
 
       - name: Build iOS
         run: xcodebuild -workspace iosApp/iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -configuration Debug build
