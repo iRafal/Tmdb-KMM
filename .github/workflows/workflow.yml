@@ -1,0 +1,38 @@
+name: KMM CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Build Android
+        run: ./gradlew assembleDebug
+
+#      - name: Run Android tests
+#        run: ./gradlew testDebugUnitTest
+
+#      - name: Install CocoaPods
+#        run: sudo gem install cocoapods
+#
+#      - name: Install iOS dependencies
+#        run: cd iosApp && pod install
+#
+#      - name: Build iOS
+#        run: xcodebuild -workspace iosApp/iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -configuration Debug build
