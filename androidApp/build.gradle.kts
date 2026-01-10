@@ -50,8 +50,8 @@ android {
     }
     buildTypes {
        release {
-            isMinifyEnabled = GradleConfig.Android.isMinifyEnabledRelease
-            isShrinkResources = GradleConfig.Android.isShrinkResourcesRelease
+            isMinifyEnabled = true
+            isShrinkResources = true
 
            proguardFiles(
                getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -66,8 +66,8 @@ android {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
 
-            isShrinkResources = GradleConfig.Android.isShrinkResourcesDebug
-            isMinifyEnabled = GradleConfig.Android.isMinifyEnabledDebug
+            isShrinkResources = false
+            isMinifyEnabled = false
 
             enableUnitTestCoverage = true
 

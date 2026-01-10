@@ -14,22 +14,14 @@ kotlin {
     val jvm = JvmTarget.JVM_17
 
     androidTarget {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(jvm)
-                }
-            }
+        compilerOptions {
+            jvmTarget.set(jvm)
         }
     }
 
     jvm {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions {
-                    jvmTarget.set(jvm)
-                }
-            }
+        compilerOptions {
+            jvmTarget.set(jvm)
         }
     }
 
