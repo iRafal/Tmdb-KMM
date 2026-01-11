@@ -8,14 +8,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.tmdb.composeapp.generated.resources.Res
-import com.tmdb.composeapp.generated.resources.now_playing
-import com.tmdb.composeapp.generated.resources.now_popular
-import com.tmdb.composeapp.generated.resources.top_rated
-import com.tmdb.composeapp.generated.resources.upcoming
 import com.tmdb.home.data.HomeMovieSection
 import com.tmdb.home.data.HomeUiData
 import com.tmdb.core.compose.ScrollableColumn
+import com.tmdb.resources.Res
+import com.tmdb.resources.now_playing
+import com.tmdb.resources.now_popular
+import com.tmdb.resources.top_rated
+import com.tmdb.resources.upcoming
 import org.jetbrains.compose.resources.stringResource
 
 @Composable

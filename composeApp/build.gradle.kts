@@ -11,6 +11,12 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
 }
 
+compose.resources {
+    publicResClass = true
+    packageOfResClass = "${GradleConfig.Android.NAMESPACE}.resources"
+    generateResClass = always
+}
+
 kotlin {
     val jvm = JvmTarget.JVM_17
 
@@ -23,6 +29,8 @@ kotlin {
                 excludes += "/META-INF/{AL2.0,LGPL2.1}"
             }
         }
+
+        experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
 
         lint {
             // https://developer.android.com/studio/write/lint

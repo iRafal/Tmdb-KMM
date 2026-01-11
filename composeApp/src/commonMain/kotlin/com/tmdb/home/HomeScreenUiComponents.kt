@@ -20,12 +20,12 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import coil3.request.ImageRequest
-import com.tmdb.composeapp.generated.resources.Res
-import com.tmdb.composeapp.generated.resources.failed_to_load
-import com.tmdb.composeapp.generated.resources.no_internet
-import com.tmdb.composeapp.generated.resources.reload
 import com.tmdb.core.data.UiState
 import com.tmdb.home.data.HomeUiData.Movie
+import com.tmdb.resources.Res
+import com.tmdb.resources.failed_to_load
+import com.tmdb.resources.no_internet
+import com.tmdb.resources.reload
 import com.tmdb.utils.format
 import org.jetbrains.compose.resources.stringResource
 
