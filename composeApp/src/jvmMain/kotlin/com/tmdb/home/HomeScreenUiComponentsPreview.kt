@@ -2,10 +2,10 @@ package com.tmdb.home
 
 import androidx.compose.runtime.Composable
 import com.tmdb.core.data.UiState
-import com.tmdb.composeapp.generated.resources.Res
-import com.tmdb.composeapp.generated.resources.failed_to_load
-import com.tmdb.composeapp.generated.resources.reload
 import com.tmdb.home.data.HomeUiData
+import com.tmdb.resources.Res
+import com.tmdb.resources.failed_to_load
+import com.tmdb.resources.reload
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone

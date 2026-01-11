@@ -1,9 +1,7 @@
-package com.tmdb.com.tmdb.details
+package com.tmdb.details
 
 import androidx.compose.runtime.Composable
 import com.tmdb.core.theme.Tmdb_TestTheme
-import com.tmdb.details.MovieDetailsScreenUi
-import com.tmdb.details.MovieDetailsUiState
 import com.tmdb.details.data.MovieDetailsUiData
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
