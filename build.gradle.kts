@@ -1,6 +1,4 @@
-import com.android.build.gradle.BaseExtension
 import org.gradle.kotlin.dsl.configure
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 buildscript {
     repositories {
