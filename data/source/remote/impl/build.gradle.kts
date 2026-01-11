@@ -49,7 +49,6 @@ kotlin {
                 implementation(libs.koin.test)
                 implementation(libs.kotlinx.dateTime)
                 implementation(libs.kotlin.coroutines.test)
-                implementation(libs.mock.mp.runtime)
             }
             kotlin.srcDir("build/generated/ksp")
         }
