@@ -48,12 +48,10 @@ class PermissionHandlerImpl(private val permissionsController: AppPermissionsCon
         }
     }
 
-    private fun mapPermissionType(permission: AppPermission): Permission {
-        return when (permission) {
-            AppPermission.Location.Approximate -> CoarseLocation
-            AppPermission.Location.Fine -> Location
-            AppPermission.RecordAudio -> RecordAudio
-        }
+    private fun mapPermissionType(permission: AppPermission): Permission = when (permission) {
+        AppPermission.Location.Approximate -> CoarseLocation
+        AppPermission.Location.Fine -> Location
+        AppPermission.RecordAudio -> RecordAudio
     }
 
     private fun mapPermissionState(permissionState: PermissionState): PermissionRequestResult = when (permissionState) {
