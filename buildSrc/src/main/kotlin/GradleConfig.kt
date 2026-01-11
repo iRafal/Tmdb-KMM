@@ -14,8 +14,4 @@ object GradleConfig {
 
     val javaVersion = JavaVersion.VERSION_17
     val javaVersionAsString = javaVersion.toString()
-
-    object Plugins {
-        const val SQL_DELIGHT = "app.cash.sqldelight"
-    }
 }

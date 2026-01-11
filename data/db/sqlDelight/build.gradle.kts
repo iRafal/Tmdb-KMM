@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    id(GradleConfig.Plugins.SQL_DELIGHT)
+    alias(libs.plugins.sqldelight)
 }
 
 
