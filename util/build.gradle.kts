@@ -9,8 +9,10 @@ kotlin {
     // Target declarations - add or remove as needed below. These define
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
+    val modulePath = "util"
+
     androidLibrary {
-        namespace = "${GradleConfig.Android.NAMESPACE}.util"
+        namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
@@ -37,6 +39,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

@@ -6,9 +6,12 @@ plugins {
     id(GradleConfig.Plugins.SQL_DELIGHT)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.sqldelight"
+
+internal val modulePath = "data.db.sqldelight"
+internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.$modulePath"
 
 kotlin {
+
     androidLibrary {
         namespace = packageNameValue
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
@@ -31,6 +34,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

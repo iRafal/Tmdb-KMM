@@ -5,11 +5,11 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.dataStore"
-
 kotlin {
+    val modulePath = "data.db.dataStore"
+
     androidLibrary {
-        namespace = packageNameValue
+        namespace = "${GradleConfig.Android.NAMESPACE}.data.db.dataStore"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
@@ -30,6 +30,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

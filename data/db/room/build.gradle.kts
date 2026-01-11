@@ -7,11 +7,11 @@ plugins {
     alias(libs.plugins.room)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.room"
-
 kotlin {
+    val modulePath = "data.db.room"
+
     androidLibrary {
-        namespace = packageNameValue
+        namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
@@ -34,6 +34,7 @@ kotlin {
             baseName = xcfName
             isStatic = true
             linkerOpts.add("-lsqlite3")
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 
