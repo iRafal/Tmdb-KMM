@@ -8,7 +8,7 @@ plugins {
 kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.store.feature"
-        compileSdk = GradleConfig.Android.compileSdk
+        compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
         withDeviceTestBuilder {

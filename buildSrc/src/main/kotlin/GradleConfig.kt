@@ -4,9 +4,6 @@ object GradleConfig {
 
     object Android {
         const val NAMESPACE = "com.tmdb"
-
-        const val compileSdk = 36
-        const val minSdk = 29
     }
 
     object App {

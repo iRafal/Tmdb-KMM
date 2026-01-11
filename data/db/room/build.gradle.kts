@@ -12,7 +12,7 @@ internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.room"
 kotlin {
     androidLibrary {
         namespace = packageNameValue
-        compileSdk = GradleConfig.Android.compileSdk
+        compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 

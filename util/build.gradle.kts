@@ -11,7 +11,7 @@ kotlin {
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.util"
-        compileSdk = GradleConfig.Android.compileSdk
+        compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
         withDeviceTestBuilder {

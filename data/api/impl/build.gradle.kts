@@ -8,7 +8,7 @@ plugins {
 kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.api.impl"
-        compileSdk = GradleConfig.Android.compileSdk
+        compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
