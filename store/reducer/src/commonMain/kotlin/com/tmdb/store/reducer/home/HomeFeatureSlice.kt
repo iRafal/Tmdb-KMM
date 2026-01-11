@@ -23,7 +23,7 @@ interface HomeFeatureSlice : FeatureSlice<AppState, AppEnv, HomeFeatureState>
 class HomeFeatureSliceImpl(
     moviesApiToDataStateMapper: MoviesApiToDataStateMapper,
     moviesDataToFeatureStateMapper: MoviesDataToFeatureStateMapper,
-    homeFeatureEffects: HomeFeatureEffects
+    homeFeatureEffects: HomeFeatureEffects,
 ) : HomeFeatureSlice {
 
     override val reducer: FeatureReducer<AppState, AppEnv, HomeFeatureState> =
@@ -35,7 +35,7 @@ class HomeFeatureSliceImpl(
                         action,
                         moviesApiToDataStateMapper,
                         moviesDataToFeatureStateMapper,
-                        homeFeatureEffects
+                        homeFeatureEffects,
                     )
                 }
                 else -> globalState.homeState to Effects.empty()
