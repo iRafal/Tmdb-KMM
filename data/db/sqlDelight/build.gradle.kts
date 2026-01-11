@@ -23,8 +23,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.db.sqldelight.kit"
-
+    val xcfName = "data:db:sqldelight:kit"
     listOf(
         iosX64(),
         iosArm64(),

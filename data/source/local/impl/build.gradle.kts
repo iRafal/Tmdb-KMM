@@ -20,8 +20,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.source.local.impl.kit"
-
+    val xcfName = "data:source:local:impl:kit"
     listOf(
         iosX64(),
         iosArm64(),

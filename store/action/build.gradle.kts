@@ -26,8 +26,7 @@ kotlin {
         }
     }
 
-    val xcfName = "store.action.kit"
-
+    val xcfName = "store:action:kit"
     listOf(
         iosX64(),
         iosArm64(),

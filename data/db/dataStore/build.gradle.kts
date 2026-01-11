@@ -22,8 +22,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.db.dataStore.kit"
-
+    val xcfName = "data:db:dataStore:kit"
     listOf(
         iosX64(),
         iosArm64(),

@@ -24,8 +24,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.db.room.kit"
-
+    val xcfName = "data:db:room:kit"
     listOf(
         iosX64(),
         iosArm64(),

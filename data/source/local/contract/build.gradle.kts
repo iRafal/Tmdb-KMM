@@ -20,8 +20,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.source.local.contract.kit"
-
+    val xcfName = "data:source:local:contract:kit"
     listOf(
         iosX64(),
         iosArm64(),

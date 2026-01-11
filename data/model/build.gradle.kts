@@ -26,8 +26,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.model.kit"
-
+    val xcfName = "data:model:kit"
     listOf(
         iosX64(),
         iosArm64(),

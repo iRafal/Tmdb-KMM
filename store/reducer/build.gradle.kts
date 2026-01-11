@@ -24,8 +24,7 @@ kotlin {
         }
     }
 
-    val xcfName = "store.reducer.kit"
-
+    val xcfName = "store:reducer:kit"
     listOf(
         iosX64(),
         iosArm64(),

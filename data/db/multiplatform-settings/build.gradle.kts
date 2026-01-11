@@ -22,8 +22,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.db.multiplatformSettings.kit"
-
+    val xcfName = "data:db:multiplatformSettings:kit"
     listOf(
         iosX64(),
         iosArm64(),

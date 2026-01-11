@@ -8,8 +8,10 @@ plugins {
 }
 
 kotlin {
+    val modulePath = "data.api.config"
+
     androidLibrary {
-        namespace = "${GradleConfig.Android.NAMESPACE}.data.api.config"
+        namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
@@ -28,7 +30,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.api.config.kit"
+    val xcfName = "data:api:config:kit"
     listOf(
         iosX64(),
         iosArm64(),
@@ -36,6 +38,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

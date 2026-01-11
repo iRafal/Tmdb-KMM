@@ -6,8 +6,10 @@ plugins {
 }
 
 kotlin {
+    val modulePath = "store.feature"
+
     androidLibrary {
-        namespace = "${GradleConfig.Android.NAMESPACE}.store.feature"
+        namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
@@ -26,8 +28,7 @@ kotlin {
         }
     }
 
-    val xcfName = "store.feature.kit"
-
+    val xcfName = "store:feature:kit"
     listOf(
         iosX64(),
         iosArm64(),
@@ -35,6 +36,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

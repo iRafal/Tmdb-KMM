@@ -21,8 +21,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.source.remote.impl.kit"
-
+    val xcfName = "data:source:remote:impl:kit"
     listOf(
         iosX64(),
         iosArm64(),

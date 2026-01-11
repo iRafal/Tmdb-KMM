@@ -6,8 +6,10 @@ plugins {
 }
 
 kotlin {
+    val modulePath = "store.state"
+
     androidLibrary {
-        namespace = "${GradleConfig.Android.NAMESPACE}.store.state"
+        namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
 
@@ -26,8 +28,7 @@ kotlin {
         }
     }
 
-    val xcfName = "store.env.kit"
-
+    val xcfName = "store:env:kit"
     listOf(
         iosX64(),
         iosArm64(),
@@ -35,6 +36,7 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = xcfName
+            binaryOption("bundleId", "${GradleConfig.App.ID}.$modulePath")
         }
     }
 

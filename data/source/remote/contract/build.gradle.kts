@@ -20,7 +20,7 @@ kotlin {
         }
     }
 
-    val xcfName = "data.source.remote.contract.kit"
+    val xcfName = "data:source:remote:contract:kit"
 
     listOf(
         iosX64(),
