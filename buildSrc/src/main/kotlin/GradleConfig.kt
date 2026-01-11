@@ -16,7 +16,6 @@ object GradleConfig {
     val javaVersionAsString = javaVersion.toString()
 
     object Plugins {
-        const val BUILD_KONFIG = "com.codingfeline.buildkonfig"
         const val SQL_DELIGHT = "app.cash.sqldelight"
     }
 }
