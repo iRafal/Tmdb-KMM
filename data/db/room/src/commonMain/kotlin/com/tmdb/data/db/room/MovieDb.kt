@@ -38,4 +38,3 @@ abstract class MovieDb : RoomDatabase() {
             .build()
     }
 }
-

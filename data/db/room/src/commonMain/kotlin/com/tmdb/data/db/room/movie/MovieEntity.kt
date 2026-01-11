@@ -19,23 +19,23 @@ data class MovieEntity(
 
     @ColumnInfo(
         name = MOVIE_TABLE_COLUMN_NOW_PLAYING,
-        defaultValue = "0"
+        defaultValue = "0",
     ) val isNowPlaying: Boolean = false,
 
     @ColumnInfo(
         name = MOVIE_TABLE_COLUMN_NOW_POPULAR,
-        defaultValue = "0"
+        defaultValue = "0",
     ) val isNowPopular: Boolean = false,
 
     @ColumnInfo(
         name = MOVIE_TABLE_COLUMN_TOP_RATED,
-        defaultValue = "0"
+        defaultValue = "0",
     ) val isTopRated: Boolean = false,
 
     @ColumnInfo(
         name = MOVIE_TABLE_COLUMN_UPCOMING,
-        defaultValue = "0"
-    ) val isUpcoming: Boolean = false
+        defaultValue = "0",
+    ) val isUpcoming: Boolean = false,
 ) {
     companion object {
         const val MOVIE_TABLE_NAME = "movie"

@@ -11,7 +11,7 @@ fun MovieDetailsStateIdlePreview() {
     Tmdb_TestTheme {
         MovieDetailsScreenUi(
             MovieDetailsUiState.Idle,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -22,7 +22,7 @@ fun MovieDetailsStateLoadingPreview() {
     Tmdb_TestTheme {
         MovieDetailsScreenUi(
             MovieDetailsUiState.Loading,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -33,7 +33,7 @@ fun MovieDetailsStateErrorPreview() {
     Tmdb_TestTheme {
         MovieDetailsScreenUi(
             MovieDetailsUiState.Error(),
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -44,7 +44,7 @@ fun MovieDetailsStateNetworkErrorPreview() {
     Tmdb_TestTheme {
         MovieDetailsScreenUi(
             MovieDetailsUiState.NetworkError(),
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -56,7 +56,7 @@ fun MovieDetailsStateSuccessPreview() {
         val data = MovieDetailsUiData()
         MovieDetailsScreenUi(
             MovieDetailsUiState.Success(data),
-            onEvent = { }
+            onEvent = { },
         )
     }
 }

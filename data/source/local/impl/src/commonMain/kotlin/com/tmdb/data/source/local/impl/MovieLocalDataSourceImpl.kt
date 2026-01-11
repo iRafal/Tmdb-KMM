@@ -17,17 +17,15 @@ class MovieLocalDataSourceImpl(
     private val movieDb: MovieDb,
     private val movieEntityToDataModelMapper: MovieEntityToDataModelMapper,
     private val movieDataModelToEntityMapper: MovieDataModelToEntityMapper,
-    private val unconfinedDispatcher: CoroutineDispatcher
+    private val unconfinedDispatcher: CoroutineDispatcher,
 ) : MovieLocalDataSource {
 
     private val movieQueries: MovieQueries
         get() = movieDb.movieQueries
 
-    override suspend fun movie(movieId: Int): MovieDataModel? {
-        return movieQueries.getById(movieId.toLong())
-            .executeAsOneOrNull()
-            ?.let { movieEntityToDataModelMapper(it) }
-    }
+    override suspend fun movie(movieId: Int): MovieDataModel? = movieQueries.getById(movieId.toLong())
+        .executeAsOneOrNull()
+        ?.let { movieEntityToDataModelMapper(it) }
 
     override suspend fun nowPlayingMovies(
         page: Int?,
@@ -39,7 +37,7 @@ class MovieLocalDataSourceImpl(
         } else {
             movieQueries.nowPlayingMoviesByLimitAndOffset(
                 limit = limitAndOffset.first.toLong(),
-                offset = limitAndOffset.second.toLong()
+                offset = limitAndOffset.second.toLong(),
             ).executeAsList()
         }
         return entities.map { movieEntityToDataModelMapper(it) }
@@ -55,7 +53,7 @@ class MovieLocalDataSourceImpl(
         } else {
             movieQueries.nowPopularMoviesByLimitAndOffset(
                 limit = limitAndOffset.first.toLong(),
-                offset = limitAndOffset.second.toLong()
+                offset = limitAndOffset.second.toLong(),
             ).executeAsList()
         }
         return entities.map { movieEntityToDataModelMapper(it) }
@@ -71,7 +69,7 @@ class MovieLocalDataSourceImpl(
         } else {
             movieQueries.topRatedMoviesByLimitAndOffset(
                 limit = limitAndOffset.first.toLong(),
-                offset = limitAndOffset.second.toLong()
+                offset = limitAndOffset.second.toLong(),
             ).executeAsList()
         }
         return entities.map { movieEntityToDataModelMapper(it) }
@@ -87,7 +85,7 @@ class MovieLocalDataSourceImpl(
         } else {
             movieQueries.upcomingMoviesByLimitAndOffset(
                 limit = limitAndOffset.first.toLong(),
-                offset = limitAndOffset.second.toLong()
+                offset = limitAndOffset.second.toLong(),
             ).executeAsList()
         }
         return entities.map { movieEntityToDataModelMapper(it) }
@@ -128,7 +126,7 @@ class MovieLocalDataSourceImpl(
         nowPlaying: List<MovieDataModel>,
         nowPopular: List<MovieDataModel>,
         topRatedMovies: List<MovieDataModel>,
-        upcomingMovies: List<MovieDataModel>
+        upcomingMovies: List<MovieDataModel>,
     ) {
         val mappedNowPlaying =
             nowPlaying.map { movieDataModelToEntityMapper(it).copy(now_playing = true) }
@@ -168,19 +166,19 @@ class MovieLocalDataSourceImpl(
         movieQueries.delete(movieEntity.id)
     }
 
-    override fun observeAll(): Flow<List<MovieDataModel>> {
-        return movieQueries.selectAll().asFlow().mapToList(unconfinedDispatcher).map {
-            it.map(movieEntityToDataModelMapper)
-        }
+    override fun observeAll(): Flow<List<MovieDataModel>> = movieQueries.selectAll().asFlow().mapToList(
+        unconfinedDispatcher,
+    ).map {
+        it.map(movieEntityToDataModelMapper)
     }
 
-    override suspend fun getAll(): List<MovieDataModel> {
-        return movieQueries.selectAll().executeAsList().map {
-            movieEntityToDataModelMapper(it)
-        }
+    override suspend fun getAll(): List<MovieDataModel> = movieQueries.selectAll().executeAsList().map {
+        movieEntityToDataModelMapper(it)
     }
 
-    override suspend fun getById(id: Int): MovieDataModel? {
-        return movieQueries.getById(id.toLong()).executeAsOneOrNull()?.let { movieEntityToDataModelMapper(it) }
+    override suspend fun getById(id: Int): MovieDataModel? = movieQueries.getById(
+        id.toLong(),
+    ).executeAsOneOrNull()?.let {
+        movieEntityToDataModelMapper(it)
     }
 }

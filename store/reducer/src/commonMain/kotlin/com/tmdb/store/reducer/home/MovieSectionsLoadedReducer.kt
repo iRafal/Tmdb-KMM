@@ -9,7 +9,7 @@ import com.tmdb.store.state.home.MoviesDataToFeatureStateMapper
 
 fun HomeFeatureState.reduceMovieSectionsLoaded(
     action: HomeAction.MovieSectionsLoaded,
-    mapper: MoviesDataToFeatureStateMapper
+    mapper: MoviesDataToFeatureStateMapper,
 ): Pair<HomeFeatureState, Effect<AppEnv>?> {
     val newState = this.copy(
         nowPlayingMoviesState = mapper(action.nowPlayingMovies),

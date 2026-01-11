@@ -10,13 +10,13 @@ import com.tmdb.data.api.model.util.ApiResponse.ApiError
 import com.tmdb.data.api.model.util.ApiResponse.Success
 import com.tmdb.data.api.model.util.ApiResponse.UnknownError
 import com.tmdb.data.api.model.util.NetworkErrorModel
-import com.tmdb.data.model.state.DataState
-import com.tmdb.data.model.state.DataState.Error
-import com.tmdb.data.model.movie.MovieDataModel
 import com.tmdb.data.model.mapping.movie.MovieApiToDataModelMapper
 import com.tmdb.data.model.mapping.movie.MoviesApiToDataStateMapper
 import com.tmdb.data.model.mapping.movie.movieApiToDataModelMapperImpl
 import com.tmdb.data.model.mapping.movie.moviesApiToDataStateMapperImpl
+import com.tmdb.data.model.movie.MovieDataModel
+import com.tmdb.data.model.state.DataState
+import com.tmdb.data.model.state.DataState.Error
 import com.tmdb.data.model.util.ModelUtil
 import kotlin.test.Test
 import kotlin.test.assertEquals

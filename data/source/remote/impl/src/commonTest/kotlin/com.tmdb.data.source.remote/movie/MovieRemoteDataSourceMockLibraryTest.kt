@@ -8,12 +8,12 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
 import com.tmdb.data.source.remote.impl.movie.MovieRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
-import kotlinx.coroutines.test.runTest
-import org.kodein.mock.Mocker
-import org.kodein.mock.UsesMocks
 import kotlin.test.Test
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
+import kotlinx.coroutines.test.runTest
+import org.kodein.mock.Mocker
+import org.kodein.mock.UsesMocks
 
 @UsesMocks(MovieApi::class)
 class MovieRemoteDataSourceMockLibraryTest {
@@ -113,8 +113,8 @@ class MovieRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.nowPlayingMovies() } returns response
 
@@ -168,8 +168,8 @@ class MovieRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.nowPopularMovies() } returns response
 
@@ -223,8 +223,8 @@ class MovieRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.topRatedMovies() } returns response
 
@@ -278,8 +278,8 @@ class MovieRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.upcomingMovies() } returns response
 

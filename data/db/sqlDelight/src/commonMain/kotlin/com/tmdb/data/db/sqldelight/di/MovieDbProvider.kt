@@ -10,6 +10,6 @@ object MovieDbProvider {
 
     fun createDatabase(
         driver: SqlDriver,
-        localDateColumnAdapter: LocalDateColumnAdapter
+        localDateColumnAdapter: LocalDateColumnAdapter,
     ): MovieDb = MovieDb(driver, Adapter(localDateColumnAdapter))
 }

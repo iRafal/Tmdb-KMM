@@ -8,18 +8,18 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.movie.MovieRemoteDataSource
 import com.tmdb.data.source.remote.impl.movie.MovieRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
-import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
+import kotlinx.coroutines.test.runTest
 
 class MovieRemoteDataSourceTest {
-    private open class MovieApiMockAdapter: MovieApi {
+    private open class MovieApiMockAdapter : MovieApi {
         override suspend fun movie(
             movieId: Int,
             language: String?,
-            appendToResponse: String?
+            appendToResponse: String?,
         ): ApiResponse<Movie, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -31,7 +31,7 @@ class MovieRemoteDataSourceTest {
         override suspend fun nowPlayingMovies(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -39,7 +39,7 @@ class MovieRemoteDataSourceTest {
         override suspend fun nowPopularMovies(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -47,7 +47,7 @@ class MovieRemoteDataSourceTest {
         override suspend fun topRatedMovies(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -55,7 +55,7 @@ class MovieRemoteDataSourceTest {
         override suspend fun upcomingMovies(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -67,11 +67,11 @@ class MovieRemoteDataSourceTest {
     fun `movie success`() = runTest {
         val response = ApiResponse.Success(ModelUtil.movieModel)
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -82,18 +82,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::movie need to call 1 time"
+            message = "MovieApi::movie need to call 1 time",
         )
     }
 
     @Test
     fun `movie network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -104,18 +104,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::movie need to call 1 time"
+            message = "MovieApi::movie need to call 1 time",
         )
     }
 
     @Test
     fun `movie api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -126,18 +126,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::movie need to call 1 time"
+            message = "MovieApi::movie need to call 1 time",
         )
     }
 
     @Test
     fun `movie unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -148,7 +148,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::movie need to call 1 time"
+            message = "MovieApi::movie need to call 1 time",
         )
     }
 
@@ -156,9 +156,9 @@ class MovieRemoteDataSourceTest {
     fun `latest movie success`() = runTest {
         val response = ApiResponse.Success(ModelUtil.movieModel)
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -169,16 +169,16 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::latestMovie need to call 1 time"
+            message = "MovieApi::latestMovie need to call 1 time",
         )
     }
 
     @Test
     fun `latest movie network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -189,16 +189,16 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::latestMovie need to call 1 time"
+            message = "MovieApi::latestMovie need to call 1 time",
         )
     }
 
     @Test
     fun `latest movie api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -209,7 +209,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::latestMovie need to call 1 time"
+            message = "MovieApi::latestMovie need to call 1 time",
         )
     }
 
@@ -220,15 +220,15 @@ class MovieRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -239,18 +239,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPlayingMovies need to call 1 time"
+            message = "MovieApi::nowPlayingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now playing movies network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -261,18 +261,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPlayingMovies need to call 1 time"
+            message = "MovieApi::nowPlayingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now playing movies api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -283,18 +283,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPlayingMovies need to call 1 time"
+            message = "MovieApi::nowPlayingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now playing movies unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -305,7 +305,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPlayingMovies need to call 1 time"
+            message = "MovieApi::nowPlayingMovies need to call 1 time",
         )
     }
 
@@ -316,15 +316,15 @@ class MovieRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -335,18 +335,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPopularMovies need to call 1 time"
+            message = "MovieApi::nowPopularMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now popular movies network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -357,18 +357,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPopularMovies need to call 1 time"
+            message = "MovieApi::nowPopularMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now popular movies api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -379,18 +379,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPopularMovies need to call 1 time"
+            message = "MovieApi::nowPopularMovies need to call 1 time",
         )
     }
 
     @Test
     fun `now popular movies unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -401,7 +401,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::nowPopularMovies need to call 1 time"
+            message = "MovieApi::nowPopularMovies need to call 1 time",
         )
     }
 
@@ -412,15 +412,15 @@ class MovieRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -431,18 +431,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::topRatedMovies need to call 1 time"
+            message = "MovieApi::topRatedMovies need to call 1 time",
         )
     }
 
     @Test
     fun `top rated movies network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -453,18 +453,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::topRatedMovies need to call 1 time"
+            message = "MovieApi::topRatedMovies need to call 1 time",
         )
     }
 
     @Test
     fun `top rated movies api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -475,18 +475,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::topRatedMovies need to call 1 time"
+            message = "MovieApi::topRatedMovies need to call 1 time",
         )
     }
 
     @Test
     fun `top rated movies unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -497,7 +497,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::topRatedMovies need to call 1 time"
+            message = "MovieApi::topRatedMovies need to call 1 time",
         )
     }
 
@@ -508,15 +508,15 @@ class MovieRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -527,18 +527,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::upcomingMovies need to call 1 time"
+            message = "MovieApi::upcomingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `upcoming movies network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -549,18 +549,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::upcomingMovies need to call 1 time"
+            message = "MovieApi::upcomingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `upcoming movies api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -571,18 +571,18 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::upcomingMovies need to call 1 time"
+            message = "MovieApi::upcomingMovies need to call 1 time",
         )
     }
 
     @Test
     fun `upcoming movies unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: MovieApiMockAdapter() {
+        val mockedApi = object : MovieApiMockAdapter() {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -593,7 +593,7 @@ class MovieRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "MovieApi::upcomingMovies need to call 1 time"
+            message = "MovieApi::upcomingMovies need to call 1 time",
         )
     }
 }

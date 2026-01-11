@@ -10,7 +10,7 @@ import com.tmdb.details.data.MovieDetailsUiData
 @Composable
 fun MovieDetailsScreenUi(
     state: MovieDetailsUiState,
-    onEvent: (MovieDetailsUiEvent) -> Unit
+    onEvent: (MovieDetailsUiEvent) -> Unit,
 ) {
     MovieDetails(state)
 }

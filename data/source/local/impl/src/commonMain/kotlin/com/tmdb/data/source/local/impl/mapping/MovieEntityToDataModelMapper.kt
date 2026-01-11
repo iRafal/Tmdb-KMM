@@ -6,7 +6,7 @@ import com.tmdb.data.model.movie.MovieDataModel
 typealias MovieEntityToDataModelMapper = (input: Movie) -> MovieDataModel
 
 fun movieEntityToDataModelMapperImpl(
-    input: Movie
+    input: Movie,
 ): MovieDataModel = MovieDataModel(
     id = input.id?.toInt(),
     title = input.title,

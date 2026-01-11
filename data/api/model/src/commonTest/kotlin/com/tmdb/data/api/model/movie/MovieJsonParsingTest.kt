@@ -4,11 +4,11 @@ import com.tmdb.data.api.model.data.DataPage
 import com.tmdb.data.api.model.data.DataPage.Dates
 import com.tmdb.data.api.model.di.UnitTestServiceLocator
 import com.tmdb.data.api.model.util.ModelUtil
-import kotlinx.datetime.LocalDate
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlinx.datetime.LocalDate
+import kotlinx.serialization.ExperimentalSerializationApi
 
 @OptIn(ExperimentalSerializationApi::class)
 class MovieJsonParsingTest {
@@ -74,7 +74,7 @@ class MovieJsonParsingTest {
               "vote_average": 7.8,
               "vote_count": 3439
         }
-        """.trimIndent()
+    """.trimIndent()
 
     @Test
     fun `parse movie`() {

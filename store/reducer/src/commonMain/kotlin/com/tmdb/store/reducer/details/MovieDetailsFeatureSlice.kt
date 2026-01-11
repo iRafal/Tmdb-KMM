@@ -12,19 +12,19 @@ import com.tmdb.store.state.details.MovieDetailsFeatureState
 
 object MovieDetailsFeatureSlice : FeatureSlice<AppState, AppEnv, MovieDetailsFeatureState> {
     override val reducer: FeatureReducer<AppState, AppEnv, MovieDetailsFeatureState> =
-        { globalState: AppState,
-          action: Action ->
+        {
+                globalState: AppState,
+                action: Action,
+            ->
             when (action) {
                 is MovieDetailsAction -> {
-                    MovieDetailsFeatureState.INITIAL to Effects.empty() //TODO
+                    MovieDetailsFeatureState.INITIAL to Effects.empty() // TODO
                 }
                 else -> globalState.movieDetailsState to Effects.empty()
             }
         }
 }
 
-private fun AppState.reduce(action: MovieDetailsAction): Pair<MovieDetailsFeatureState, Effect<AppEnv>?> {
-    return when(action) {
-        else -> movieDetailsState to Effects.empty()
-    }
+private fun AppState.reduce(action: MovieDetailsAction): Pair<MovieDetailsFeatureState, Effect<AppEnv>?> = when (action) {
+    else -> movieDetailsState to Effects.empty()
 }

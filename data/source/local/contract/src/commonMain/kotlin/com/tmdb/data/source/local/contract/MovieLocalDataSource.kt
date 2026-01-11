@@ -35,7 +35,7 @@ interface MovieLocalDataSource {
         nowPlaying: List<MovieDataModel> = listOf(),
         nowPopular: List<MovieDataModel> = listOf(),
         topRatedMovies: List<MovieDataModel> = listOf(),
-        upcomingMovies: List<MovieDataModel> = listOf()
+        upcomingMovies: List<MovieDataModel> = listOf(),
     )
 
     suspend fun delete(movie: MovieDataModel)
