@@ -4,7 +4,6 @@ import com.tmdb.data.api.model.person.Person
 import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 
-
 interface PersonRemoteDataSource {
     suspend fun personDetails(
         personId: Int,

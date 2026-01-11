@@ -8,7 +8,7 @@ import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.home.HomeFeatureState
 
 fun HomeFeatureState.reduceReloadUpcomingMovies(
-    action: HomeAction.ReloadUpcomingMovies
+    action: HomeAction.ReloadUpcomingMovies,
 ): Pair<HomeFeatureState, Effect<AppEnv>?> {
-    return this.copy(upcomingMoviesState = FeatureState.Loading()) to Effects.empty() //TODO effect
+    return this.copy(upcomingMoviesState = FeatureState.Loading()) to Effects.empty() // TODO effect
 }

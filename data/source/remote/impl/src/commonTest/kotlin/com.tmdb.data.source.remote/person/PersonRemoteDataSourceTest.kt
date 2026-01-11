@@ -29,7 +29,7 @@ class PersonRemoteDataSourceTest {
             override suspend fun personDetails(
                 personId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Person, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -40,7 +40,7 @@ class PersonRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "PersonApi::personDetails need to call 1 time"
+            message = "PersonApi::personDetails need to call 1 time",
         )
     }
 
@@ -64,7 +64,7 @@ class PersonRemoteDataSourceTest {
             override suspend fun personDetails(
                 personId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Person, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -75,7 +75,7 @@ class PersonRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "PersonApi::personDetails need to call 1 time"
+            message = "PersonApi::personDetails need to call 1 time",
         )
     }
 
@@ -98,7 +98,7 @@ class PersonRemoteDataSourceTest {
             override suspend fun personDetails(
                 personId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Person, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -109,7 +109,7 @@ class PersonRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "PersonApi::personDetails need to call 1 time"
+            message = "PersonApi::personDetails need to call 1 time",
         )
     }
 
@@ -132,7 +132,7 @@ class PersonRemoteDataSourceTest {
             override suspend fun personDetails(
                 personId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Person, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -143,7 +143,7 @@ class PersonRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "PersonApi::personDetails need to call 1 time"
+            message = "PersonApi::personDetails need to call 1 time",
         )
     }
 

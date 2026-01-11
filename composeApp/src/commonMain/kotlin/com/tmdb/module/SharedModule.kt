@@ -4,11 +4,11 @@ import com.tmdb.details.MovieDetailsViewModel
 import com.tmdb.home.HomeViewModel
 import com.tmdb.home.TestViewModel
 import com.tmdb.home.data.mapping.di.homeUiDataMappingModule
+import com.tmdb.store.app.di.appStoreModule
+import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 import com.tmdb.utils.permission.PermissionHandler
 import com.tmdb.utils.permission.PermissionHandlerImpl
 import com.tmdb.utils.permission.common.AppPermissionsController
-import com.tmdb.store.app.di.appStoreModule
-import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 

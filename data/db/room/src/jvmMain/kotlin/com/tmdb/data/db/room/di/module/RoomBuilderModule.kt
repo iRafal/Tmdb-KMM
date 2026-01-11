@@ -3,9 +3,9 @@ package com.tmdb.data.db.room.di.module
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.tmdb.data.db.room.MovieDb
+import java.io.File
 import org.koin.core.module.Module
 import org.koin.dsl.module
-import java.io.File
 
 actual fun roomBuilderModule(): Module = module {
     factory<RoomDatabase.Builder<MovieDb>> { getDatabaseBuilder() }

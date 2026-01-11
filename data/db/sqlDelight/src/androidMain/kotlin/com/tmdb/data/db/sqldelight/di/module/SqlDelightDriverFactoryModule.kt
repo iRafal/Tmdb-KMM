@@ -11,7 +11,7 @@ actual fun sqlDelightDriverFactoryModule(): Module = module {
         AndroidSqliteDriver(
             schema = get(),
             context = get(),
-            get(named(MOVIES_DB_NAME))
+            get(named(MOVIES_DB_NAME)),
         )
     }
 }

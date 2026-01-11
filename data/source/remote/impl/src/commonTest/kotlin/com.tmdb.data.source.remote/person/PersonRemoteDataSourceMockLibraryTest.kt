@@ -8,13 +8,13 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.person.PersonRemoteDataSource
 import com.tmdb.data.source.remote.impl.person.PersonRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
+import kotlin.test.Test
+import kotlin.test.assertSame
+import kotlin.test.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.kodein.mock.Mocker
 import org.kodein.mock.UsesMocks
-import kotlin.test.Test
-import kotlin.test.assertSame
-import kotlin.test.assertTrue
 
 @ExperimentalCoroutinesApi
 @UsesMocks(PersonApi::class)
@@ -33,7 +33,6 @@ class PersonRemoteDataSourceMockLibraryTest {
         mocker.verifyWithSuspend { called { mockApi.personDetails(personId) } }
     }
 
-
     @Test
     fun `person details network error`() = runTest {
         val mocker = Mocker()
@@ -45,7 +44,6 @@ class PersonRemoteDataSourceMockLibraryTest {
         personSource.personDetails(personId).run { assertTrue(this.isNetworkError) }
         mocker.verifyWithSuspend { called { mockApi.personDetails(personId) } }
     }
-
 
     @Test
     fun `person details api error`() = runTest {

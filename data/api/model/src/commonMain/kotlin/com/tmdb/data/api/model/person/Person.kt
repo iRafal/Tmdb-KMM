@@ -6,7 +6,6 @@ import kotlinx.datetime.serializers.LocalDateIso8601Serializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-
 /*
     {
         "birthday": "1963-12-18",
@@ -56,5 +55,3 @@ data class Person(
     @SerialName("imdb_id") val imdbId: String? = null,
     @SerialName("homepage") val homepage: String? = null,
 )
-
-

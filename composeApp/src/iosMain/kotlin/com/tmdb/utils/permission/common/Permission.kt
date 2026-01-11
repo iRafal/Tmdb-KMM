@@ -1,9 +1,9 @@
 package com.tmdb.utils.permission.common
 
+import dev.icerock.moko.permissions.Permission as MokoPermission
 import dev.icerock.moko.permissions.location.COARSE_LOCATION
 import dev.icerock.moko.permissions.location.LOCATION
 import dev.icerock.moko.permissions.microphone.RECORD_AUDIO
-import dev.icerock.moko.permissions.Permission as MokoPermission
 
 actual object CoarseLocation : Permission(MokoPermission.COARSE_LOCATION)
 actual object Location : Permission(MokoPermission.LOCATION)

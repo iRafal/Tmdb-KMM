@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 private val DarkColorPalette = darkColorScheme(
     primary = Purple200,
     onPrimary = Purple700,
-    secondary = Teal200
+    secondary = Teal200,
 )
 
 private val LightColorPalette = lightColorScheme(
@@ -30,6 +30,6 @@ fun Tmdb_TestTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
         colorScheme = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
+        content = content,
     )
 }

@@ -14,7 +14,7 @@ interface SettingsStorage {
 
 private const val KEY_TOKEN = "KEY_TOKEN"
 
-class SettingsStorageImpl(private val settings: Settings): SettingsStorage {
+class SettingsStorageImpl(private val settings: Settings) : SettingsStorage {
     @OptIn(ExperimentalSettingsApi::class)
     val flowSettings: FlowSettings
         get() = settings as FlowSettings

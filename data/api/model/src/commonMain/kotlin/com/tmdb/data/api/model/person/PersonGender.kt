@@ -8,5 +8,5 @@ enum class PersonGender {
     NOT_SPECIFIED,
     FEMALE,
     MALE,
-    NON_BINARY
+    NON_BINARY,
 }
