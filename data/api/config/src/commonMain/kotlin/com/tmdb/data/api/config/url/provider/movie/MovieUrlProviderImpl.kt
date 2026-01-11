@@ -1,7 +1,7 @@
 package com.tmdb.data.api.config.url.provider.movie
 
 class MovieUrlProviderImpl(
-    private val movieBaseUrl: String
+    private val movieBaseUrl: String,
 ) : MovieUrlProvider {
     override fun movieUrl(movieId: Int): String = "${movieBaseUrl}movie/$movieId"
     override val latestMovieUrl: String = "${movieBaseUrl}movie/latest"

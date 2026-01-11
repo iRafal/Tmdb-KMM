@@ -12,13 +12,13 @@ import com.tmdb.store.reducer.home.HomeFeatureSliceImpl
 import com.tmdb.store.reducer.util.ModelUtil
 import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.app.AppState
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.test.runTest
 
 class MovieSectionsLoadedReducerTest {
 
@@ -36,7 +36,7 @@ class MovieSectionsLoadedReducerTest {
                 nowPopularMoviesState = FeatureState.Loading(),
                 topRatedMoviesState = FeatureState.Loading(),
                 upcomingMoviesState = FeatureState.Loading(),
-            )
+            ),
         )
 
         val action = HomeAction.MovieSectionsLoaded(
@@ -50,7 +50,7 @@ class MovieSectionsLoadedReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataSuccessMovies },
             moviesDataToFeatureStateMapper = { FeatureState.Success(dataMovies) },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
 
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(appState, action)
@@ -64,19 +64,19 @@ class MovieSectionsLoadedReducerTest {
 
         assertEquals(
             dataMovies,
-            (homeFeatureState.nowPlayingMoviesState as FeatureState.Success).data
+            (homeFeatureState.nowPlayingMoviesState as FeatureState.Success).data,
         )
         assertEquals(
             dataMovies,
-            (homeFeatureState.nowPopularMoviesState as FeatureState.Success).data
+            (homeFeatureState.nowPopularMoviesState as FeatureState.Success).data,
         )
         assertEquals(
             dataMovies,
-            (homeFeatureState.topRatedMoviesState as FeatureState.Success).data
+            (homeFeatureState.topRatedMoviesState as FeatureState.Success).data,
         )
         assertEquals(
             dataMovies,
-            (homeFeatureState.upcomingMoviesState as FeatureState.Success).data
+            (homeFeatureState.upcomingMoviesState as FeatureState.Success).data,
         )
     }
 
@@ -90,7 +90,7 @@ class MovieSectionsLoadedReducerTest {
                 nowPopularMoviesState = FeatureState.Loading(),
                 topRatedMoviesState = FeatureState.Loading(),
                 upcomingMoviesState = FeatureState.Loading(),
-            )
+            ),
         )
 
         val action = HomeAction.MovieSectionsLoaded(
@@ -106,12 +106,12 @@ class MovieSectionsLoadedReducerTest {
             moviesDataToFeatureStateMapper = {
                 FeatureState.NetworkError(ApiException.NetworkError())
             },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
 
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            action
+            action,
         )
 
         assertSame(effect, Effects.empty<AppEnv>())
@@ -122,16 +122,16 @@ class MovieSectionsLoadedReducerTest {
         assertTrue(homeFeatureState.upcomingMoviesState.isNetworkError)
 
         assertTrue(
-            (homeFeatureState.nowPlayingMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError
+            (homeFeatureState.nowPlayingMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError,
         )
         assertTrue(
-            (homeFeatureState.nowPopularMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError
+            (homeFeatureState.nowPopularMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError,
         )
         assertTrue(
-            (homeFeatureState.topRatedMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError
+            (homeFeatureState.topRatedMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError,
         )
         assertTrue(
-            (homeFeatureState.upcomingMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError
+            (homeFeatureState.upcomingMoviesState as FeatureState.NetworkError).cause is ApiException.NetworkError,
         )
     }
 
@@ -145,7 +145,7 @@ class MovieSectionsLoadedReducerTest {
                 nowPopularMoviesState = FeatureState.Loading(),
                 topRatedMoviesState = FeatureState.Loading(),
                 upcomingMoviesState = FeatureState.Loading(),
-            )
+            ),
         )
 
         val action = HomeAction.MovieSectionsLoaded(
@@ -159,12 +159,12 @@ class MovieSectionsLoadedReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataApiErrorMovies },
             moviesDataToFeatureStateMapper = { FeatureState.Error(ApiException.BadRequest()) },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
 
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            action
+            action,
         )
 
         assertSame(effect, Effects.empty<AppEnv>())
@@ -190,7 +190,7 @@ class MovieSectionsLoadedReducerTest {
                 nowPopularMoviesState = FeatureState.Loading(),
                 topRatedMoviesState = FeatureState.Loading(),
                 upcomingMoviesState = FeatureState.Loading(),
-            )
+            ),
         )
 
         val action = HomeAction.MovieSectionsLoaded(
@@ -204,12 +204,12 @@ class MovieSectionsLoadedReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataUnknownErrorMovies },
             moviesDataToFeatureStateMapper = { FeatureState.Error(ApiException.UnknownError()) },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
 
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            action
+            action,
         )
 
         assertSame(effect, Effects.empty<AppEnv>())

@@ -1,9 +1,9 @@
 package com.tmdb.data.db.multiplatformSettings.di.module
 
-import com.russhwolf.settings.Settings
 import com.russhwolf.settings.PreferencesSettings
-import org.koin.dsl.module
+import com.russhwolf.settings.Settings
 import java.util.prefs.Preferences
+import org.koin.dsl.module
 
 actual fun multiplatformSettingsModule() = module {
     factory<Settings> {
