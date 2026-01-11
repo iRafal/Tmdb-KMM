@@ -11,7 +11,7 @@ kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.data.source.remote.impl"
         compileSdk = GradleConfig.Android.compileSdk
-        minSdk = GradleConfig.Android.minSdk
+        minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
     jvm {

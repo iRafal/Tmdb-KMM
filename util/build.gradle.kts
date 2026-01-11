@@ -12,7 +12,7 @@ kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.util"
         compileSdk = GradleConfig.Android.compileSdk
-        minSdk = GradleConfig.Android.minSdk
+        minSdk = libs.versions.android.sdk.min.get().toInt()
 
         withDeviceTestBuilder {
             sourceSetTreeName = "test"

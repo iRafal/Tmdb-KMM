@@ -11,7 +11,7 @@ kotlin {
     androidLibrary {
         namespace = packageNameValue
         compileSdk = GradleConfig.Android.compileSdk
-        minSdk = GradleConfig.Android.minSdk
+        minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
     jvm {

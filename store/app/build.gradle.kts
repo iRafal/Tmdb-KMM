@@ -9,7 +9,7 @@ kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.store.app"
         compileSdk = GradleConfig.Android.compileSdk
-        minSdk = GradleConfig.Android.minSdk
+        minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
     jvm {

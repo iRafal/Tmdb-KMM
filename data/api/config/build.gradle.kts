@@ -10,8 +10,8 @@ plugins {
 kotlin {
     androidLibrary {
         namespace = "${GradleConfig.Android.NAMESPACE}.data.api.config"
-        compileSdk = GradleConfig.Android.compileSdk
-        minSdk = GradleConfig.Android.minSdk
+        compileSdk = libs.versions.android.sdk.compile.get().toInt()
+        minSdk = libs.versions.android.sdk.min.get().toInt()
 
         withDeviceTestBuilder {
             sourceSetTreeName = "test"
