@@ -48,7 +48,6 @@ plugins {
     alias(libs.plugins.google.services) apply false
 }
 
-
 val codeCoverageExcludeList = listOf(
     // Project specific UI exclusions
     "**/ui/components/*",
