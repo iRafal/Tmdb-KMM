@@ -1,7 +1,7 @@
 package com.tmdb.data.api.model.movie
 
-import com.tmdb.data.api.model.util.serializer.JsonKeys
 import com.tmdb.data.api.model.genre.Genre
+import com.tmdb.data.api.model.util.serializer.JsonKeys
 import com.tmdb.data.api.model.util.serializer.MovieStatusSerializer
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.serializers.LocalDateIso8601Serializer
@@ -136,9 +136,3 @@ data class Movie(
     @SerialName("vote_average") val voteAverage: Double? = null,
     @SerialName("vote_count") val voteCount: Int? = null,
 )
-
-
-
-
-
-

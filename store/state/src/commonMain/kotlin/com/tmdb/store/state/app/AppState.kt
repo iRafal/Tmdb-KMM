@@ -5,14 +5,14 @@ import com.tmdb.store.state.home.HomeFeatureState
 
 data class AppState(
     val homeState: HomeFeatureState,
-    val movieDetailsState: MovieDetailsFeatureState
+    val movieDetailsState: MovieDetailsFeatureState,
 ) {
     companion object {
         fun createInitialState() = INITIAL
 
         val INITIAL = AppState(
             homeState = HomeFeatureState.INITIAL,
-            movieDetailsState = MovieDetailsFeatureState.INITIAL
+            movieDetailsState = MovieDetailsFeatureState.INITIAL,
         )
     }
 }

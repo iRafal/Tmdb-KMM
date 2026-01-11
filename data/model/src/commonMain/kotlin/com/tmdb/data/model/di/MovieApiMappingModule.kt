@@ -14,10 +14,10 @@ fun movieApiMappingModule() = module {
         movieApiToDataModelMapperImpl(get())
     }
     single<MoviesApiToDataStateMapper>(
-        named("MoviesApiToDataStateMapper")
+        named("MoviesApiToDataStateMapper"),
     ) {
         moviesApiToDataStateMapperImpl(
-            movieApiToDataModelMapper = get(named("MovieApiToDataModelMapper"))
+            movieApiToDataModelMapper = get(named("MovieApiToDataModelMapper")),
         )
     }
 }

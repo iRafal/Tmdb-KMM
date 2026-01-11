@@ -21,26 +21,25 @@ fun createMockEffectExecutor(
     movieSource: MovieRemoteDataSource,
     personSource: PersonRemoteDataSource,
     movieLocalDataSource: MovieLocalDataSource,
-    dispatchMethodCallCountCallback: (Int) -> Unit
+    dispatchMethodCallCountCallback: (Int) -> Unit,
 ): EffectExecutorMock {
-
     val database = object : AppEnv.Database {
         override val movieSource: MovieLocalDataSource = movieLocalDataSource
     }
 
-    val network = object: AppEnv.Network {
+    val network = object : AppEnv.Network {
         override val discoverSource: DiscoverRemoteDataSource = discoverSource
         override val genreSource: GenreRemoteDataSource = genreSource
         override val movieSource: MovieRemoteDataSource = movieSource
         override val personSource: PersonRemoteDataSource = personSource
     }
 
-    val appEnv = object: AppEnv {
+    val appEnv = object : AppEnv {
         override val network: AppEnv.Network = network
         override val database: AppEnv.Database = database
     }
 
-    val effectExecutorScope = object: Effect.Executor.Scope<AppEnv> {
+    val effectExecutorScope = object : Effect.Executor.Scope<AppEnv> {
         override val env: AppEnv = appEnv
 
         private var dispatchMethodCallCount: Int = 0
@@ -55,7 +54,7 @@ fun createMockEffectExecutor(
 
         override fun execute(
             feature: Feature,
-            effectBlock: suspend Effect.Executor.Scope<AppEnv>.() -> Unit
+            effectBlock: suspend Effect.Executor.Scope<AppEnv>.() -> Unit,
         ) {
             runBlocking {
                 effectBlock(effectExecutorScope)

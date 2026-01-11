@@ -13,29 +13,25 @@ import io.ktor.client.request.parameter
 
 class MovieApiImpl(
     private val client: HttpClient,
-    private val urlProvider: MovieUrlProvider
+    private val urlProvider: MovieUrlProvider,
 ) : MovieApi {
     override suspend fun movie(
         movieId: Int,
         language: String?,
         appendToResponse: String?,
-    ): ApiResponse<Movie, NetworkErrorModel> {
-        return runApiCall {
-            client.get(urlProvider.movieUrl(movieId)) {
-                parameter("language", language)
-                parameter("append_to_response", appendToResponse)
-            }.body()
-        }
+    ): ApiResponse<Movie, NetworkErrorModel> = runApiCall {
+        client.get(urlProvider.movieUrl(movieId)) {
+            parameter("language", language)
+            parameter("append_to_response", appendToResponse)
+        }.body()
     }
 
     override suspend fun latestMovie(
         language: String?,
-    ): ApiResponse<Movie, NetworkErrorModel> {
-        return runApiCall {
-            client.get(urlProvider.latestMovieUrl) {
-                parameter("language", language)
-            }.body()
-        }
+    ): ApiResponse<Movie, NetworkErrorModel> = runApiCall {
+        client.get(urlProvider.latestMovieUrl) {
+            parameter("language", language)
+        }.body()
     }
 
     override suspend fun nowPlayingMovies(

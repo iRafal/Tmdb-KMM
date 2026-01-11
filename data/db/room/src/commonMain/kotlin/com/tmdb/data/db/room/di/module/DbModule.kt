@@ -2,9 +2,9 @@ package com.tmdb.data.db.room.di.module
 
 import com.tmdb.data.db.room.MovieDb
 import com.tmdb.data.db.room.movie.MovieDao
+import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
-import com.tmdb.util.dispatcher.di.DISPATCHER_IO
 
 fun dbModule() = module {
     includes(roomBuilderModule())

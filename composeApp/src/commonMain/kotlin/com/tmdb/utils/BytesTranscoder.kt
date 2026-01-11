@@ -10,24 +10,20 @@ interface BytesTranscoder {
 
 class BytesTranscoderImpl : BytesTranscoder {
     @OptIn(ExperimentalEncodingApi::class)
-    override fun encode(value: ByteArray): ByteArray? {
-        return try {
-            Base64.Default.encodeToByteArray(value)
-        } catch (_: IndexOutOfBoundsException) {
-            null
-        } catch (_: IllegalArgumentException) {
-            null
-        }
+    override fun encode(value: ByteArray): ByteArray? = try {
+        Base64.encodeToByteArray(value)
+    } catch (_: IndexOutOfBoundsException) {
+        null
+    } catch (_: IllegalArgumentException) {
+        null
     }
 
     @OptIn(ExperimentalEncodingApi::class)
-    override fun decode(value: ByteArray): ByteArray? {
-        return try {
-            Base64.Default.decode(value)
-        } catch (_: IndexOutOfBoundsException) {
-            null
-        } catch (_: IllegalArgumentException) {
-            null
-        }
+    override fun decode(value: ByteArray): ByteArray? = try {
+        Base64.decode(value)
+    } catch (_: IndexOutOfBoundsException) {
+        null
+    } catch (_: IllegalArgumentException) {
+        null
     }
 }

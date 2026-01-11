@@ -13,6 +13,6 @@ object ModelUtil {
         now_playing = false,
         now_popular = false,
         top_rated = false,
-        upcoming = false
+        upcoming = false,
     )
 }

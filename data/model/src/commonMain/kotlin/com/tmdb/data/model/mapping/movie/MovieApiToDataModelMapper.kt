@@ -7,13 +7,13 @@ import com.tmdb.data.model.movie.MovieDataModel
 typealias MovieApiToDataModelMapper = (input: Movie) -> MovieDataModel
 
 fun movieApiToDataModelMapperImpl(
-    imageUrlProvider: ImageUrlProvider
+    imageUrlProvider: ImageUrlProvider,
 ): MovieApiToDataModelMapper = { input ->
     MovieDataModel(
         id = input.id,
         title = input.title,
         voteAverage = input.voteAverage,
         releaseDate = input.releaseDate,
-        posterUrl = input.posterPath?.let { imageUrlProvider.posterUrl(it) }
+        posterUrl = input.posterPath?.let { imageUrlProvider.posterUrl(it) },
     )
 }

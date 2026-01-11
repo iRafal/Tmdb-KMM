@@ -21,7 +21,6 @@ data class DataPage<T>(
 
         @SerialName("minimum")
         @Serializable(with = LocalDateIso8601Serializer::class)
-        val minimum: LocalDate? = null
+        val minimum: LocalDate? = null,
     )
 }
-

@@ -9,12 +9,12 @@ import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.discover.DiscoverRemoteDataSource
 import com.tmdb.data.source.remote.impl.discover.DiscoverRemoteDataSourceImpl
 import com.tmdb.data.source.remote.util.model.ModelUtil
-import kotlinx.coroutines.test.runTest
-import org.kodein.mock.Mocker
-import org.kodein.mock.UsesMocks
 import kotlin.test.Test
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
+import kotlinx.coroutines.test.runTest
+import org.kodein.mock.Mocker
+import org.kodein.mock.UsesMocks
 
 @UsesMocks(DiscoverApi::class)
 class DiscoverRemoteDataSourceMockLibraryTest {
@@ -27,8 +27,8 @@ class DiscoverRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.discoverMovie() } returns response
 
@@ -82,8 +82,8 @@ class DiscoverRemoteDataSourceMockLibraryTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         mocker.everySuspending { mockedApi.discoverTv() } returns response
 

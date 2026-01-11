@@ -19,7 +19,7 @@ fun appStoreModule() = module {
         appEnvModule(),
         dispatchersModule(),
         storeStateModule(),
-        appReducerModule()
+        appReducerModule(),
     )
     single<AppStore> {
         val dispatcher: CoroutineDispatcher = get(named(DISPATCHER_IO))
@@ -27,7 +27,7 @@ fun appStoreModule() = module {
             initialState = get(named(APP_STATE_INITIAL)),
             env = get(),
             reducer = get(named("AppReducer")),
-            effectContext = dispatcher
+            effectContext = dispatcher,
         )
     }
 }

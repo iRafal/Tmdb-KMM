@@ -17,7 +17,7 @@ data class HomeUiDataIos(
             isLoading = false,
             isNetworkError = false,
             isSuccess = false,
-            section = section
+            section = section,
         )
 
         fun networkError(section: HomeMovieSection) = HomeUiDataIos(
@@ -25,7 +25,7 @@ data class HomeUiDataIos(
             isLoading = false,
             isNetworkError = true,
             isSuccess = false,
-            section = section
+            section = section,
         )
 
         fun loading(section: HomeMovieSection) = HomeUiDataIos(
@@ -33,7 +33,7 @@ data class HomeUiDataIos(
             isLoading = true,
             isNetworkError = false,
             isSuccess = false,
-            section = section
+            section = section,
         )
 
         fun success(section: HomeMovieSection, data: List<Movie>) = HomeUiDataIos(
@@ -42,7 +42,7 @@ data class HomeUiDataIos(
             isNetworkError = false,
             isSuccess = true,
             section = section,
-            data = data
+            data = data,
         )
     }
 }

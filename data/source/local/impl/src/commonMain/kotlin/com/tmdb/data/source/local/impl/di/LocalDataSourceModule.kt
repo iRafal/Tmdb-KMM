@@ -14,7 +14,7 @@ fun localDataSourceModule() = module {
             movieDb = get(),
             movieEntityToDataModelMapper = get(named(MOVIE_ENTITY_TO_DATA_MODEL_MAPPER)),
             movieDataModelToEntityMapper = get(named(MOVIE_DATA_MODEL_TO_ENTITY_MAPPER)),
-            get(named(DISPATCHER_UNCONFINED))
+            get(named(DISPATCHER_UNCONFINED)),
         )
     }
 }

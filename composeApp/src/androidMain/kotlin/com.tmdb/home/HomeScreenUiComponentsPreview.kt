@@ -4,12 +4,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.tmdb.core.data.UiState
 import com.tmdb.home.data.HomeUiData
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.minus
 import kotlinx.datetime.toLocalDateTime
-import kotlin.time.Clock
-import kotlin.time.ExperimentalTime
 
 @Preview(showBackground = true, showSystemUi = false)
 @Composable
@@ -29,7 +29,9 @@ private val previewDateToday = Clock.System.now().toLocalDateTime(TimeZone.UTC).
 fun MovieSectionItemPreview() {
     MovieSectionItem(
         movie = HomeUiData.Movie(
-            id = 1, title = "Movie 1", averageVote = 70.7,
+            id = 1,
+            title = "Movie 1",
+            averageVote = 70.7,
             releaseDate = previewDateToday,
             posterUrl = null,
         ),

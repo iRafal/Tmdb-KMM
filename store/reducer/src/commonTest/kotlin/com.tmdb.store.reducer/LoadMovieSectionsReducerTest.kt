@@ -22,21 +22,21 @@ import com.tmdb.store.reducer.util.ModelUtil
 import com.tmdb.store.state.FeatureState
 import com.tmdb.store.state.FeatureState.Success
 import com.tmdb.store.state.app.AppState
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.test.runTest
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class LoadMovieSectionsReducerTest {
 
-    private val discoverSource = object: DiscoverRemoteDataSource {
+    private val discoverSource = object : DiscoverRemoteDataSource {
         override suspend fun discoverMovie(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -44,7 +44,7 @@ class LoadMovieSectionsReducerTest {
         override suspend fun discoverTv(
             language: String?,
             page: Int?,
-            region: String?
+            region: String?,
         ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -52,29 +52,29 @@ class LoadMovieSectionsReducerTest {
 
     private val genreSource = object : GenreRemoteDataSource {
         override suspend fun genreMovieList(
-            language: String?
+            language: String?,
         ): ApiResponse<List<Genre>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
 
         override suspend fun genreTvList(
-            language: String?
+            language: String?,
         ): ApiResponse<List<Genre>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
     }
 
-    private val personSource = object: PersonRemoteDataSource {
+    private val personSource = object : PersonRemoteDataSource {
         override suspend fun personDetails(
             personId: Int,
             language: String?,
-            appendToResponse: String?
+            appendToResponse: String?,
         ): ApiResponse<Person, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
     }
 
-    private val movieLocalDataSource = object: MovieLocalDataSource {
+    private val movieLocalDataSource = object : MovieLocalDataSource {
         override suspend fun movie(movieId: Int): MovieDataModel? {
             TODO("Not yet implemented")
         }
@@ -107,7 +107,7 @@ class LoadMovieSectionsReducerTest {
             nowPlaying: List<MovieDataModel>,
             nowPopular: List<MovieDataModel>,
             topRatedMovies: List<MovieDataModel>,
-            upcomingMovies: List<MovieDataModel>
+            upcomingMovies: List<MovieDataModel>,
         ) {
             TODO("Not yet implemented")
         }
@@ -127,7 +127,6 @@ class LoadMovieSectionsReducerTest {
         override suspend fun getById(id: Int): MovieDataModel? {
             TODO("Not yet implemented")
         }
-
     }
 
     private val testDispatcher: CoroutineDispatcher = Dispatchers.Unconfined
@@ -141,20 +140,20 @@ class LoadMovieSectionsReducerTest {
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
                 totalResults = 1,
-            )
+            ),
         )
 
         val appState = AppState.INITIAL
         val dataSuccessMovies = DataState.Success(movies)
         val homeFeatureEffects = HomeFeatureEffects(testDispatcher)
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
-            moviesApiToDataStateMapper =  { dataSuccessMovies },
+            moviesApiToDataStateMapper = { dataSuccessMovies },
             moviesDataToFeatureStateMapper = { Success(movies) },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            HomeAction.LoadMovieSections
+            HomeAction.LoadMovieSections,
         )
 
         assertTrue(homeFeatureState.nowPlayingMoviesState.isLoading)
@@ -167,17 +166,17 @@ class LoadMovieSectionsReducerTest {
         var topRatedMoviesMethodCallingCounter = 0
         var upcomingMoviesMethodCallingCounter = 0
 
-        val movieSource = object: MovieRemoteDataSource {
+        val movieSource = object : MovieRemoteDataSource {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
 
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
@@ -185,7 +184,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPlayingMoviesMethodCallingCounter++
                 return successResult
@@ -194,7 +193,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPopularMoviesMethodCallingCounter++
                 return successResult
@@ -203,7 +202,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 topRatedMoviesMethodCallingCounter++
                 return successResult
@@ -212,7 +211,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 upcomingMoviesMethodCallingCounter++
                 return successResult
@@ -230,29 +229,29 @@ class LoadMovieSectionsReducerTest {
             movieSource,
             personSource,
             movieLocalDataSource,
-            dispatchMethodCallCountCallback
+            dispatchMethodCallCountCallback,
         )
         effect?.invoke(executor)
 
         assertEquals(
             expected = nowPlayingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time",
         )
         assertEquals(
             expected = nowPopularMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time",
         )
         assertEquals(
             expected = topRatedMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time"
+            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time",
         )
         assertEquals(
             expected = upcomingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time",
         )
 
         dispatchMethodCallCount
@@ -263,13 +262,13 @@ class LoadMovieSectionsReducerTest {
                 nowPopularMovies = dataSuccessMovies,
                 topRatedMovies = dataSuccessMovies,
                 upcomingMovies = dataSuccessMovies,
-            )
+            ),
         )
 
         assertEquals(
             expected = dispatchMethodCallCount,
             actual = 1,
-            message = "[executor.effectExecutorScope.dispatch] need to call 1 time"
+            message = "[executor.effectExecutorScope.dispatch] need to call 1 time",
         )
     }
 
@@ -283,11 +282,11 @@ class LoadMovieSectionsReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataErrorMovies },
             moviesDataToFeatureStateMapper = { FeatureState.Error() },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            HomeAction.LoadMovieSections
+            HomeAction.LoadMovieSections,
         )
 
         assertTrue(homeFeatureState.nowPlayingMoviesState.isLoading)
@@ -300,17 +299,17 @@ class LoadMovieSectionsReducerTest {
         var topRatedMoviesMethodCallingCounter = 0
         var upcomingMoviesMethodCallingCounter = 0
 
-        val movieSource = object: MovieRemoteDataSource {
+        val movieSource = object : MovieRemoteDataSource {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
 
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
@@ -318,7 +317,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPlayingMoviesMethodCallingCounter++
                 return apiErrorResult
@@ -327,7 +326,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPopularMoviesMethodCallingCounter++
                 return apiErrorResult
@@ -336,7 +335,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 topRatedMoviesMethodCallingCounter++
                 return apiErrorResult
@@ -345,7 +344,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 upcomingMoviesMethodCallingCounter++
                 return apiErrorResult
@@ -363,30 +362,30 @@ class LoadMovieSectionsReducerTest {
             movieSource,
             personSource,
             movieLocalDataSource,
-            dispatchMethodCallCountCallback
+            dispatchMethodCallCountCallback,
         )
         effect?.invoke(executor)
 
         assertEquals(
             expected = nowPlayingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time",
         )
 
         assertEquals(
             expected = nowPopularMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time",
         )
         assertEquals(
             expected = topRatedMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time"
+            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time",
         )
         assertEquals(
             expected = upcomingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time",
         )
 
         executor.effectExecutorScope.dispatch(
@@ -395,12 +394,12 @@ class LoadMovieSectionsReducerTest {
                 nowPopularMovies = dataErrorMovies,
                 topRatedMovies = dataErrorMovies,
                 upcomingMovies = dataErrorMovies,
-            )
+            ),
         )
         assertEquals(
             expected = dispatchMethodCallCount,
             actual = 1,
-            message = "[executor.effectExecutorScope.dispatch] need to call 1 time"
+            message = "[executor.effectExecutorScope.dispatch] need to call 1 time",
         )
     }
 
@@ -416,11 +415,11 @@ class LoadMovieSectionsReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataErrorMovies },
             moviesDataToFeatureStateMapper = { FeatureState.NetworkError() },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            HomeAction.LoadMovieSections
+            HomeAction.LoadMovieSections,
         )
 
         assertTrue(homeFeatureState.nowPlayingMoviesState.isLoading)
@@ -433,17 +432,17 @@ class LoadMovieSectionsReducerTest {
         var topRatedMoviesMethodCallingCounter = 0
         var upcomingMoviesMethodCallingCounter = 0
 
-        val movieSource = object: MovieRemoteDataSource {
+        val movieSource = object : MovieRemoteDataSource {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
 
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
@@ -451,7 +450,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPlayingMoviesMethodCallingCounter++
                 return networkErrorResult
@@ -460,7 +459,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPopularMoviesMethodCallingCounter++
                 return networkErrorResult
@@ -469,7 +468,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 topRatedMoviesMethodCallingCounter++
                 return networkErrorResult
@@ -478,7 +477,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 upcomingMoviesMethodCallingCounter++
                 return networkErrorResult
@@ -496,30 +495,30 @@ class LoadMovieSectionsReducerTest {
             movieSource,
             personSource,
             movieLocalDataSource,
-            dispatchMethodCallCountCallback
+            dispatchMethodCallCountCallback,
         )
         effect?.invoke(executor)
 
         assertEquals(
             expected = nowPlayingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time",
         )
 
         assertEquals(
             expected = nowPopularMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time",
         )
         assertEquals(
             expected = topRatedMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time"
+            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time",
         )
         assertEquals(
             expected = upcomingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time",
         )
 
         executor.effectExecutorScope.dispatch(
@@ -528,12 +527,12 @@ class LoadMovieSectionsReducerTest {
                 nowPopularMovies = dataErrorMovies,
                 topRatedMovies = dataErrorMovies,
                 upcomingMovies = dataErrorMovies,
-            )
+            ),
         )
         assertEquals(
             expected = dispatchMethodCallCount,
             actual = 1,
-            message = "[executor.effectExecutorScope.dispatch] need to call 1 time"
+            message = "[executor.effectExecutorScope.dispatch] need to call 1 time",
         )
     }
 
@@ -547,11 +546,11 @@ class LoadMovieSectionsReducerTest {
         val homeFeatureSlice: HomeFeatureSlice = HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = { dataErrorMovies },
             moviesDataToFeatureStateMapper = { FeatureState.NetworkError() },
-            homeFeatureEffects
+            homeFeatureEffects,
         )
         val (homeFeatureState, effect) = homeFeatureSlice.reducer(
             appState,
-            HomeAction.LoadMovieSections
+            HomeAction.LoadMovieSections,
         )
 
         assertTrue(homeFeatureState.nowPlayingMoviesState.isLoading)
@@ -564,17 +563,17 @@ class LoadMovieSectionsReducerTest {
         var topRatedMoviesMethodCallingCounter = 0
         var upcomingMoviesMethodCallingCounter = 0
 
-        val movieSource = object: MovieRemoteDataSource {
+        val movieSource = object : MovieRemoteDataSource {
             override suspend fun movie(
                 movieId: Int,
                 language: String?,
-                appendToResponse: String?
+                appendToResponse: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
 
             override suspend fun latestMovie(
-                language: String?
+                language: String?,
             ): ApiResponse<Movie, NetworkErrorModel> {
                 TODO("Not yet implemented")
             }
@@ -582,7 +581,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPlayingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPlayingMoviesMethodCallingCounter++
                 return unknownErrorResult
@@ -591,7 +590,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun nowPopularMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 nowPopularMoviesMethodCallingCounter++
                 return unknownErrorResult
@@ -600,7 +599,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun topRatedMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 topRatedMoviesMethodCallingCounter++
                 return unknownErrorResult
@@ -609,7 +608,7 @@ class LoadMovieSectionsReducerTest {
             override suspend fun upcomingMovies(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 upcomingMoviesMethodCallingCounter++
                 return unknownErrorResult
@@ -627,30 +626,30 @@ class LoadMovieSectionsReducerTest {
             movieSource,
             personSource,
             movieLocalDataSource,
-            dispatchMethodCallCountCallback
+            dispatchMethodCallCountCallback,
         )
         effect?.invoke(executor)
 
         assertEquals(
             expected = nowPlayingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPlayingMovies need to call 1 time",
         )
 
         assertEquals(
             expected = nowPopularMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time"
+            message = "MovieRemoteDataSource::nowPopularMovies need to call 1 time",
         )
         assertEquals(
             expected = topRatedMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time"
+            message = "MovieRemoteDataSource::topRatedMovies need to call 1 time",
         )
         assertEquals(
             expected = upcomingMoviesMethodCallingCounter,
             actual = 1,
-            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time"
+            message = "MovieRemoteDataSource::upcomingMovies need to call 1 time",
         )
 
         executor.effectExecutorScope.dispatch(
@@ -659,12 +658,12 @@ class LoadMovieSectionsReducerTest {
                 nowPopularMovies = dataErrorMovies,
                 topRatedMovies = dataErrorMovies,
                 upcomingMovies = dataErrorMovies,
-            )
+            ),
         )
         assertEquals(
             expected = dispatchMethodCallCount,
             actual = 1,
-            message = "[executor.effectExecutorScope.dispatch] need to call 1 time"
+            message = "[executor.effectExecutorScope.dispatch] need to call 1 time",
         )
     }
 }

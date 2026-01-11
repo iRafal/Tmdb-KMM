@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 
 class HomeFeatureEffects(private val dispatcher: CoroutineDispatcher) {
     fun loadMovieSections(
-        mapper: MoviesApiToDataStateMapper
+        mapper: MoviesApiToDataStateMapper,
     ) = mainEffect {
         withContext(dispatcher) {
             val nowPlayingMovies = async { env.network.movieSource.nowPlayingMovies() }.await()
@@ -42,11 +42,9 @@ class HomeFeatureEffects(private val dispatcher: CoroutineDispatcher) {
         }
     }
 
-    private fun <T> DataState<List<T>>.getDataIfSuccessOrDefault(): List<T> {
-        return if(this.isSuccess) (this as DataState.Success).data else listOf()
-    }
+    private fun <T> DataState<List<T>>.getDataIfSuccessOrDefault(): List<T> = if (this.isSuccess) (this as DataState.Success).data else listOf()
 
     private fun mainEffect(
-        effectExecutorScope: suspend Effect.Executor.Scope<AppEnv>.() -> Action
+        effectExecutorScope: suspend Effect.Executor.Scope<AppEnv>.() -> Action,
     ): Effect<AppEnv> = Effects.effect(effectExecutorScope, HomeFeature)
 }

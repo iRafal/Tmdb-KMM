@@ -12,7 +12,6 @@ import io.ktor.client.plugins.logging.Logger
 import org.koin.dsl.module
 
 fun ktorApiUtilModule() = module {
-
     single { json() }
 
     single<ApiErrorMapper> { apiErrorMapper() }

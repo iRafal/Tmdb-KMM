@@ -34,7 +34,7 @@ interface MovieDao {
     suspend fun nowPlayingMovies(): List<MovieEntity>
 
     @Query(
-        "SELECT * FROM $MOVIE_TABLE WHERE ${MovieEntity.MOVIE_TABLE_COLUMN_NOW_PLAYING} like 1 LIMIT :limit  OFFSET :offset"
+        "SELECT * FROM $MOVIE_TABLE WHERE ${MovieEntity.MOVIE_TABLE_COLUMN_NOW_PLAYING} like 1 LIMIT :limit  OFFSET :offset",
     )
     suspend fun nowPlayingMovies(limit: Int, offset: Int): List<MovieEntity>
 

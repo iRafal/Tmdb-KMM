@@ -18,8 +18,6 @@ compose.resources {
 }
 
 kotlin {
-    val jvm = JvmTarget.JVM_17
-
     android {
         namespace = GradleConfig.Android.NAMESPACE
         compileSdk = libs.versions.android.sdk.compile.get().toInt()

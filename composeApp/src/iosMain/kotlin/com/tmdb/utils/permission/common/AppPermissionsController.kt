@@ -1,11 +1,11 @@
 package com.tmdb.utils.permission.common
 
+import dev.icerock.moko.permissions.Permission as MokoPermission
+import dev.icerock.moko.permissions.PermissionState as MokoPermissionState
 import dev.icerock.moko.permissions.PermissionsController
 import dev.icerock.moko.permissions.location.COARSE_LOCATION
 import dev.icerock.moko.permissions.location.LOCATION
 import dev.icerock.moko.permissions.microphone.RECORD_AUDIO
-import dev.icerock.moko.permissions.Permission as MokoPermission
-import dev.icerock.moko.permissions.PermissionState as MokoPermissionState
 
 actual class AppPermissionsController(private val delegate: PermissionsController) {
     actual suspend fun getPermissionState(permission: Permission): PermissionState {

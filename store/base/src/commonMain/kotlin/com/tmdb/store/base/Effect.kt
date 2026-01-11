@@ -10,7 +10,7 @@ interface Effect<Env> {
     interface Executor<Env> {
         fun execute(
             feature: Feature,
-            effectBlock: suspend Scope<Env>.() -> Unit
+            effectBlock: suspend Scope<Env>.() -> Unit,
         )
 
         interface Scope<Env> {
@@ -26,7 +26,7 @@ object Effects {
 
     fun <E> create(
         feature: Feature,
-        effect: suspend Scope<E>.() -> Unit
+        effect: suspend Scope<E>.() -> Unit,
     ): Effect<E> = object : Effect<E> {
         override fun invoke(executor: Executor<E>) {
             executor.execute(feature, effect)

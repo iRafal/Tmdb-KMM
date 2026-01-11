@@ -17,7 +17,7 @@ class AppStoreImpl(
     initialState: AppState,
     override val env: AppEnv,
     private val reducer: AppReducer,
-    private val effectContext: CoroutineContext
+    private val effectContext: CoroutineContext,
 ) : AppStore {
 
     private val scopes = mutableMapOf<Feature, CoroutineScope>()
@@ -32,7 +32,7 @@ class AppStoreImpl(
 
     override fun execute(
         feature: Feature,
-        effectBlock: suspend Effect.Executor.Scope<AppEnv>.() -> Unit
+        effectBlock: suspend Effect.Executor.Scope<AppEnv>.() -> Unit,
     ) {
         getFeatureScope(feature).launch(effectContext) {
             try {

@@ -9,12 +9,12 @@ interface DiscoverRemoteDataSource {
     suspend fun discoverMovie(
         language: String? = null,
         page: Int? = null,
-        region: String? = null
+        region: String? = null,
     ): ApiResponse<DataPage<Movie>, NetworkErrorModel>
 
     suspend fun discoverTv(
         language: String? = null,
         page: Int? = null,
-        region: String? = null
+        region: String? = null,
     ): ApiResponse<DataPage<Movie>, NetworkErrorModel>
 }

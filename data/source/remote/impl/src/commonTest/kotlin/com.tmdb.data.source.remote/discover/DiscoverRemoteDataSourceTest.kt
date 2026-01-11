@@ -15,11 +15,11 @@ import kotlin.test.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 
-private open class DiscoverApiMockAdapter: DiscoverApi {
+private open class DiscoverApiMockAdapter : DiscoverApi {
     override suspend fun discoverMovie(
         language: String?,
         page: Int?,
-        region: String?
+        region: String?,
     ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
         TODO("Not yet implemented")
     }
@@ -27,7 +27,7 @@ private open class DiscoverApiMockAdapter: DiscoverApi {
     override suspend fun discoverTv(
         language: String?,
         page: Int?,
-        region: String?
+        region: String?,
     ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
         TODO("Not yet implemented")
     }
@@ -42,15 +42,15 @@ class DiscoverRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverMovie(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -61,18 +61,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverMovie need to call 1 time"
+            message = "DiscoverApi::discoverMovie need to call 1 time",
         )
     }
 
     @Test
     fun `discover movie list network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverMovie(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -83,18 +83,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverMovie need to call 1 time"
+            message = "DiscoverApi::discoverMovie need to call 1 time",
         )
     }
 
     @Test
     fun `discover movie list api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverMovie(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -105,18 +105,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverMovie need to call 1 time"
+            message = "DiscoverApi::discoverMovie need to call 1 time",
         )
     }
 
     @Test
     fun `discover movie list unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverMovie(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -127,7 +127,7 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverMovie need to call 1 time"
+            message = "DiscoverApi::discoverMovie need to call 1 time",
         )
     }
 
@@ -138,15 +138,15 @@ class DiscoverRemoteDataSourceTest {
                 page = 1,
                 results = listOf(ModelUtil.movieModel),
                 totalPages = 1,
-                totalResults = 1
-            )
+                totalResults = 1,
+            ),
         )
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverTv(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -157,18 +157,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverTv need to call 1 time"
+            message = "DiscoverApi::discoverTv need to call 1 time",
         )
     }
 
     @Test
     fun `discover tv list network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverTv(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -179,18 +179,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverTv need to call 1 time"
+            message = "DiscoverApi::discoverTv need to call 1 time",
         )
     }
 
     @Test
     fun `discover tv list api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverTv(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -201,18 +201,18 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverTv need to call 1 time"
+            message = "DiscoverApi::discoverTv need to call 1 time",
         )
     }
 
     @Test
     fun `discover tv list unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: DiscoverApiMockAdapter() {
+        val mockedApi = object : DiscoverApiMockAdapter() {
             override suspend fun discoverTv(
                 language: String?,
                 page: Int?,
-                region: String?
+                region: String?,
             ): ApiResponse<DataPage<Movie>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -223,7 +223,7 @@ class DiscoverRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::discoverTv need to call 1 time"
+            message = "DiscoverApi::discoverTv need to call 1 time",
         )
     }
 }

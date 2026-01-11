@@ -33,7 +33,7 @@ import org.jetbrains.compose.resources.stringResource
 fun MovieSectionError(text: String, buttonText: String, onReloadSection: () -> Unit) {
     Column(
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = text, style = MaterialTheme.typography.bodyLarge)
         Spacer(modifier = Modifier.height(32.dp))
@@ -46,10 +46,10 @@ fun MovieSectionError(text: String, buttonText: String, onReloadSection: () -> U
 @Composable
 fun MovieSectionItem(
     movie: Movie,
-    onMovieClick: (movieId: Int) -> Unit
+    onMovieClick: (movieId: Int) -> Unit,
 ) {
     Column(
-        modifier = Modifier.clickable { onMovieClick(movie.id) }
+        modifier = Modifier.clickable { onMovieClick(movie.id) },
     ) {
         AsyncImage(
             modifier = Modifier
@@ -90,7 +90,7 @@ fun MovieSectionList(movies: List<Movie>, onMovieClick: (movieId: Int) -> Unit) 
                     MovieSectionItem(movie, onMovieClick)
                 }
             }
-        }
+        },
     )
 }
 
@@ -99,7 +99,7 @@ fun MovieSection(
     title: String,
     sectionState: UiState<List<Movie>>,
     onReloadSection: () -> Unit,
-    onMovieClick: (movieId: Int) -> Unit
+    onMovieClick: (movieId: Int) -> Unit,
 ) {
     Column {
         Text(text = title, style = MaterialTheme.typography.headlineMedium)
@@ -116,7 +116,7 @@ fun MovieSection(
                     MovieSectionError(
                         text = stringResource(Res.string.failed_to_load),
                         buttonText = stringResource(Res.string.reload),
-                        onReloadSection = onReloadSection
+                        onReloadSection = onReloadSection,
                     )
                 }
 
@@ -124,7 +124,7 @@ fun MovieSection(
                     MovieSectionError(
                         text = stringResource(Res.string.no_internet),
                         buttonText = stringResource(Res.string.reload),
-                        onReloadSection = onReloadSection
+                        onReloadSection = onReloadSection,
                     )
                 }
 

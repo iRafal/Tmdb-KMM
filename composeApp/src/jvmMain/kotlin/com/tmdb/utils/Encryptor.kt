@@ -37,9 +37,7 @@ actual class Encryptor {
         return EncryptionResult(encryptedData = encryptedData, iv = iv)
     }
 
-    private fun getIV(): ByteArray {
-        return ByteArray(GCM_IV_LENGTH).apply { SecureRandom().nextBytes(this) }
-    }
+    private fun getIV(): ByteArray = ByteArray(GCM_IV_LENGTH).apply { SecureRandom().nextBytes(this) }
 
     actual fun decrypt(encryptedData: ByteArray, iv: ByteArray): ByteArray {
         val key = loadKey()

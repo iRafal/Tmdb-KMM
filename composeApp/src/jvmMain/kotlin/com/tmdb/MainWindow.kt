@@ -12,7 +12,7 @@ fun MainWindow(applicationScope: ApplicationScope) {
     Window(
         onCloseRequest = { applicationScope.exitApplication() },
         title = "Tmdb Desktop",
-        state = windowState
+        state = windowState,
     ) {
         ComposeApp()
     }

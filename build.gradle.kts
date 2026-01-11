@@ -29,9 +29,9 @@ plugins {
     alias(libs.plugins.sqldelight) apply false
 
     /*
-    * ./gradlew detekt
-    * ./gradlew detektBaseline - prefer using this one
-    */
+     * ./gradlew detekt
+     * ./gradlew detektBaseline - prefer using this one
+     */
     alias(libs.plugins.detekt) apply true
 
     alias(libs.plugins.ktlint) apply true
@@ -223,7 +223,6 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
     }
     jvmTarget = GradleConfig.javaVersionAsString
 }
-
 
 /*
  * https://detekt.dev/docs/introduction/baseline/

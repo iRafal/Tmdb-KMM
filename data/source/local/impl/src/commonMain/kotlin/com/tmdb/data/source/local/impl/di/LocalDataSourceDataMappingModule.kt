@@ -11,7 +11,10 @@ const val MOVIE_ENTITY_TO_DATA_MODEL_MAPPER = "movie_entity_to_data_model_mapper
 const val MOVIE_DATA_MODEL_TO_ENTITY_MAPPER = "movie_data_model_to_entity_mapper"
 
 fun localDataSourceDataMappingModule() = module {
-    factory<MovieEntityToDataModelMapper>(named(MOVIE_ENTITY_TO_DATA_MODEL_MAPPER)) { ::movieEntityToDataModelMapperImpl }
-    factory<MovieDataModelToEntityMapper>(named(MOVIE_DATA_MODEL_TO_ENTITY_MAPPER)) { ::movieDataModelToEntityMapperImpl }
+    factory<MovieEntityToDataModelMapper>(named(MOVIE_ENTITY_TO_DATA_MODEL_MAPPER)) {
+        ::movieEntityToDataModelMapperImpl
+    }
+    factory<MovieDataModelToEntityMapper>(named(MOVIE_DATA_MODEL_TO_ENTITY_MAPPER)) {
+        ::movieDataModelToEntityMapperImpl
+    }
 }
-

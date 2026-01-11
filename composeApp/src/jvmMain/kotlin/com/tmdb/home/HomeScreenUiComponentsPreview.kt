@@ -6,6 +6,8 @@ import com.tmdb.home.data.HomeUiData
 import com.tmdb.resources.Res
 import com.tmdb.resources.failed_to_load
 import com.tmdb.resources.reload
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
 import kotlinx.datetime.DatePeriod
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
@@ -13,8 +15,6 @@ import kotlinx.datetime.minus
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
-import kotlin.time.Clock
-import kotlin.time.ExperimentalTime
 
 @Preview
 @Composable
@@ -22,7 +22,7 @@ fun MovieSectionErrorPreview() {
     MovieSectionError(
         text = stringResource(Res.string.failed_to_load),
         buttonText = stringResource(Res.string.reload),
-        onReloadSection = { }
+        onReloadSection = { },
     )
 }
 
@@ -35,9 +35,9 @@ fun MovieSectionItemPreview() {
             title = "Movie 1",
             averageVote = 70.7,
             releaseDate = LocalDate.parse("1 Jan 2022"),
-            posterUrl = null
+            posterUrl = null,
         ),
-        onMovieClick = { }
+        onMovieClick = { },
     )
 }
 
@@ -50,22 +50,22 @@ private val moviesPreview = listOf(
         title = "Movie 1",
         averageVote = 70.7,
         releaseDate = previewDateToday,
-        posterUrl = null
+        posterUrl = null,
     ),
     HomeUiData.Movie(
         id = 2,
         title = "Movie 2",
         averageVote = 20.7,
         releaseDate = previewDateToday.minus(DatePeriod(years = 1)),
-        posterUrl = null
+        posterUrl = null,
     ),
     HomeUiData.Movie(
         id = 3,
         title = "Movie 3",
         averageVote = 95.7,
         releaseDate = previewDateToday.minus(DatePeriod(years = 2)),
-        posterUrl = null
-    )
+        posterUrl = null,
+    ),
 )
 
 @Preview
@@ -81,7 +81,7 @@ fun MovieSectionLoadingStatePreview() {
         title = "Popular movies",
         sectionState = UiState.Loading(),
         onReloadSection = { },
-        onMovieClick = { }
+        onMovieClick = { },
     )
 }
 
@@ -92,7 +92,7 @@ fun MovieSectionErrorStatePreview() {
         title = "Popular movies",
         sectionState = UiState.Error(),
         onReloadSection = { },
-        onMovieClick = { }
+        onMovieClick = { },
     )
 }
 
@@ -103,7 +103,7 @@ fun MovieSectionNetworkErrorStatePreview() {
         title = "Popular movies",
         sectionState = UiState.NetworkError(),
         onReloadSection = { },
-        onMovieClick = { }
+        onMovieClick = { },
     )
 }
 
@@ -114,6 +114,6 @@ fun MovieSectionSuccessStatePreview() {
         title = "Popular movies",
         sectionState = UiState.Success(moviesPreview),
         onReloadSection = { },
-        onMovieClick = { }
+        onMovieClick = { },
     )
 }

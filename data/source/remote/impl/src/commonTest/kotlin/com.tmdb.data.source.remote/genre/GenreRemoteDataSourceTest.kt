@@ -6,23 +6,22 @@ import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.impl.genre.GenreRemoteDataSourceImpl
-import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
-
+import kotlinx.coroutines.test.runTest
 
 class GenreRemoteDataSourceTest {
     private open class GenreApiMockAdapter : GenreApi {
         override suspend fun genreMovieList(
-            language: String?
+            language: String?,
         ): ApiResponse<List<Genre>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
 
         override suspend fun genreTvList(
-            language: String?
+            language: String?,
         ): ApiResponse<List<Genre>, NetworkErrorModel> {
             TODO("Not yet implemented")
         }
@@ -34,9 +33,9 @@ class GenreRemoteDataSourceTest {
     @Test
     fun `genre tv list success`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreTvList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -47,16 +46,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreTvList need to call 1 time"
+            message = "DiscoverApi::genreTvList need to call 1 time",
         )
     }
 
     @Test
     fun `genre tv list network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreTvList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -67,16 +66,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreTvList need to call 1 time"
+            message = "DiscoverApi::genreTvList need to call 1 time",
         )
     }
 
     @Test
     fun `genre tv list api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreTvList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -87,16 +86,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreTvList need to call 1 time"
+            message = "DiscoverApi::genreTvList need to call 1 time",
         )
     }
 
     @Test
     fun `genre tv list unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreTvList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -107,16 +106,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreTvList need to call 1 time"
+            message = "DiscoverApi::genreTvList need to call 1 time",
         )
     }
 
     @Test
     fun `genre movie list success`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreMovieList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return response
@@ -127,16 +126,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreMovieList need to call 1 time"
+            message = "DiscoverApi::genreMovieList need to call 1 time",
         )
     }
 
     @Test
     fun `genre movie list network error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreMovieList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.NetworkError()
@@ -147,16 +146,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreMovieList need to call 1 time"
+            message = "DiscoverApi::genreMovieList need to call 1 time",
         )
     }
 
     @Test
     fun `genre movie list api error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreMovieList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.ApiError()
@@ -167,16 +166,16 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreMovieList need to call 1 time"
+            message = "DiscoverApi::genreMovieList need to call 1 time",
         )
     }
 
     @Test
     fun `genre movie list unknown error`() = runTest {
         var methodCallingCounter = 0
-        val mockedApi = object: GenreApiMockAdapter() {
+        val mockedApi = object : GenreApiMockAdapter() {
             override suspend fun genreMovieList(
-                language: String?
+                language: String?,
             ): ApiResponse<List<Genre>, NetworkErrorModel> {
                 methodCallingCounter++
                 return ApiResponse.UnknownError()
@@ -187,7 +186,7 @@ class GenreRemoteDataSourceTest {
         assertEquals(
             expected = methodCallingCounter,
             actual = 1,
-            message = "DiscoverApi::genreMovieList need to call 1 time"
+            message = "DiscoverApi::genreMovieList need to call 1 time",
         )
     }
 }

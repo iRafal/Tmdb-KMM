@@ -9,7 +9,7 @@ data class HomeUiData(val movieSections: Map<HomeMovieSection, UiState<List<Movi
         val title: String,
         val averageVote: Double,
         val releaseDate: LocalDate?,
-        val posterUrl: String?
+        val posterUrl: String?,
     )
 
     companion object {
@@ -19,8 +19,7 @@ data class HomeUiData(val movieSections: Map<HomeMovieSection, UiState<List<Movi
                 HomeMovieSection.NOW_POPULAR to UiState.Loading(),
                 HomeMovieSection.TOP_RATED to UiState.Loading(),
                 HomeMovieSection.UPCOMING to UiState.Loading(),
-            )
+            ),
         )
     }
 }
-

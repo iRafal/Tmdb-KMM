@@ -16,5 +16,5 @@ fun createDataStore(): DataStore<Preferences> = createDataStore(
     producePath = {
         val file = File(System.getProperty(BASE_DIR), DATA_STORE_FILE_NAME)
         file.absolutePath
-    }
+    },
 )

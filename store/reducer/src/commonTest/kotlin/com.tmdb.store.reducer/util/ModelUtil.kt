@@ -22,7 +22,7 @@ object ModelUtil {
         isAdult = false,
         backdropPath = "/fCayJrkfRaCRCTh8GqN30f8oyQF.jpg",
         belongsToCollection = null,
-        budget = 63000000.0,
+        budget = 63_000_000.0,
         genres = listOf(Genre(id = 18, name = "Drama")),
         homepage = "",
         id = 550,
@@ -49,11 +49,11 @@ object ModelUtil {
         productionCountries = listOf(
             ProductionCountry(
                 iso_3166_1 = "US",
-                name = "United States of America"
-            )
+                name = "United States of America",
+            ),
         ),
         releaseDate = LocalDate.parse("1999-10-12"),
-        revenue = 100853753,
+        revenue = 100_853_753,
         runtime = 139,
         spokenLanguages = listOf(SpokenLanguage(iso_639_1 = "en", name = "English")),
         status = MovieStatus.RELEASED,
@@ -61,6 +61,6 @@ object ModelUtil {
         title = "Fight Club",
         isVideo = false,
         voteAverage = 7.8,
-        voteCount = 3439
+        voteCount = 3_439,
     )
 }

@@ -19,11 +19,11 @@ fun HomeAllSectionsLoadingPreview() {
                 HomeMovieSection.NOW_POPULAR to UiState.Loading(),
                 HomeMovieSection.TOP_RATED to UiState.Loading(),
                 HomeMovieSection.UPCOMING to UiState.Loading(),
-            )
+            ),
         )
         HomeScreenUi(
             data,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -38,11 +38,11 @@ fun HomeAllSectionsErrorPreview() {
                 HomeMovieSection.NOW_POPULAR to UiState.Error(),
                 HomeMovieSection.TOP_RATED to UiState.Error(),
                 HomeMovieSection.UPCOMING to UiState.Error(),
-            )
+            ),
         )
         HomeScreenUi(
             data,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -57,11 +57,11 @@ fun HomeAllSectionsNetworkErrorPreview() {
                 HomeMovieSection.NOW_POPULAR to UiState.NetworkError(),
                 HomeMovieSection.TOP_RATED to UiState.NetworkError(),
                 HomeMovieSection.UPCOMING to UiState.NetworkError(),
-            )
+            ),
         )
         HomeScreenUi(
             data,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -76,22 +76,22 @@ fun HomeStateSuccessPreview() {
                 title = "Movie 1",
                 averageVote = 70.7,
                 releaseDate = LocalDate.parse("1 Jan 2022"),
-                posterUrl = null
+                posterUrl = null,
             ),
             Movie(
                 id = 2,
                 title = "Movie 2",
                 averageVote = 20.7,
                 releaseDate = LocalDate.parse("1 Jan 2020"),
-                posterUrl = null
+                posterUrl = null,
             ),
             Movie(
                 id = 3,
                 title = "Movie 3",
                 averageVote = 95.7,
                 releaseDate = LocalDate.parse("1 Jan 2021"),
-                posterUrl = null
-            )
+                posterUrl = null,
+            ),
         )
         val data = HomeUiData(
             mapOf(
@@ -99,11 +99,11 @@ fun HomeStateSuccessPreview() {
                 HomeMovieSection.NOW_POPULAR to UiState.Success(movies),
                 HomeMovieSection.TOP_RATED to UiState.Success(movies),
                 HomeMovieSection.UPCOMING to UiState.Success(movies),
-            )
+            ),
         )
         HomeScreenUi(
             data,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }
@@ -118,22 +118,22 @@ fun HomeMixedStatesPreview() {
                 title = "Movie 1",
                 averageVote = 70.7,
                 releaseDate = LocalDate.parse("1 Jan 2022"),
-                posterUrl = null
+                posterUrl = null,
             ),
             Movie(
                 id = 2,
                 title = "Movie 2",
                 averageVote = 20.7,
                 releaseDate = LocalDate.parse("1 Jan 2020"),
-                posterUrl = null
+                posterUrl = null,
             ),
             Movie(
                 id = 3,
                 title = "Movie 3",
                 averageVote = 95.7,
                 releaseDate = LocalDate.parse("1 Jan 2021"),
-                posterUrl = null
-            )
+                posterUrl = null,
+            ),
         )
         val data = HomeUiData(
             mapOf(
@@ -141,11 +141,11 @@ fun HomeMixedStatesPreview() {
                 HomeMovieSection.NOW_POPULAR to UiState.NetworkError(),
                 HomeMovieSection.TOP_RATED to UiState.Error(),
                 HomeMovieSection.UPCOMING to UiState.Loading(),
-            )
+            ),
         )
         HomeScreenUi(
             data,
-            onEvent = { }
+            onEvent = { },
         )
     }
 }

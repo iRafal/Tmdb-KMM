@@ -6,9 +6,8 @@ import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 
-
 class GenreRemoteDataSourceImpl(
-    private val api: GenreApi
+    private val api: GenreApi,
 ) : GenreRemoteDataSource {
     override suspend fun genreMovieList(language: String?): ApiResponse<List<Genre>, NetworkErrorModel> =
         api.genreMovieList(language)

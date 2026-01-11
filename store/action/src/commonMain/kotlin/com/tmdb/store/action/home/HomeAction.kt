@@ -1,7 +1,7 @@
 package com.tmdb.store.action.home
 
-import com.tmdb.data.model.state.DataState
 import com.tmdb.data.model.movie.MovieDataModel
+import com.tmdb.data.model.state.DataState
 import com.tmdb.store.base.Action
 
 sealed interface HomeAction : Action {

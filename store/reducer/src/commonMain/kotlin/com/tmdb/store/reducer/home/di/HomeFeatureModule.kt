@@ -15,7 +15,7 @@ fun homeFeatureModule() = module {
         HomeFeatureSliceImpl(
             moviesApiToDataStateMapper = get(named("MoviesApiToDataStateMapper")),
             moviesDataToFeatureStateMapper = get(named("MoviesDataToFeatureStateMapper")),
-            homeFeatureEffects = get()
+            homeFeatureEffects = get(),
         )
     }
     single { HomeFeatureEffects(dispatcher = get(named(DISPATCHER_IO))) }

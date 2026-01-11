@@ -13,7 +13,7 @@ import io.ktor.client.request.parameter
 
 class GenreApiImpl(
     private val client: HttpClient,
-    private val urlProvider: GenreUrlProvider
+    private val urlProvider: GenreUrlProvider,
 ) : GenreApi {
     override suspend fun genreMovieList(
         language: String?,

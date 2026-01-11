@@ -35,7 +35,7 @@ fun createKtorHttpClient(
     apiErrorMapper: ApiErrorMapper,
     logger: Logger,
     json: Json,
-    connectTimeout: Long = TIMEOUT_MILLIS_DEFAULT
+    connectTimeout: Long = TIMEOUT_MILLIS_DEFAULT,
 ): HttpClient = HttpClient {
     install(ContentNegotiation) {
         json(json)

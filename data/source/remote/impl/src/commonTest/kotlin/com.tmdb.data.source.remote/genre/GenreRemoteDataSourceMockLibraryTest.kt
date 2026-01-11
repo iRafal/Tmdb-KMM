@@ -7,13 +7,12 @@ import com.tmdb.data.api.model.util.ApiResponse
 import com.tmdb.data.api.model.util.NetworkErrorModel
 import com.tmdb.data.source.remote.contract.genre.GenreRemoteDataSource
 import com.tmdb.data.source.remote.impl.genre.GenreRemoteDataSourceImpl
-import kotlinx.coroutines.test.runTest
-import org.kodein.mock.Mocker
-import org.kodein.mock.UsesMocks
 import kotlin.test.Test
 import kotlin.test.assertSame
 import kotlin.test.assertTrue
-
+import kotlinx.coroutines.test.runTest
+import org.kodein.mock.Mocker
+import org.kodein.mock.UsesMocks
 
 @UsesMocks(GenreApi::class)
 class GenreRemoteDataSourceMockLibraryTest {
