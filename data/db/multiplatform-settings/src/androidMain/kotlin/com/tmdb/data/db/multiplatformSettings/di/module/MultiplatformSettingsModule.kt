@@ -7,10 +7,12 @@ import com.russhwolf.settings.SharedPreferencesSettings
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
+private const val PREFS_NAME = "Token_Storage"
+
 actual fun multiplatformSettingsModule() = module {
     factory<Settings> {
         val context: Context = androidContext()
-        val delegate: SharedPreferences = context.getSharedPreferences("Token_Storage", Context.MODE_PRIVATE)
+        val delegate: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         SharedPreferencesSettings(delegate)
     }
 }

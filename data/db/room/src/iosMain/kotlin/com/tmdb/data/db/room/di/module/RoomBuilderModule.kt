@@ -21,7 +21,7 @@ private fun getDatabaseBuilder(): RoomDatabase.Builder<MovieDb> {
 
 @OptIn(ExperimentalForeignApi::class)
 private fun documentDirectory(): String {
-    val documentDirectory = NSFileManager.Companion.defaultManager.URLForDirectory(
+    val documentDirectory = NSFileManager.defaultManager.URLForDirectory(
         directory = NSDocumentDirectory,
         inDomain = NSUserDomainMask,
         appropriateForURL = null,

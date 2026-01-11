@@ -1,39 +1,36 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.compose.multiplatform)
-    alias(libs.plugins.compose.multiplatform.hot.reload)
+    alias(libs.plugins.kotlin.android)
+
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
 }
 
+val signingConfigRelease = "release"
 val signingConfigTestRelease = "test_release"
 
 android {
     signingConfigs {
         create(signingConfigTestRelease) {
-            storeFile = file("../keystore/test/keystore_test.jks")
+            storeFile = rootProject.file("keystore/android/test/keystore_test.jks")
             storePassword = "keystore_test_password"
             keyAlias = "key_test_alias"
             keyPassword = "key_test_password"
         }
     }
 
-    // More details: https://developer.android.com/guide/topics/resources/app-languages
-//    androidResources.generateLocaleConfig = true
-
-    namespace = GradleConfig.Android.namespace
-    compileSdk = GradleConfig.Android.compileSdk
+    namespace = GradleConfig.Android.NAMESPACE
+    compileSdk = libs.versions.android.sdk.compile.get().toInt()
 
     defaultConfig {
         applicationId = GradleConfig.App.ID
 
-        minSdk = GradleConfig.Android.minSdk
-        targetSdk = GradleConfig.Android.targetSdk
+        minSdk = libs.versions.android.sdk.min.get().toInt()
+        targetSdk = libs.versions.android.sdk.target.get().toInt()
 
         versionCode = GradleConfig.App.VERSION_CODE
         versionName = GradleConfig.App.version.name
-
-        vectorDrawables.useSupportLibrary = true
 
         setProperty("archivesBaseName", "$applicationId-$versionName-$versionCode")
 
@@ -49,19 +46,20 @@ android {
         }
     }
     buildTypes {
-       release {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
 
-           proguardFiles(
-               getDefaultProguardFile("proguard-android-optimize.txt"),
-               "proguard-rules.pro"
-           )
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
 
-           resValue("string", "app_name", "TmdbKmm")
+            resValue("string", "app_name", "Tmdb-Kmm")
 
-           signingConfig = signingConfigs.getByName(signingConfigTestRelease)
+            signingConfig = signingConfigs.getByName(signingConfigTestRelease)
         }
+
         debug {
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
@@ -71,23 +69,34 @@ android {
 
             enableUnitTestCoverage = true
 
-            resValue("string", "app_name", "TmdbKmm-Debug")
+            resValue("string", "app_name", "Tmdb-Kmm-debug")
         }
     }
+
+    lint {
+        // https://developer.android.com/studio/write/lint
+        baseline = file("lint-baseline.xml")
+    }
+
     compileOptions {
         sourceCompatibility = GradleConfig.javaVersion
         targetCompatibility = GradleConfig.javaVersion
     }
-    kotlinOptions {
-        jvmTarget = GradleConfig.javaVersionAsString
-    }
 }
 
 dependencies {
-    implementation(projects.shared)
+    debugImplementation(libs.leakCanary.debug)
 
-    implementation(libs.androidx.work.runtime)
+    implementation(libs.koin.android.worker)
+
+    implementation(libs.androidx.splashscreen)
+    implementation(libs.androidx.metrics)
+
     implementation(libs.logging.logcat)
 
-    debugImplementation(libs.compose.ui.tooling)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.androidx.activity.compose)
+
+    implementation(projects.composeApp)
+
 }

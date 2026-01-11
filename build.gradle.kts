@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 buildscript {
     repositories {
         gradlePluginPortal()
@@ -30,4 +32,15 @@ plugins {
     @Suppress("DSL_SCOPE_VIOLATION")
     val sqlDelight = libs.versions.sqlDelight
     id(GradleConfig.Plugins.SQL_DELIGHT) version sqlDelight apply false
+}
+
+subprojects {
+    plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinBasePluginWrapper> {
+        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+            compilerOptions {
+                jvmTarget.set(JvmTarget.JVM_17)
+                freeCompilerArgs.add("-Xcontext-receivers")
+            }
+        }
+    }
 }

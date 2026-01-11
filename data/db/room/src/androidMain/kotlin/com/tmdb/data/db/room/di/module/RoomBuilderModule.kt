@@ -15,7 +15,7 @@ actual fun roomBuilderModule(): Module = module {
 
 private fun getDatabaseBuilder(context: Context): RoomDatabase.Builder<MovieDb> {
     val appContext = context.applicationContext
-    val dbFile = appContext.getDatabasePath(MovieDb.Companion.DB_NAME)
+    val dbFile = appContext.getDatabasePath(MovieDb.DB_NAME)
     return Room.databaseBuilder<MovieDb>(
         context = appContext,
         name = dbFile.absolutePath,

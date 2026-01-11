@@ -1,33 +1,38 @@
 [versions]
+#region ANDROID APP
+android-sdk-compile = "36"
+android-sdk-min = "29"
+android-sdk-target = "36"
+#endregion ANDROID APP
+
 #region BUILD TOOLS
 # https://developer.android.com/studio/releases/gradle-plugin
 # https://developer.android.com/build/releases/past-releases
-gradle = "8.11.1"
+gradle = "8.13.2"
 #endregion BUILD TOOLS
 
 #region KOTLIN
 #https://kotlinlang.org/docs/jvm-test-using-junit.html#add-the-code-to-test-it
 #https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-test
-kotlin-test = "2.2.0" # Update together with marked dependencies
-kotlin = "2.2.0" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
+kotlin = "2.3.0" # https://mvnrepository.com/artifact/org.jetbrains.kotlin.plugin.compose/org.jetbrains.kotlin.plugin.compose.gradle.plugin
 kotlin-coroutines = "1.10.2" # https://github.com/kotlin/kotlinx.coroutines
 kotlin-serialization-json = "1.9.0" # https://github.com/Kotlin/kotlinx.serialization
 # https://github.com/google/ksp/releases
 # https://mvnrepository.com/artifact/com.google.devtools.ksp/com.google.devtools.ksp.gradle.plugin?repo=central
-ksp = "2.2.0-2.0.2"
+ksp = "2.3.4"
 #endregion KOTLIN
 
 #region ANDROIDX
-androidx-core = "1.16.0" # https://developer.android.com/jetpack/androidx/releases/core
-androidx-splashscreen = "1.1.0-rc01" # https://mvnrepository.com/artifact/androidx.core/core-splashscreen?repo=google
-androidx-lifecycle = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidx-lifecycle-compose = "2.9.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidx-lifecycle-multiplatform = "2.9.1"
-androidx-work = "2.10.2" # https://developer.android.com/jetpack/androidx/releases/work
-androidx-window-core = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/window
-androidx-material3-window-size = "1.3.2" # https://developer.android.com/jetpack/androidx/releases/compose-material3
-androidx-metrics = "1.0.0-beta02" # https://developer.android.com/jetpack/androidx/releases/metrics
-androidx-media3 = "1.7.1" # //https://developer.android.com/jetpack/androidx/releases/media3
+androidx-core = "1.17.0" # https://developer.android.com/jetpack/androidx/releases/core
+androidx-splashscreen = "1.2.0" # https://mvnrepository.com/artifact/androidx.core/core-splashscreen?repo=google
+androidx-lifecycle = "2.10.0" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-compose = "2.10.0" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidx-lifecycle-multiplatform = "2.9.6"
+androidx-work = "2.11.0" # https://developer.android.com/jetpack/androidx/releases/work
+androidx-window-core = "1.5.1" # https://developer.android.com/jetpack/androidx/releases/window
+androidx-material3-window-size = "1.4.0" # https://developer.android.com/jetpack/androidx/releases/compose-material3
+androidx-metrics = "1.0.0" # https://developer.android.com/jetpack/androidx/releases/metrics
+androidx-media3 = "1.9.0" # //https://developer.android.com/jetpack/androidx/releases/media3
 androidx-biometrics = "1.1.0" # https://mvnrepository.com/artifact/androidx.biometric/biometric
 androidx-biometrics-ktx = "1.4.0-alpha02" # https://mvnrepository.com/artifact/androidx.biometric/biometric-ktx
 androidx-credentials = "1.5.0" # https://mvnrepository.com/artifact/androidx.credentials/credentials
@@ -35,26 +40,26 @@ androidx-credentials-play-auth = "1.5.0" # https://mvnrepository.com/artifact/an
 #endregion ANDROIDX
 
 #region UI
-coil = "3.2.0" # https://github.com/coil-kt/coil
+coil = "3.3.0" # https://github.com/coil-kt/coil
 material-components-android = "1.12.0" # https://github.com/material-components/material-components-android
 #endregion UI
 
 #region COMPOSE
-compose = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-ui
-compose-multiplatform = "1.8.2" # https://github.com/JetBrains/compose-multiplatform
-compose-multiplatform-hot-reload = "1.0.0-beta04" # https://github.com/JetBrains/compose-hot-reload
+compose = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-ui
+compose-multiplatform = "1.9.3" # https://github.com/JetBrains/compose-multiplatform
+compose-multiplatform-hot-reload = "1.0.0" # https://github.com/JetBrains/compose-hot-reload
 
 compose-material3 = "1.3.2"
 
-compose-animation = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-animation
-compose-foundation = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-foundation
-compose-material = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-material
-compose-runtime = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-runtime
-compose-ui = "1.8.3" # https://developer.android.com/jetpack/androidx/releases/compose-ui
+compose-animation = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-animation
+compose-foundation = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-foundation
+compose-material = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-material
+compose-runtime = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-runtime
+compose-ui = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-ui
 
-compose-activity = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/activity
-compose-navigation = "2.9.0" # https://developer.android.com/jetpack/androidx/releases/navigation
-compose-navigation-multiplatform = "2.9.0-beta03" # https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
+compose-activity = "1.12.2" # https://developer.android.com/jetpack/androidx/releases/activity
+compose-navigation = "2.9.6" # https://developer.android.com/jetpack/androidx/releases/navigation
+compose-navigation-multiplatform = "2.9.1" # https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
 
 # https://developer.android.com/jetpack/compose/layouts/constraintlayout
 # https://mvnrepository.com/artifact/androidx.constraintlayout/constraintlayout-compose?repo=google
@@ -64,44 +69,44 @@ accompanist = "0.37.3" # https://github.com/google/accompanist
 #endregion COMPOSE
 
 #region STORAGE
-sqlDelight = "2.1.0" # https://github.com/cashapp/sqldelight
-data-store = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
-data-store-preferences = "1.1.7" # https://developer.android.com/kotlin/multiplatform/datastore
+sqlDelight = "2.2.1" # https://github.com/cashapp/sqldelight
+data-store = "1.2.0" # https://developer.android.com/kotlin/multiplatform/datastore
+data-store-preferences = "1.2.0" # https://developer.android.com/kotlin/multiplatform/datastore
 multiplatform-settings = "1.3.0" # https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file
-room = "2.7.2"
-sqlite = "2.5.2"
+room = "2.8.4"
+sqlite = "2.6.2"
 #endregion STORAGE
 
 #region NETWORK
-ktor = "3.2.2" # https://github.com/ktorio/ktor
+ktor = "3.3.3" # https://github.com/ktorio/ktor
 #endregion NETWORK
 
 #region TEST
-runner = "1.6.2"
+runner = "1.7.0"
 junit = "1.2.1"
 #endregion TEST
 
 #region TOOLS
 leakcanary = "2.14" # https://square.github.io/leakcanary/getting_started/
-logging-logcat = "0.2.3" # https://github.com/square/logcat
-logging-kermit = "2.0.6" # https://github.com/touchlab/Kermit
+logging-logcat = "0.4" # https://github.com/square/logcat
+logging-kermit = "2.0.8" # https://github.com/touchlab/Kermit
 kotlinx-dateTime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
 kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
 buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
 mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
 
-moko-permissions = "0.19.1" # https://github.com/icerockdev/moko-permissions
+moko-permissions = "0.20.1" # https://github.com/icerockdev/moko-permissions
 
 # https://github.com/icerockdev/moko-resources
 # https://mvnrepository.com/artifact/dev.icerock.moko
-moko-resources = "0.25.0"
+moko-resources = "0.25.2"
 
 # https://mvnrepository.com/artifact/dev.icerock.moko
 # https://mvnrepository.com/artifact/dev.icerock.moko/graphics
 moko-graphics = "0.10.1"
 
 # https://github.com/jlleitschuh/ktlint-gradle
-ktlint = "13.0.0"
+ktlint = "14.0.1"
 
 # https://detekt.dev/docs/intro
 # https://github.com/detekt/detekt
@@ -111,7 +116,7 @@ detekt = "1.23.8"
 #region DI
 # https://github.com/InsertKoinIO/koin/tags
 # https://insert-koin.io/docs/reference/koin-mp/kmp
-koin = "4.1.0"
+koin = "4.1.1"
 #endregion DI
 
 [libraries]
