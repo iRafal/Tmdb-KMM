@@ -7,7 +7,7 @@ plugins {
     alias(libs.plugins.room)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.namespace}.data.db.room"
+internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.room"
 
 kotlin {
     androidLibrary {

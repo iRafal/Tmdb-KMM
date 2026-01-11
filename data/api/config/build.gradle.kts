@@ -9,7 +9,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.data.api.config"
+        namespace = "${GradleConfig.Android.NAMESPACE}.data.api.config"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
 
@@ -61,7 +61,7 @@ val apiUrlBase = properties["api.url.base"].toString()
 val apiUrlImage = properties["api.url.image"].toString()
 
 buildkonfig {
-    packageName = "${GradleConfig.Android.namespace}.data.api.config"
+    packageName = "${GradleConfig.Android.NAMESPACE}.data.api.config"
     exposeObjectWithName = "DataApiConfigBuildKonfig"
     defaultConfigs {
         buildConfigField(STRING, "API_KEY", apiKey)

@@ -10,7 +10,7 @@ kotlin {
     // which platforms this KMP module supports.
     // See: https://kotlinlang.org/docs/multiplatform-discover-project.html#targets
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.util"
+        namespace = "${GradleConfig.Android.NAMESPACE}.util"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
 

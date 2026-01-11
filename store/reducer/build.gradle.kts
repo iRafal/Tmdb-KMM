@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.store.reducer"
+        namespace = "${GradleConfig.Android.NAMESPACE}.store.reducer"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
 

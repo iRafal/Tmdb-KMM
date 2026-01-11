@@ -8,7 +8,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.data.api.model"
+        namespace = "${GradleConfig.Android.NAMESPACE}.data.api.model"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
 

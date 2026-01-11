@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform.android.library)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.namespace}.data.db.multiplatformSettings"
+internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.multiplatformSettings"
 
 kotlin {
     androidLibrary {

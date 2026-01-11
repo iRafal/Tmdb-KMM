@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.store.env"
+        namespace = "${GradleConfig.Android.NAMESPACE}.store.env"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
 

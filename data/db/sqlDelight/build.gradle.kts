@@ -6,7 +6,7 @@ plugins {
     id(GradleConfig.Plugins.SQL_DELIGHT)
 }
 
-internal val packageNameValue = "${GradleConfig.Android.namespace}.data.db.sqldelight"
+internal val packageNameValue = "${GradleConfig.Android.NAMESPACE}.data.db.sqldelight"
 
 kotlin {
     androidLibrary {

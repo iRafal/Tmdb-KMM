@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "${GradleConfig.Android.namespace}.data.source.remote.contract"
+        namespace = "${GradleConfig.Android.NAMESPACE}.data.source.remote.contract"
         compileSdk = GradleConfig.Android.compileSdk
         minSdk = GradleConfig.Android.minSdk
     }
