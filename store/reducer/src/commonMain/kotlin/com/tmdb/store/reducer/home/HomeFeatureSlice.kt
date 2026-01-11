@@ -38,6 +38,7 @@ class HomeFeatureSliceImpl(
                         homeFeatureEffects,
                     )
                 }
+
                 else -> globalState.homeState to Effects.empty()
             }
         }
@@ -47,22 +48,21 @@ private fun AppState.reduce(
     action: HomeAction,
     moviesApiToDataStateMapper: MoviesApiToDataStateMapper,
     moviesDataToFeatureStateMapper: MoviesDataToFeatureStateMapper,
-    homeFeatureEffects: HomeFeatureEffects
-): Pair<HomeFeatureState, Effect<AppEnv>?> {
-    return when (action) {
-        is ReloadNowPlayingMovies -> this.homeState.reduceReloadNowPlayingMovies(action)
-        is ReloadNowPopularMovies -> this.homeState.reduceReloadNowPopularMovies(action)
-        is ReloadTopRatedMovies -> this.homeState.reduceReloadTopRatedMovies(action)
-        is ReloadUpcomingMovies -> this.homeState.reduceReloadUpcomingMovies(action)
-        is LoadMovieSections -> {
-            this.homeState.reduceLoadMovieSections(
-                action,
-                moviesApiToDataStateMapper,
-                homeFeatureEffects
-            )
-        }
-        is MovieSectionsLoaded -> {
-            this.homeState.reduceMovieSectionsLoaded(action, moviesDataToFeatureStateMapper)
-        }
+    homeFeatureEffects: HomeFeatureEffects,
+): Pair<HomeFeatureState, Effect<AppEnv>?> = when (action) {
+    is ReloadNowPlayingMovies -> this.homeState.reduceReloadNowPlayingMovies(action)
+    is ReloadNowPopularMovies -> this.homeState.reduceReloadNowPopularMovies(action)
+    is ReloadTopRatedMovies -> this.homeState.reduceReloadTopRatedMovies(action)
+    is ReloadUpcomingMovies -> this.homeState.reduceReloadUpcomingMovies(action)
+    is LoadMovieSections -> {
+        this.homeState.reduceLoadMovieSections(
+            action,
+            moviesApiToDataStateMapper,
+            homeFeatureEffects,
+        )
+    }
+
+    is MovieSectionsLoaded -> {
+        this.homeState.reduceMovieSectionsLoaded(action, moviesDataToFeatureStateMapper)
     }
 }
