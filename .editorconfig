@@ -18,19 +18,23 @@ indent_size = 4
 [*.{kt,kts}]
 ktlint_standard = enabled
 ktlint_standard_final-newline = enabled
-ktlint_standard_import-ordering = true
-ktlint_standard_indent = true
-ktlint_standard_expression-body=function
-ktlint_function_body_expression_single_return=enabled
-
+ktlint_standard_import-ordering = enabled
+ktlint_standard_indent = enabled
+ktlint_standard_function = disabled
+ktlint_standard_function-signature = disabled
+ktlint_standard_blank-line-between-when-conditions = disabled
+ktlint_standard_enum-wrapping = disabled
+ktlint_standard_no-wildcard-imports = enabled
+ktlint_standard_class-signature = disabled
+ktlint_function_naming_ignore_when_annotated_with = Composable,Preview
 ktlint_code_style = android_studio
 ktlint_ignore_back_ticked_identifier = true
 ktlint_experimental = enabled
 
-ktlint_function_signature_body_expression_wrapping=default
-ktlint_function_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than=1
-ktlint_function_body_expression_single_return=enabled
-ktlint_standard_parameter-list-wrapping=always
+ktlint_function_signature_body_expression_wrapping = default
+ktlint_function_signature_rule_force_multiline_when_parameter_count_greater_or_equal_than = 1
+ktlint_function_body_expression_single_return = enabled
+ktlint_standard_parameter-list-wrapping = multiline
 
 ktlint_custom-rule-set_custom-rule = disabled # Disables the `custom-rule` rule in the `custom-rule-set` rule set (not provided by KtLint)
 ij_kotlin_packages_to_use_import_on_demand = unset # Don't allow any wildcard imports
