@@ -58,7 +58,6 @@ compose-runtime = "1.10.0" # https://developer.android.com/jetpack/androidx/rele
 compose-ui = "1.10.0" # https://developer.android.com/jetpack/androidx/releases/compose-ui
 
 compose-activity = "1.12.2" # https://developer.android.com/jetpack/androidx/releases/activity
-compose-navigation = "2.9.6" # https://developer.android.com/jetpack/androidx/releases/navigation
 compose-navigation-multiplatform = "2.9.1" # https://mvnrepository.com/artifact/androidx.navigation/navigation-compose
 
 # https://developer.android.com/jetpack/compose/layouts/constraintlayout
@@ -93,7 +92,6 @@ logging-kermit = "2.0.8" # https://github.com/touchlab/Kermit
 kotlinx-dateTime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
 kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
 buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
-mockmp = "2.0.2" # https://github.com/kosi-libs/MocKMP
 
 moko-permissions = "0.20.1" # https://github.com/icerockdev/moko-permissions
 
@@ -105,6 +103,10 @@ moko-resources = "0.25.2"
 # https://mvnrepository.com/artifact/dev.icerock.moko/graphics
 moko-graphics = "0.10.1"
 
+# https://firebase.google.com/docs/android/troubleshooting-faq#add-plugins-using-buildscript-syntax
+google-services = "4.4.4"
+firebase-crashlytics-gradle = "3.0.6" # https://firebase.google.com/docs/crashlytics/get-started?platform=android
+
 # https://github.com/jlleitschuh/ktlint-gradle
 ktlint = "14.0.1"
 
@@ -112,6 +114,9 @@ ktlint = "14.0.1"
 # https://github.com/detekt/detekt
 detekt = "1.23.8"
 #endregion TOOLS
+
+# https://github.com/Kotlin/kotlinx-kover
+kotlinx-kover = "0.9.3"
 
 #region DI
 # https://github.com/InsertKoinIO/koin/tags
@@ -218,7 +223,6 @@ moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "mok
 moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko-permissions" }
 moko-permissions-location = { module = "dev.icerock.moko:permissions-location", version.ref = "moko-permissions" }
 moko-permissions-microphone = { module = "dev.icerock.moko:permissions-microphone", version.ref = "moko-permissions" }
-mock-mp-runtime = { module = "org.kodein.mock:mockmp-runtime", version.ref = "mockmp" }
 #endregion TOOLS
 
 #region DI
@@ -239,14 +243,20 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 compose-multiplatform-hot-reload = { id = "org.jetbrains.compose.hot-reload", version.ref = "compose-multiplatform-hot-reload" }
 
-buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
-
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlin-multiplatform-android-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "gradle" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-mock-mp = { id = "org.kodein.mock.mockmp", version.ref = "mockmp" }
+
+buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+kotlinx-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kotlinx-kover" }
+
 
 room = { id = "androidx.room", version.ref = "room" }
+
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle" }
