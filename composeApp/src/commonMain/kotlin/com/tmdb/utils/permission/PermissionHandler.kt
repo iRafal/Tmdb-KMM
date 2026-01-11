@@ -56,17 +56,16 @@ class PermissionHandlerImpl(private val permissionsController: AppPermissionsCon
         }
     }
 
-    private fun mapPermissionState(permissionState: PermissionState): PermissionRequestResult {
-        return when (permissionState) {
-            Granted -> PermissionRequestResult.GRANTED
+    private fun mapPermissionState(permissionState: PermissionState): PermissionRequestResult = when (permissionState) {
+        Granted -> PermissionRequestResult.GRANTED
 
-            NotDetermined,
-            NotGranted,
-            Denied, -> PermissionRequestResult.NOT_GRANTED
+        NotDetermined,
+        NotGranted,
+        Denied,
+        -> PermissionRequestResult.NOT_GRANTED
 
-            DeniedAlways -> PermissionRequestResult.DENIED_ALWAYS
+        DeniedAlways -> PermissionRequestResult.DENIED_ALWAYS
 
-            else -> PermissionRequestResult.NOT_GRANTED
-        }
+        else -> PermissionRequestResult.NOT_GRANTED
     }
 }
