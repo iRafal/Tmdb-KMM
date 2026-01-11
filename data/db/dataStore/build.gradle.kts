@@ -14,13 +14,7 @@ kotlin {
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
-    jvm {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
-            }
-        }
-    }
+    jvm ()
 
     val xcfName = "data:db:dataStore:kit"
     listOf(

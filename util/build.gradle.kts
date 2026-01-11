@@ -23,13 +23,7 @@ kotlin {
         }
     }
 
-    jvm {
-        compilations.all {
-            compileTaskProvider.configure {
-                compilerOptions.jvmTarget.set(JvmTarget.JVM_17)
-            }
-        }
-    }
+    jvm ()
 
     val xcfName = "util:kit"
     listOf(
