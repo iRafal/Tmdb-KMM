@@ -25,7 +25,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform) apply false
     alias(libs.plugins.kotlin.multiplatform.android.library) apply false
 
-    alias(libs.plugins.mock.mp) apply false
+    alias(libs.plugins.buildKonfig) apply false
 
     alias(libs.plugins.room) apply false
 

@@ -4,7 +4,7 @@ import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    id(GradleConfig.Plugins.BUILD_KONFIG)
+    alias(libs.plugins.buildKonfig)
 }
 
 kotlin {

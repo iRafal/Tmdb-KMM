@@ -4,7 +4,6 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
     alias(libs.plugins.ksp)
-    alias(libs.plugins.mock.mp)
 }
 
 kotlin {
