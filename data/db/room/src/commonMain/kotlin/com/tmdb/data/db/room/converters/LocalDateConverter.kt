@@ -9,7 +9,5 @@ object LocalDateConverter {
     fun fromLocalDateTime(dateTime: LocalDate?): String? = dateTime?.toString()
 
     @TypeConverter
-    fun fromTimeStamp(timeStamp: String?): LocalDate? {
-        return LocalDate.parse(timeStamp ?: return null)
-    }
+    fun fromTimeStamp(timeStamp: String?): LocalDate? = timeStamp?.let { LocalDate.parse(it) }
 }
