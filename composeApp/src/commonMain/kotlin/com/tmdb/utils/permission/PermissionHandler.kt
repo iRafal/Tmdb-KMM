@@ -25,22 +25,19 @@ class PermissionHandlerImpl(private val permissionsController: AppPermissionsCon
         permissionsController.openAppSettings()
     }
 
-    override suspend fun handlePermission(permission: AppPermission): PermissionRequestResult {
-        return if (isPermissionGranted(permission)) {
+    override suspend fun handlePermission(permission: AppPermission): PermissionRequestResult =
+        if (isPermissionGranted(permission)) {
             PermissionRequestResult.GRANTED
         } else {
             requestPermission(permission)
             mapPermissionState(getPermissionState(permission))
         }
-    }
 
-    override suspend fun isPermissionGranted(permission: AppPermission): Boolean {
-        return getPermissionState(permission) == Granted
-    }
+    override suspend fun isPermissionGranted(permission: AppPermission): Boolean =
+        getPermissionState(permission) == Granted
 
-    override suspend fun getPermissionState(permission: AppPermission): PermissionState {
-        return permissionsController.getPermissionState(mapPermissionType(permission))
-    }
+    override suspend fun getPermissionState(permission: AppPermission): PermissionState =
+        permissionsController.getPermissionState(mapPermissionType(permission))
 
     override suspend fun requestPermission(vararg permission: AppPermission) {
         permission.forEach {
