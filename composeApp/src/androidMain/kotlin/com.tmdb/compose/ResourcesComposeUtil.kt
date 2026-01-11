@@ -2,7 +2,6 @@ package com.tmdb.compose
 
 import androidx.annotation.PluralsRes
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 
 @Composable
