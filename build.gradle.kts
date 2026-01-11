@@ -154,22 +154,17 @@ subprojects {
     }
 
     plugins.withType<org.jetbrains.kotlin.gradle.plugin.KotlinBasePluginWrapper> {
-        tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-            compilerOptions {
-                jvmTarget.set(JvmTarget.JVM_17)
-                freeCompilerArgs.add("-Xcontext-receivers")
-            }
+        extensions.configure<org.jetbrains.kotlin.gradle.dsl.KotlinBaseExtension> {
+            jvmToolchain(17)
         }
     }
 
-//    plugins.withType<com.android.build.gradle.BasePlugin> {
-//        extensions.configure<BaseExtension> {
-//            compileOptions {
-//                sourceCompatibility = GradleConfig.javaVersion
-//                targetCompatibility = GradleConfig.javaVersion
-//            }
-//        }
-//    }
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask<*>>().configureEach {
+        compilerOptions {
+            freeCompilerArgs.add("-Xcontext-receivers")
+            freeCompilerArgs.add("-Xexpect-actual-classes")
+        }
+    }
 
     configure<org.jlleitschuh.gradle.ktlint.KtlintExtension> {
         verbose.set(true)
