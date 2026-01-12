@@ -12,7 +12,12 @@ kotlin {
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
-    jvm ()
+    jvm()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
 
     val xcfName = "api:impl:kit"
     listOf(
@@ -57,6 +62,9 @@ kotlin {
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+        }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.core)
         }
     }
 }

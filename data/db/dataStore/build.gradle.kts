@@ -12,7 +12,12 @@ kotlin {
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
-    jvm ()
+    jvm()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
 
     val xcfName = "data:db:dataStore:kit"
     listOf(
@@ -31,8 +36,7 @@ kotlin {
             dependencies {
                 implementation(libs.koin.core)
                 implementation(libs.kotlinx.dateTime)
-                api(libs.data.store)
-                api(libs.data.store.preferences)
+                implementation(libs.kotlin.coroutines.core)
             }
         }
         commonTest.dependencies {
@@ -43,10 +47,16 @@ kotlin {
         }
         androidMain.dependencies {
             implementation(libs.koin.android)
+            api(libs.data.store.preferences)
+            api(libs.data.store)
         }
         iosMain.dependencies {
+            api(libs.data.store.preferences)
+            api(libs.data.store)
         }
         jvmMain.dependencies {
+            api(libs.data.store.preferences)
+            api(libs.data.store)
         }
         jvmTest.dependencies {
         }

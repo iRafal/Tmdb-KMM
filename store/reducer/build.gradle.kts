@@ -16,7 +16,12 @@ kotlin {
         }
     }
 
-    jvm ()
+    jvm()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
 
     val xcfName = "store:reducer:kit"
     listOf(

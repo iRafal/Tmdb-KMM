@@ -12,7 +12,13 @@ kotlin {
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
-    jvm ()
+    jvm()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
+
     val xcfName = "data:source:local:contract:kit"
     listOf(
         iosX64(),

@@ -18,7 +18,12 @@ kotlin {
         minSdk = libs.versions.android.sdk.min.get().toInt()
     }
 
-    jvm ()
+    jvm()
+
+    @OptIn(org.jetbrains.kotlin.gradle.ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
 
     val xcfName = "data:db:sqldelight:kit"
     listOf(
@@ -60,6 +65,10 @@ kotlin {
         }
         jvmTest.dependencies {
             implementation(libs.sqlDelight.driver.jvm)
+        }
+        wasmJsMain.dependencies {
+            // SQLDelight WebWorkerDriver not yet usable - browser APIs unavailable in Kotlin/Wasm
+            // implementation(libs.sqlDelight.driver.web.worker)
         }
     }
 }

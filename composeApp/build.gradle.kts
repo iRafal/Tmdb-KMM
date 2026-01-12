@@ -1,5 +1,5 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.compose.multiplatform)
@@ -37,6 +37,12 @@ kotlin {
     }
 
     jvm()
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
 
     listOf(
         iosX64(),
@@ -119,7 +125,6 @@ kotlin {
         }
 
         jvmMain.dependencies {
-
             api(compose.uiTooling)
             api(libs.kotlin.coroutines.swing)
             implementation(compose.desktop.currentOs)
@@ -129,6 +134,10 @@ kotlin {
 
         jvmTest.dependencies {
             implementation(libs.kotlin.test)
+        }
+
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.core)
         }
     }
 }
