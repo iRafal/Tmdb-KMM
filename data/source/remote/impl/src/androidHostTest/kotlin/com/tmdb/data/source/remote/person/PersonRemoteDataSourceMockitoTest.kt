@@ -58,4 +58,3 @@ class PersonRemoteDataSourceMockitoTest {
         verify(mockedApi, times(1)).personDetails(personId)
     }
 }
-

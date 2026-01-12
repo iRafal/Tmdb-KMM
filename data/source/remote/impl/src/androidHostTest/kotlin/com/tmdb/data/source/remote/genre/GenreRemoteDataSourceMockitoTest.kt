@@ -92,4 +92,3 @@ class GenreRemoteDataSourceMockitoTest {
         verify(mockedApi, times(1)).genreMovieList()
     }
 }
-

@@ -257,4 +257,3 @@ class MovieRemoteDataSourceMockitoTest {
         verify(mockedApi, times(1)).upcomingMovies()
     }
 }
-
