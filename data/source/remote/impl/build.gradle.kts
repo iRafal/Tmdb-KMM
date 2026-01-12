@@ -10,6 +10,8 @@ kotlin {
         namespace = "${GradleConfig.Android.NAMESPACE}.$modulePath"
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
         minSdk = libs.versions.android.sdk.min.get().toInt()
+
+        withHostTest {}
     }
 
     jvm ()
@@ -42,7 +44,7 @@ kotlin {
                 implementation(libs.kotlin.coroutines.test)
             }
         }
-        androidUnitTest {
+        val androidHostTest by getting {
             dependencies {
                 implementation(libs.mockito.kotlin)
                 implementation(libs.mockito.core)
