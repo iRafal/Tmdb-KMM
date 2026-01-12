@@ -3,14 +3,22 @@ import ComposeApp
 
 @main
 struct iOSApp: App {
+    init() {
+        initLogging()
+        multiplatformDiInit()
+    }
 
-  init() {
-    AppModule.shared.startIos()
-  }
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
 
-	var body: some Scene {
-		WindowGroup {
-			ContentView()
-		}
-	}
+private func initLogging() {
+  IosLogInitializer.shared.initialize()
+}
+
+private func multiplatformDiInit() {
+    AppModule().startIos()
 }

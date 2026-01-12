@@ -1,10 +1,11 @@
 package com.tmdb
 
 import androidx.compose.ui.window.ComposeUIViewController
-import com.tmdb.shared.app.ComposeApp
+import com.tmdb.app.ComposeApp
+import platform.UIKit.UIWindow
 
 fun MainViewController(
-    onDarkTheme: (isDarkTheme: Boolean?) -> Unit,
+    window: UIWindow? = null
 ) = ComposeUIViewController {
     ComposeApp()
 }

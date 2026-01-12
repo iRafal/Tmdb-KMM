@@ -18,7 +18,7 @@ compose.resources {
 }
 
 kotlin {
-    android {
+    androidLibrary {
         namespace = GradleConfig.Android.NAMESPACE
         compileSdk = libs.versions.android.sdk.compile.get().toInt()
 
