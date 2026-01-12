@@ -92,6 +92,8 @@ logging-kermit = "2.0.8" # https://github.com/touchlab/Kermit
 kotlinx-dateTime = "0.7.1" # https://github.com/Kotlin/kotlinx-datetime
 kotlinx-collections-immutable = "0.4.0" # https://github.com/Kotlin/kotlinx.collections.immutable
 buildKonfig = "0.17.1" # https://github.com/yshrsmz/BuildKonfig
+mockito-kotlin = "5.4.0" # https://github.com/mockito/mockito-kotlin
+mockito-core = "5.14.2" # https://github.com/mockito/mockito
 
 moko-permissions = "0.20.1" # https://github.com/icerockdev/moko-permissions
 
@@ -222,6 +224,9 @@ moko-permissions = { module = "dev.icerock.moko:permissions", version.ref = "mok
 moko-permissions-compose = { module = "dev.icerock.moko:permissions-compose", version.ref = "moko-permissions" }
 moko-permissions-location = { module = "dev.icerock.moko:permissions-location", version.ref = "moko-permissions" }
 moko-permissions-microphone = { module = "dev.icerock.moko:permissions-microphone", version.ref = "moko-permissions" }
+
+mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "mockito-kotlin" }
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito-core" }
 #endregion TOOLS
 
 #region DI

@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.multiplatform.android.library)
-    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -42,7 +41,12 @@ kotlin {
                 implementation(libs.kotlinx.dateTime)
                 implementation(libs.kotlin.coroutines.test)
             }
-            kotlin.srcDir("build/generated/ksp")
+        }
+        androidUnitTest {
+            dependencies {
+                implementation(libs.mockito.kotlin)
+                implementation(libs.mockito.core)
+            }
         }
     }
 }
